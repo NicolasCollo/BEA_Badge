@@ -110,9 +110,9 @@
     <File name="src/platform/deca_spi.h" path="../src/platform/deca_spi.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" path="../Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" type="1"/>
+    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
-    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/usb" path="" type="2"/>
     <File name="src/decadriver/deca_version.h" path="../src/decadriver/deca_version.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" type="1"/>

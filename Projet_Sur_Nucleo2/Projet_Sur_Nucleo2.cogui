@@ -22,9 +22,9 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" title="main.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Utlisateur/Documents/GitHub/DecawaveEnhencedv5/src/application/main.c" title="main.c" tooltip="C:/Users/Utlisateur/Documents/GitHub/DecawaveEnhencedv5/src/application/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/src/application/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="22529" selectionTopPixel="10689"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="22548" selectionTopPixel="10731"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" partName="port.c" path="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/platform/port.c" title="port.c" tooltip="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/platform/port.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/src/platform/port.c"/>
@@ -139,8 +139,8 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
+<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
@@ -458,47 +458,49 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_lcd.c" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_lcd.c">
-<persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_lcd.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance.h" tooltip="C:\Users\Houbix\Desktop\DecawaveEnhencedv3\src\application\instance.h">
-<persistable path="C:\Users\Houbix\Desktop\DecawaveEnhencedv3\src\application\instance.h" project="Projet_Sur_Nucleo2"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.h" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_adc.h" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_adc.h">
-<persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_adc.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rcc.h" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_rcc.h">
-<persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_rcc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.c" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rcc.c" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c">
 <persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx.h" tooltip="Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/stm32l1xx.h">
-<persistable path="/Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/stm32l1xx.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_it.c" tooltip="DecaRanging/src/platform/stm32f10x_it.c">
+<persistable path="/DecaRanging/src/platform/stm32f10x_it.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance.c" tooltip="Projet_Sur_Nucleo2/src/application/instance.c">
-<persistable path="/Projet_Sur_Nucleo2/src/application/instance.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_exti.c" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance.h" tooltip="Projet_Sur_Nucleo2/src/application/instance.h">
-<persistable path="/Projet_Sur_Nucleo2/src/application/instance.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_pwr.h" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_pwr.h">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_pwr.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Test/main.c">
-<persistable path="/Test/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.h" tooltip="DecaRanging/src/platform/port.h">
+<persistable path="/DecaRanging/src/platform/port.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Nucleo Bea/main.c">
-<persistable path="/Nucleo Bea/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" tooltip="DecaRanging/src/platform/port.c">
+<persistable path="/DecaRanging/src/platform/port.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="deca_device_api.h" tooltip="DecaRanging/src/decadriver/deca_device_api.h">
-<persistable path="/DecaRanging/src/decadriver/deca_device_api.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance.h" tooltip="C:\Users\Houbix\Desktop\BEA\src\application\instance.h">
-<persistable path="C:\Users\Houbix\Desktop\BEA\src\application\instance.h" project="DecaRanging"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance_common.c" tooltip="DecaRanging/src/application/instance_common.c">
+<persistable path="/DecaRanging/src/application/instance_common.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\stdio.h">
-<persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\stdio.h" project="DecaRanging"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance.c" tooltip="DecaRanging/src/application/instance.c">
+<persistable path="/DecaRanging/src/application/instance.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance_calib.c" tooltip="DecaRanging/src/application/instance_calib.c">
-<persistable path="/DecaRanging/src/application/instance_calib.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.h" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.c" tooltip="DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c">
+<persistable path="/DecaRanging/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.h" tooltip="Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h">
 <persistable path="/Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h"/>
