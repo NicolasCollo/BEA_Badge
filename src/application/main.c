@@ -653,7 +653,7 @@ int main(void)
         usb_run();
 #endif
     }
-
+// olivier test 1
     // Reset of tag list in memory if BP reset held 10 s
     int k=2500;
     while(is_button_reset_on() == 1)
