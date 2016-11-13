@@ -567,7 +567,7 @@ int main(void)
             {
             	if(range_result > range_max || !istaginlist(&instance_data[0], instance_get_tagaddr())) // Out of max range or not in tag list
             	{
-                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
+                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag .....
                 	led_off(LED_PC6);
             		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
             	}
