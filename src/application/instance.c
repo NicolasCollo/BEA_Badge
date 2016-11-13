@@ -662,32 +662,37 @@ int testapprun_s(instance_data_t *inst, int message)
                     {
 						inst->canprintinfo = 1;
 
-                        //add this Tag to the list of Tags we know about
-						instaddtagtolist(inst, &(dw_event->msgu.rxblinkmsg.tagID[0]));
+						//add this Tag to the list of Tags we know about if the BP is on
+						if(GPIO_ReadInputDataBit(REGISTERING_GPIO, REGISTERING_GPIO_PIN))
+						{
+							instaddtagtolist(inst, &(dw_event->msgu.rxblinkmsg.tagID[0]));
+						}
 
-                        //initiate ranging message
-                        if(inst->tagToRangeWith < TAG_LIST_SIZE)
-                        {
-                            //initiate ranging message this is a Blink from the Tag we would like to range to
-							if(memcmp(&inst->tagList[inst->tagToRangeWith][0],  &(dw_event->msgu.rxblinkmsg.tagID[0]), BLINK_FRAME_SOURCE_ADDRESS) == 0)
-                            {
-                                inst->tagShortAdd = (dwt_getpartid() & 0xFF);
-								inst->tagShortAdd =  (inst->tagShortAdd << 8) + dw_event->msgu.rxblinkmsg.tagID[0] ;
+                        //initiate ranging message if the tag is in the list
+						if(istaginlist(inst, &(dw_event->msgu.rxblinkmsg.tagID[0])))
+						{
+							if(inst->tagToRangeWith < TAG_LIST_SIZE)
+							{
+								//initiate ranging message this is a Blink from the Tag we would like to range to
+								if(memcmp(&inst->tagList[inst->tagToRangeWith][0],  &(dw_event->msgu.rxblinkmsg.tagID[0]), BLINK_FRAME_SOURCE_ADDRESS) == 0)
+								{
+									inst->tagShortAdd = (dwt_getpartid() & 0xFF);
+									inst->tagShortAdd =  (inst->tagShortAdd << 8) + dw_event->msgu.rxblinkmsg.tagID[0] ;
 
-								//if using longer reply delay time (e.g. if interworking with a PC application)
-								inst->delayedReplyTime = (dw_event->timeStamp + inst->rnginitReplyDelay) >> 8 ;  // time we should send the blink response
+									//if using longer reply delay time (e.g. if interworking with a PC application)
+									inst->delayedReplyTime = (dw_event->timeStamp + inst->rnginitReplyDelay) >> 8 ;  // time we should send the blink response
 
-								//set destination address
-								memcpy(&inst->rng_initmsg.destAddr[0], &(dw_event->msgu.rxblinkmsg.tagID[0]), BLINK_FRAME_SOURCE_ADDRESS); //remember who to send the reply to
+									//set destination address
+									memcpy(&inst->rng_initmsg.destAddr[0], &(dw_event->msgu.rxblinkmsg.tagID[0]), BLINK_FRAME_SOURCE_ADDRESS); //remember who to send the reply to
 
-                                inst->testAppState = TA_TXE_WAIT;
-                                inst->nextState = TA_TXRANGINGINIT_WAIT_SEND ;
+									inst->testAppState = TA_TXE_WAIT;
+									inst->nextState = TA_TXRANGINGINIT_WAIT_SEND ;
 
-                                break;
-                            }
-
+									break;
+								}
                             //else stay in RX
-                        }
+							}
+						}
                     }
                     //else //not initiating ranging - continue to receive
                     {

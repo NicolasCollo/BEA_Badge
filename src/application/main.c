@@ -554,7 +554,7 @@ int main(void)
 
             if(instance_mode == TAG)
             {
-            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_data[0].eui64)) // Out of max range or not in tag list
+            	if(range_result > range_max) // Out of max range
             	{
             		// Code pour faire s'endormir le µP
             	}
@@ -565,7 +565,7 @@ int main(void)
             }
             else
             {
-            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_data[0].eui64)) // Out of max range or not in tag list
+            	if(range_result > range_max) // Out of max range
             	{
                 	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
                 	led_off(LED_PC6);
@@ -627,6 +627,7 @@ int main(void)
             {
             	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
             	led_off(LED_PC6);
+        		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
 
                 if(instanceanchorwaiting())
                 {
