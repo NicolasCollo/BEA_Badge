@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g2 -Map=Projet_Sur_Nucleo.map -O0 --gc-sections -lm -lgcc -lc -LC:/Users/Houbix/Desktop/DecawaveEnhencedv5/linkers -TC:/Users/Houbix/Desktop/DecawaveEnhencedv5/linkers/stm32_flash_256k_ram_64k.ld -g">
       <target file="Projet_Sur_Nucleo.elf" lastModified="15859dc3ab5">
          <source file="..\obj\stm32l1xx_syscfg.o" lastModified="15859dc2cf3"/>
@@ -59,6 +60,67 @@
          <source file="..\obj\misc.o" lastModified="15859dc33c8"/>
          <source file="..\obj\usbd_usr.o" lastModified="15859dc1f43"/>
          <source file="..\obj\stm32l1xx_gpio.o" lastModified="15859dc1b7a"/>
+=======
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g2 -Map=Projet_Sur_Nucleo.map -O0 --gc-sections -lm -lgcc -lc -LC:/Users/Utlisateur/Documents/GitHub/DecawaveEnhencedv5/linkers -TC:/Users/Utlisateur/Documents/GitHub/DecawaveEnhencedv5/linkers/stm32_flash_256k_ram_64k.ld -g">
+      <target file="Projet_Sur_Nucleo.elf" lastModified="1585a492ca3">
+         <source file="..\obj\stm32l1xx_syscfg.o" lastModified="1585a1a1c4a"/>
+         <source file="..\obj\stm32l1xx_dma.o" lastModified="1585a1a434b"/>
+         <source file="..\obj\stm32l1xx_exti.o" lastModified="1585a192fb3"/>
+         <source file="..\obj\stm32l1xx_flash.o" lastModified="1585a1916b2"/>
+         <source file="..\obj\usbd_desc.o" lastModified="1585a19f41a"/>
+         <source file="..\obj\deca_range_tables.o" lastModified="1585a1b3b3d"/>
+         <source file="..\obj\stm32l1xx_crc.o" lastModified="1585a19599e"/>
+         <source file="..\obj\usbd_ioreq.o" lastModified="1585a1b2e17"/>
+         <source file="..\obj\usbd_cdc_core.o" lastModified="1585a1ac5d6"/>
+         <source file="..\obj\deca_spi.o" lastModified="1585a3bbc1e"/>
+         <source file="..\obj\stm32l1xx_rtc.o" lastModified="1585a1b06a4"/>
+         <source file="..\obj\stm32l1xx_dac.o" lastModified="1585a19098b"/>
+         <source file="..\obj\stm32l1xx_lcd.o" lastModified="1585a19c04d"/>
+         <source file="..\obj\instance.o" lastModified="1585a3bd1c9"/>
+         <source file="..\obj\stm32l1xx_rcc.o" lastModified="1585a19665b"/>
+         <source file="..\obj\deca_mutex.o" lastModified="1585a3bdef9"/>
+         <source file="..\obj\stm32l1xx_sdio.o" lastModified="1585a19b399"/>
+         <source file="..\obj\stm32l1xx_tim.o" lastModified="1585a1b1426"/>
+         <source file="..\obj\stm32l1xx_aes.o" lastModified="1585a19234f"/>
+         <source file="..\obj\usb_hcd_int.o" lastModified="1585a1b5507"/>
+         <source file="..\obj\stm32l1xx_adc.o" lastModified="1585a19a6d8"/>
+         <source file="..\obj\port.o" lastModified="1585a3c2332"/>
+         <source file="..\obj\deca_device.o" lastModified="1585a3bae65"/>
+         <source file="..\obj\stm32l1xx_it.o" lastModified="1585a3c07ab"/>
+         <source file="..\obj\usbd_req.o" lastModified="1585a1a6ac7"/>
+         <source file="..\obj\stm32l1xx_flash_ramfunc.o" lastModified="1585a198c8b"/>
+         <source file="..\obj\system_stm32l1xx.o" lastModified="1585a197345"/>
+         <source file="..\obj\deca_usb.o" lastModified="1585a3becda"/>
+         <source file="..\obj\stm32l1xx_dbgmcu.o" lastModified="1585a19e77a"/>
+         <source file="..\obj\instance_common.o" lastModified="1585a3b8321"/>
+         <source file="..\obj\deca_params_init.o" lastModified="1585a1b2140"/>
+         <source file="..\obj\instance_calib.o" lastModified="1585a3b9e14"/>
+         <source file="..\obj\usb_core.o" lastModified="1585a1894be"/>
+         <source file="..\obj\startup_stm32l1xx_xl.o" lastModified="1585a1adf96"/>
+         <source file="..\obj\stm32l1xx_wwdg.o" lastModified="1585a1a3661"/>
+         <source file="..\obj\usb_hcd.o" lastModified="1585a1ad299"/>
+         <source file="..\obj\main.o" lastModified="1585a491895"/>
+         <source file="..\obj\stm32l1xx_i2c.o" lastModified="1585a1ab90a"/>
+         <source file="..\obj\stm32l1xx_comp.o" lastModified="1585a188760"/>
+         <source file="..\obj\usb_dcd_int.o" lastModified="1585a1a9f79"/>
+         <source file="..\obj\deca_usb_bsp_evk1000.o" lastModified="1585a3b907b"/>
+         <source file="..\obj\syscalls.o" lastModified="1585a3c1529"/>
+         <source file="..\obj\stm32l1xx_usart.o" lastModified="1585a1a7780"/>
+         <source file="..\obj\usb_dcd.o" lastModified="1585a1af929"/>
+         <source file="..\obj\usbd_core.o" lastModified="1585a197ffe"/>
+         <source file="..\obj\stm32l1xx_iwdg.o" lastModified="1585a1a920c"/>
+         <source file="..\obj\unistd.o" lastModified="1585a18af62"/>
+         <source file="..\obj\core_cm3.o" lastModified="1585a18d4d3"/>
+         <source file="..\obj\stm32l1xx_aes_util.o" lastModified="1585a19dab9"/>
+         <source file="..\obj\stm32l1xx_fsmc.o" lastModified="1585a1b4816"/>
+         <source file="..\obj\dma_spi.o" lastModified="1585a3bfa6f"/>
+         <source file="..\obj\stm32l1xx_pwr.o" lastModified="1585a18c87a"/>
+         <source file="..\obj\stm32l1xx_opamp.o" lastModified="1585a18bbf5"/>
+         <source file="..\obj\stm32l1xx_spi.o" lastModified="1585a1aac35"/>
+         <source file="..\obj\misc.o" lastModified="1585a1aec55"/>
+         <source file="..\obj\usbd_usr.o" lastModified="1585a18e195"/>
+         <source file="..\obj\stm32l1xx_gpio.o" lastModified="1585a187aeb"/>
+>>>>>>> origin/master
       </target>
    </processor>
 </history>

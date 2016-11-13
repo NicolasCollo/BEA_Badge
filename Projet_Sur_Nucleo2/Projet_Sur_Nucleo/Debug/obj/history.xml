@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -g2 -Wall -O0 -ffunction-sections -fdata-sections -c -fmessage-length=0 -c -DSTM32L152RET6 -DSTM32L1XX_CL -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\usb -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries\CMSIS -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\decadriver -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries\CMSIS\Include -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\application -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx\startup -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5 -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Projet_Sur_Nucleo2 -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\sys -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\platform -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\src\compiler -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\msc\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\CoreSupport -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\src -I..\..\..\..\..\..\..\Desktop\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver\inc">
       <target file="stm32l1xx_fsmc.o" lastModified="15859dc3712">
          <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.c" lastModified="14cd7f964e0"/>
@@ -171,6 +172,179 @@
       </target>
       <target file="unistd.o" lastModified="15859dc1ddf">
          <source file="..\..\..\..\src\sys\unistd.c" lastModified="14f3ff6ebd8"/>
+=======
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -g2 -Wall -O0 -ffunction-sections -fdata-sections -c -fmessage-length=0 -c -DSTM32L152RET6 -DSTM32L1XX_CL -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries\CMSIS -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\application -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Projet_Sur_Nucleo2 -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_OTG_Driver\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\compiler -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx\startup -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver\src -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\sys -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32L1xx_StdPeriph_Driver -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\msc\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Core\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5 -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\platform -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\DeviceSupport\ST -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\STM32L1xx_StdPeriph_Lib_V1.3.1\Libraries\CMSIS\Include -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\CMSIS\CM3\CoreSupport -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\usb -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\Libraries\STM32_USB_Device_Library\Class\cdc\inc -I..\..\..\..\..\..\..\Documents\GitHub\DecawaveEnhencedv5\src\decadriver">
+      <target file="stm32l1xx_fsmc.o" lastModified="1585a1b4816">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.c" lastModified="1585a12705c"/>
+      </target>
+      <target file="instance_calib.o" lastModified="1585a3b9e14">
+         <source file="..\..\..\..\src\application\instance_calib.c" lastModified="1585a127a8f"/>
+      </target>
+      <target file="syscalls.o" lastModified="1585a3c1529">
+         <source file="..\..\..\..\src\sys\syscalls.c" lastModified="1585a127ab1"/>
+      </target>
+      <target file="usbd_usr.o" lastModified="1585a18e195">
+         <source file="..\..\..\..\src\usb\usbd_usr.c" lastModified="1585a127abd"/>
+      </target>
+      <target file="stm32l1xx_comp.o" lastModified="1585a188760">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.c" lastModified="1585a127051"/>
+      </target>
+      <target file="misc.o" lastModified="1585a1aec55">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\misc.c" lastModified="1585a127048"/>
+      </target>
+      <target file="stm32l1xx_aes.o" lastModified="1585a19234f">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.c" lastModified="1585a12704f"/>
+      </target>
+      <target file="deca_params_init.o" lastModified="1585a1b2140">
+         <source file="..\..\..\..\src\decadriver\deca_params_init.c" lastModified="1585a127a9c"/>
+      </target>
+      <target file="stm32l1xx_it.o" lastModified="1585a3c07ab">
+         <source file="..\..\..\..\src\platform\stm32l1xx_it.c" lastModified="1585a127aad"/>
+      </target>
+      <target file="usbd_ioreq.o" lastModified="1585a1b2e17">
+         <source file="..\..\..\..\Libraries\STM32_USB_Device_Library\Core\src\usbd_ioreq.c" lastModified="1585a1270b9"/>
+      </target>
+      <target file="stm32l1xx_tim.o" lastModified="1585a1b1426">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.c" lastModified="1585a127074"/>
+      </target>
+      <target file="usbd_req.o" lastModified="1585a1a6ac7">
+         <source file="..\..\..\..\Libraries\STM32_USB_Device_Library\Core\src\usbd_req.c" lastModified="1585a1270bb"/>
+      </target>
+      <target file="stm32l1xx_opamp.o" lastModified="1585a18bbf5">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.c" lastModified="1585a127064"/>
+      </target>
+      <target file="usbd_cdc_core.o" lastModified="1585a1ac5d6">
+         <source file="..\..\..\..\Libraries\STM32_USB_Device_Library\Class\cdc\src\usbd_cdc_core.c" lastModified="1585a127086"/>
+      </target>
+      <target file="startup_stm32l1xx_xl.o" lastModified="1585a1adf96">
+         <source file="..\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx\startup\startup_stm32l1xx_xl.s" lastModified="1585a127011"/>
+      </target>
+      <target file="stm32l1xx_iwdg.o" lastModified="1585a1a920c">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.c" lastModified="1585a127062"/>
+      </target>
+      <target file="stm32l1xx_exti.o" lastModified="1585a192fb3">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.c" lastModified="1585a127057"/>
+      </target>
+      <target file="stm32l1xx_gpio.o" lastModified="1585a187aeb">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.c" lastModified="1585a12705f"/>
+      </target>
+      <target file="usbd_desc.o" lastModified="1585a19f41a">
+         <source file="..\..\..\..\src\usb\usbd_desc.c" lastModified="1585a127abb"/>
+      </target>
+      <target file="deca_device.o" lastModified="1585a3bae65">
+         <source file="..\..\..\..\src\decadriver\deca_device.c" lastModified="1585a127a97"/>
+      </target>
+      <target file="stm32l1xx_usart.o" lastModified="1585a1a7780">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.c" lastModified="1585a127076"/>
+      </target>
+      <target file="stm32l1xx_dbgmcu.o" lastModified="1585a19e77a">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.c" lastModified="1585a127055"/>
+      </target>
+      <target file="usbd_core.o" lastModified="1585a197ffe">
+         <source file="..\..\..\..\Libraries\STM32_USB_Device_Library\Core\src\usbd_core.c" lastModified="1585a1270b6"/>
+      </target>
+      <target file="deca_range_tables.o" lastModified="1585a1b3b3d">
+         <source file="..\..\..\..\src\decadriver\deca_range_tables.c" lastModified="1585a127a9e"/>
+      </target>
+      <target file="stm32l1xx_syscfg.o" lastModified="1585a1a1c4a">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.c" lastModified="1585a127070"/>
+      </target>
+      <target file="stm32l1xx_rtc.o" lastModified="1585a1b06a4">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.c" lastModified="1585a12706b"/>
+      </target>
+      <target file="instance_common.o" lastModified="1585a3b8321">
+         <source file="..\..\..\..\src\application\instance_common.c" lastModified="1585a127a90"/>
+      </target>
+      <target file="stm32l1xx_rcc.o" lastModified="1585a19665b">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.c" lastModified="1585a127068"/>
+      </target>
+      <target file="deca_usb.o" lastModified="1585a3becda">
+         <source file="..\..\..\..\src\usb\deca_usb.c" lastModified="1585a127ab4"/>
+      </target>
+      <target file="stm32l1xx_dac.o" lastModified="1585a19098b">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.c" lastModified="1585a127054"/>
+      </target>
+      <target file="stm32l1xx_pwr.o" lastModified="1585a18c87a">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.c" lastModified="1585a127066"/>
+      </target>
+      <target file="stm32l1xx_wwdg.o" lastModified="1585a1a3661">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.c" lastModified="1585a127078"/>
+      </target>
+      <target file="stm32l1xx_flash.o" lastModified="1585a1916b2">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.c" lastModified="1585a127059"/>
+      </target>
+      <target file="usb_hcd.o" lastModified="1585a1ad299">
+         <source file="..\..\..\..\Libraries\STM32_USB_OTG_Driver\src\usb_hcd.c" lastModified="1585a1270ce"/>
+      </target>
+      <target file="stm32l1xx_adc.o" lastModified="1585a19a6d8">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.c" lastModified="1585a12704d"/>
+      </target>
+      <target file="deca_usb_bsp_evk1000.o" lastModified="1585a3b907b">
+         <source file="..\..\..\..\src\usb\deca_usb_bsp_evk1000.c" lastModified="1585a127ab5"/>
+      </target>
+      <target file="dma_spi.o" lastModified="1585a3bfa6f">
+         <source file="..\..\..\..\src\platform\dma_spi.c" lastModified="1585a127aa8"/>
+      </target>
+      <target file="deca_mutex.o" lastModified="1585a3bdef9">
+         <source file="..\..\..\..\src\platform\deca_mutex.c" lastModified="1585a127aa3"/>
+      </target>
+      <target file="port.o" lastModified="1585a3c2332">
+         <source file="..\..\..\..\src\platform\port.c" lastModified="1585a127aaa"/>
+      </target>
+      <target file="usb_hcd_int.o" lastModified="1585a1b5507">
+         <source file="..\..\..\..\Libraries\STM32_USB_OTG_Driver\src\usb_hcd_int.c" lastModified="1585a1270cf"/>
+      </target>
+      <target file="usb_dcd.o" lastModified="1585a1af929">
+         <source file="..\..\..\..\Libraries\STM32_USB_OTG_Driver\src\usb_dcd.c" lastModified="1585a1270cc"/>
+      </target>
+      <target file="core_cm3.o" lastModified="1585a18d4d3">
+         <source file="..\..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c" lastModified="1585a12700b"/>
+      </target>
+      <target file="stm32l1xx_dma.o" lastModified="1585a1a434b">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.c" lastModified="1585a127056"/>
+      </target>
+      <target file="stm32l1xx_aes_util.o" lastModified="1585a19dab9">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.c" lastModified="1585a127050"/>
+      </target>
+      <target file="instance.o" lastModified="1585a3bd1c9">
+         <source file="..\..\..\..\src\application\instance.c" lastModified="1585a127a8b"/>
+      </target>
+      <target file="stm32l1xx_crc.o" lastModified="1585a19599e">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.c" lastModified="1585a127052"/>
+      </target>
+      <target file="stm32l1xx_flash_ramfunc.o" lastModified="1585a198c8b">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.c" lastModified="1585a12705a"/>
+      </target>
+      <target file="stm32l1xx_sdio.o" lastModified="1585a19b399">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.c" lastModified="1585a12706d"/>
+      </target>
+      <target file="stm32l1xx_i2c.o" lastModified="1585a1ab90a">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.c" lastModified="1585a127061"/>
+      </target>
+      <target file="usb_core.o" lastModified="1585a1894be">
+         <source file="..\..\..\..\Libraries\STM32_USB_OTG_Driver\src\usb_core.c" lastModified="1585a1270ca"/>
+      </target>
+      <target file="system_stm32l1xx.o" lastModified="1585a197345">
+         <source file="..\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32L1xx\system_stm32l1xx.c" lastModified="1585a127020"/>
+      </target>
+      <target file="stm32l1xx_spi.o" lastModified="1585a1aac35">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.c" lastModified="1585a12706f"/>
+      </target>
+      <target file="main.o" lastModified="1585a491895">
+         <source file="..\..\..\..\src\application\main.c" lastModified="1585a48f84a"/>
+      </target>
+      <target file="usb_dcd_int.o" lastModified="1585a1a9f79">
+         <source file="..\..\..\..\Libraries\STM32_USB_OTG_Driver\src\usb_dcd_int.c" lastModified="1585a1270cd"/>
+      </target>
+      <target file="deca_spi.o" lastModified="1585a3bbc1e">
+         <source file="..\..\..\..\src\platform\deca_spi.c" lastModified="1585a127aa5"/>
+      </target>
+      <target file="stm32l1xx_lcd.o" lastModified="1585a19c04d">
+         <source file="..\..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.c" lastModified="1585a127063"/>
+      </target>
+      <target file="unistd.o" lastModified="1585a18af62">
+         <source file="..\..\..\..\src\sys\unistd.c" lastModified="1585a127ab2"/>
+>>>>>>> origin/master
       </target>
    </processor>
 </history>
