@@ -573,7 +573,7 @@ int main(void)
             	}
             	else
             	{
-                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag
+                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag....
                 	led_off(LED_PC7);
             		GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET); // Door opened in this case
             		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
