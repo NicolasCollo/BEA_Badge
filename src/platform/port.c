@@ -572,7 +572,13 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
-//	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE);
+//	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
+
+	// Enable GPIO used to command the relay, commanding the door
+	GPIO_InitStructure.GPIO_Pin = DOOR_GPIO_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(DOOR_GPIO, &GPIO_InitStructure);
 
     return 0;
 }

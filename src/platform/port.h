@@ -123,6 +123,9 @@ typedef enum
 #define TA_SW1_8					GPIO_Pin_5
 #define TA_SW1_GPIO                 GPIOC
 
+#define DOOR_GPIO					GPIOB
+#define DOOR_GPIO_PIN				GPIO_Pin_8
+
 #define S1_SWITCH_ON  (1)
 #define S1_SWITCH_OFF (0)
 //when switch (S1) is 'on' the pin is low

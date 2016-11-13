@@ -55,6 +55,7 @@ uint8 dataseq[LCD_BUFF_LEN];
 uint8 dataseq1[LCD_BUFF_LEN];
 
 int ranging = 0;
+int range_max = 0;
 
 typedef struct
 {
@@ -553,14 +554,30 @@ int main(void)
 
             if(instance_mode == TAG)
             {
-                //n = sprintf((char*)&dataseq[0], "ia%04x t%04x %04x %04x %04x %04x %04x %02x %02x t", aaddr, taddr, rng, rng_raw, l, txa, rxa, txl, rxl);
-            	n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x t", aaddr, taddr, rng, rng_raw, l, txa, rxa);
+            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_get_tagaddr())) // Out of max range or not in tag list
+            	{
+            		// Code pour faire s'endormir le µP
+            	}
+            	else // All the conditions matches, data can be sent
+            	{
+            		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x t", aaddr, taddr, rng, rng_raw, l, txa, rxa);
+            	}
             }
             else
             {
-                //n = sprintf((char*)&dataseq[0], "ia%04x t%04x %04x %04x %04x %04x %04x %02x %02x a", aaddr, taddr, rng, rng_raw, l, txa, rxa, txl, rxl);
-            	//n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x %2.2f a", aaddr, taddr, rng, rng_raw, l, txa, rxa, instance_data[0].clockOffset);
-            	n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
+            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_get_tagaddr())) // Out of max range or not in tag list
+            	{
+                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
+                	led_off(LED_PC6);
+            		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
+            	}
+            	else
+            	{
+                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag
+                	led_off(LED_PC7);
+            		GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET); // Door opened in this case
+            		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
+            	}
             }
 #ifdef USB_SUPPORT //this is set in the port.h file
             send_usbmessage(&dataseq[0], n);
