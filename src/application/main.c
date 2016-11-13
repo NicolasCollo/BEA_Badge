@@ -670,12 +670,7 @@ int main(void)
         usb_run();
 #endif
     }
-<<<<<<< HEAD
-// olivier houchbinks
-=======
-// olivier test 1
-// nicolas test 1
->>>>>>> origin/master
+
     // Reset of tag list in memory if BP reset held 10 s
     int k=2500;
     while(is_button_reset_on() == 1)
