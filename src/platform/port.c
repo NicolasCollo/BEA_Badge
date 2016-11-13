@@ -580,6 +580,11 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_Init(DOOR_GPIO, &GPIO_InitStructure);
 
+	// Enable GPIO used to register new tags
+	GPIO_InitStructure.GPIO_Pin = REGISTERING_GPIO_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(REGISTERING_GPIO, &GPIO_InitStructure);
+
     return 0;
 }
 

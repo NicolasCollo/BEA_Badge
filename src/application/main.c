@@ -554,7 +554,7 @@ int main(void)
 
             if(instance_mode == TAG)
             {
-            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_get_tagaddr())) // Out of max range or not in tag list
+            	if(range_result > range_max) // Out of max range
             	{
             		// Code pour faire s'endormir le µP
             	}
@@ -565,15 +565,15 @@ int main(void)
             }
             else
             {
-            	if(range_result > range_max || !istaginlist(&instance_data[0], instance_get_tagaddr())) // Out of max range or not in tag list
+            	if(range_result > range_max) // Out of max range
             	{
-                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag .....
+                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
                 	led_off(LED_PC6);
             		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
             	}
             	else
             	{
-                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag....
+                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag
                 	led_off(LED_PC7);
             		GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET); // Door opened in this case
             		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
@@ -627,6 +627,7 @@ int main(void)
             {
             	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
             	led_off(LED_PC6);
+        		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
 
                 if(instanceanchorwaiting())
                 {

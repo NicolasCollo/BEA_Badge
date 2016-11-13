@@ -125,6 +125,8 @@ typedef enum
 
 #define DOOR_GPIO					GPIOB
 #define DOOR_GPIO_PIN				GPIO_Pin_8
+#define REGISTERING_GPIO			GPIOB
+#define REGISTERING_GPIO_PIN		GPIO_Pin_9
 
 #define S1_SWITCH_ON  (1)
 #define S1_SWITCH_OFF (0)
