@@ -259,12 +259,27 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x70 ..\obj\stm32l1xx_dma.o
  .debug_ranges  0x00000000       0x60 ..\obj\stm32l1xx_dma.o
- .debug_line    0x00000000      0x3e7 ..\obj\stm32l1xx_dma.o
- .debug_str     0x00000000      0x407 ..\obj\stm32l1xx_dma.o
+ .debug_line    0x00000000      0x3e3 ..\obj\stm32l1xx_dma.o
+ .debug_str     0x00000000      0x406 ..\obj\stm32l1xx_dma.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_dma.o
  .debug_frame   0x00000000      0x1c8 ..\obj\stm32l1xx_dma.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\stm32l1xx_dma.o
+ .text          0x00000000        0x0 ..\obj\stm32l1xx_exti.o
+ .data          0x00000000        0x0 ..\obj\stm32l1xx_exti.o
+ .bss           0x00000000        0x0 ..\obj\stm32l1xx_exti.o
+ .text.EXTI_DeInit
+                0x00000000       0x30 ..\obj\stm32l1xx_exti.o
+ .text.EXTI_StructInit
+                0x00000000       0x2c ..\obj\stm32l1xx_exti.o
+ .text.EXTI_GenerateSWInterrupt
+                0x00000000       0x24 ..\obj\stm32l1xx_exti.o
+ .text.EXTI_GetFlagStatus
+                0x00000000       0x34 ..\obj\stm32l1xx_exti.o
+ .text.EXTI_ClearFlag
+                0x00000000       0x1c ..\obj\stm32l1xx_exti.o
+ .text.EXTI_GetITStatus
+                0x00000000       0x34 ..\obj\stm32l1xx_exti.o
  .text          0x00000000        0x0 ..\obj\stm32l1xx_flash.o
  .data          0x00000000        0x0 ..\obj\stm32l1xx_flash.o
  .bss           0x00000000        0x0 ..\obj\stm32l1xx_flash.o
@@ -358,21 +373,6 @@ Discarded input sections
                 0x00000000       0x54 ..\obj\stm32l1xx_flash.o
  .text.FLASH_WaitForLastOperation
                 0x00000000       0x48 ..\obj\stm32l1xx_flash.o
- .text          0x00000000        0x0 ..\obj\stm32l1xx_exti.o
- .data          0x00000000        0x0 ..\obj\stm32l1xx_exti.o
- .bss           0x00000000        0x0 ..\obj\stm32l1xx_exti.o
- .text.EXTI_DeInit
-                0x00000000       0x30 ..\obj\stm32l1xx_exti.o
- .text.EXTI_StructInit
-                0x00000000       0x2c ..\obj\stm32l1xx_exti.o
- .text.EXTI_GenerateSWInterrupt
-                0x00000000       0x24 ..\obj\stm32l1xx_exti.o
- .text.EXTI_GetFlagStatus
-                0x00000000       0x34 ..\obj\stm32l1xx_exti.o
- .text.EXTI_ClearFlag
-                0x00000000       0x1c ..\obj\stm32l1xx_exti.o
- .text.EXTI_GetITStatus
-                0x00000000       0x34 ..\obj\stm32l1xx_exti.o
  .text          0x00000000        0x0 ..\obj\usbd_desc.o
  .data          0x00000000        0x0 ..\obj\usbd_desc.o
  .bss           0x00000000        0x0 ..\obj\usbd_desc.o
@@ -401,8 +401,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x48 ..\obj\stm32l1xx_crc.o
  .debug_ranges  0x00000000       0x38 ..\obj\stm32l1xx_crc.o
- .debug_line    0x00000000      0x2aa ..\obj\stm32l1xx_crc.o
- .debug_str     0x00000000      0x28b ..\obj\stm32l1xx_crc.o
+ .debug_line    0x00000000      0x2a7 ..\obj\stm32l1xx_crc.o
+ .debug_str     0x00000000      0x28a ..\obj\stm32l1xx_crc.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_crc.o
  .debug_frame   0x00000000       0xe8 ..\obj\stm32l1xx_crc.o
  .ARM.attributes
@@ -429,53 +429,6 @@ Discarded input sections
  .text.openspi  0x00000000       0x10 ..\obj\deca_spi.o
  .text.closespi
                 0x00000000       0x28 ..\obj\deca_spi.o
- .text          0x00000000        0x0 ..\obj\stm32l1xx_dac.o
- .data          0x00000000        0x0 ..\obj\stm32l1xx_dac.o
- .bss           0x00000000        0x0 ..\obj\stm32l1xx_dac.o
- .text.DAC_DeInit
-                0x00000000       0x1c ..\obj\stm32l1xx_dac.o
- .text.DAC_Init
-                0x00000000       0x64 ..\obj\stm32l1xx_dac.o
- .text.DAC_StructInit
-                0x00000000       0x2c ..\obj\stm32l1xx_dac.o
- .text.DAC_Cmd  0x00000000       0x48 ..\obj\stm32l1xx_dac.o
- .text.DAC_SoftwareTriggerCmd
-                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
- .text.DAC_DualSoftwareTriggerCmd
-                0x00000000       0x38 ..\obj\stm32l1xx_dac.o
- .text.DAC_WaveGenerationCmd
-                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
- .text.DAC_SetChannel1Data
-                0x00000000       0x34 ..\obj\stm32l1xx_dac.o
- .text.DAC_SetChannel2Data
-                0x00000000       0x34 ..\obj\stm32l1xx_dac.o
- .text.DAC_SetDualChannelData
-                0x00000000       0x58 ..\obj\stm32l1xx_dac.o
- .text.DAC_GetDataOutputValue
-                0x00000000       0x30 ..\obj\stm32l1xx_dac.o
- .text.DAC_DMACmd
-                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
- .text.DAC_ITConfig
-                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
- .text.DAC_GetFlagStatus
-                0x00000000       0x3c ..\obj\stm32l1xx_dac.o
- .text.DAC_ClearFlag
-                0x00000000       0x24 ..\obj\stm32l1xx_dac.o
- .text.DAC_GetITStatus
-                0x00000000       0x54 ..\obj\stm32l1xx_dac.o
- .text.DAC_ClearITPendingBit
-                0x00000000       0x24 ..\obj\stm32l1xx_dac.o
- .debug_info    0x00000000      0x642 ..\obj\stm32l1xx_dac.o
- .debug_abbrev  0x00000000      0x17e ..\obj\stm32l1xx_dac.o
- .debug_aranges
-                0x00000000       0xa0 ..\obj\stm32l1xx_dac.o
- .debug_ranges  0x00000000       0x90 ..\obj\stm32l1xx_dac.o
- .debug_line    0x00000000      0x406 ..\obj\stm32l1xx_dac.o
- .debug_str     0x00000000      0x493 ..\obj\stm32l1xx_dac.o
- .comment       0x00000000       0x6f ..\obj\stm32l1xx_dac.o
- .debug_frame   0x00000000      0x2ac ..\obj\stm32l1xx_dac.o
- .ARM.attributes
-                0x00000000       0x33 ..\obj\stm32l1xx_dac.o
  .text          0x00000000        0x0 ..\obj\stm32l1xx_rtc.o
  .data          0x00000000        0x0 ..\obj\stm32l1xx_rtc.o
  .bss           0x00000000        0x0 ..\obj\stm32l1xx_rtc.o
@@ -594,12 +547,59 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x1d0 ..\obj\stm32l1xx_rtc.o
  .debug_ranges  0x00000000      0x1c0 ..\obj\stm32l1xx_rtc.o
- .debug_line    0x00000000      0x8b3 ..\obj\stm32l1xx_rtc.o
- .debug_str     0x00000000      0xb8c ..\obj\stm32l1xx_rtc.o
+ .debug_line    0x00000000      0x8af ..\obj\stm32l1xx_rtc.o
+ .debug_str     0x00000000      0xb8b ..\obj\stm32l1xx_rtc.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_rtc.o
  .debug_frame   0x00000000      0x860 ..\obj\stm32l1xx_rtc.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\stm32l1xx_rtc.o
+ .text          0x00000000        0x0 ..\obj\stm32l1xx_dac.o
+ .data          0x00000000        0x0 ..\obj\stm32l1xx_dac.o
+ .bss           0x00000000        0x0 ..\obj\stm32l1xx_dac.o
+ .text.DAC_DeInit
+                0x00000000       0x1c ..\obj\stm32l1xx_dac.o
+ .text.DAC_Init
+                0x00000000       0x64 ..\obj\stm32l1xx_dac.o
+ .text.DAC_StructInit
+                0x00000000       0x2c ..\obj\stm32l1xx_dac.o
+ .text.DAC_Cmd  0x00000000       0x48 ..\obj\stm32l1xx_dac.o
+ .text.DAC_SoftwareTriggerCmd
+                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
+ .text.DAC_DualSoftwareTriggerCmd
+                0x00000000       0x38 ..\obj\stm32l1xx_dac.o
+ .text.DAC_WaveGenerationCmd
+                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
+ .text.DAC_SetChannel1Data
+                0x00000000       0x34 ..\obj\stm32l1xx_dac.o
+ .text.DAC_SetChannel2Data
+                0x00000000       0x34 ..\obj\stm32l1xx_dac.o
+ .text.DAC_SetDualChannelData
+                0x00000000       0x58 ..\obj\stm32l1xx_dac.o
+ .text.DAC_GetDataOutputValue
+                0x00000000       0x30 ..\obj\stm32l1xx_dac.o
+ .text.DAC_DMACmd
+                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
+ .text.DAC_ITConfig
+                0x00000000       0x4c ..\obj\stm32l1xx_dac.o
+ .text.DAC_GetFlagStatus
+                0x00000000       0x3c ..\obj\stm32l1xx_dac.o
+ .text.DAC_ClearFlag
+                0x00000000       0x24 ..\obj\stm32l1xx_dac.o
+ .text.DAC_GetITStatus
+                0x00000000       0x54 ..\obj\stm32l1xx_dac.o
+ .text.DAC_ClearITPendingBit
+                0x00000000       0x24 ..\obj\stm32l1xx_dac.o
+ .debug_info    0x00000000      0x642 ..\obj\stm32l1xx_dac.o
+ .debug_abbrev  0x00000000      0x17e ..\obj\stm32l1xx_dac.o
+ .debug_aranges
+                0x00000000       0xa0 ..\obj\stm32l1xx_dac.o
+ .debug_ranges  0x00000000       0x90 ..\obj\stm32l1xx_dac.o
+ .debug_line    0x00000000      0x402 ..\obj\stm32l1xx_dac.o
+ .debug_str     0x00000000      0x492 ..\obj\stm32l1xx_dac.o
+ .comment       0x00000000       0x6f ..\obj\stm32l1xx_dac.o
+ .debug_frame   0x00000000      0x2ac ..\obj\stm32l1xx_dac.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\stm32l1xx_dac.o
  .text          0x00000000        0x0 ..\obj\stm32l1xx_lcd.o
  .data          0x00000000        0x0 ..\obj\stm32l1xx_lcd.o
  .bss           0x00000000        0x0 ..\obj\stm32l1xx_lcd.o
@@ -643,8 +643,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0xa8 ..\obj\stm32l1xx_lcd.o
  .debug_ranges  0x00000000       0x98 ..\obj\stm32l1xx_lcd.o
- .debug_line    0x00000000      0x412 ..\obj\stm32l1xx_lcd.o
- .debug_str     0x00000000      0x453 ..\obj\stm32l1xx_lcd.o
+ .debug_line    0x00000000      0x40e ..\obj\stm32l1xx_lcd.o
+ .debug_str     0x00000000      0x452 ..\obj\stm32l1xx_lcd.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_lcd.o
  .debug_frame   0x00000000      0x2c8 ..\obj\stm32l1xx_lcd.o
  .ARM.attributes
@@ -766,8 +766,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x108 ..\obj\stm32l1xx_sdio.o
  .debug_ranges  0x00000000       0xf8 ..\obj\stm32l1xx_sdio.o
- .debug_line    0x00000000      0x4ed ..\obj\stm32l1xx_sdio.o
- .debug_str     0x00000000      0x680 ..\obj\stm32l1xx_sdio.o
+ .debug_line    0x00000000      0x4e9 ..\obj\stm32l1xx_sdio.o
+ .debug_str     0x00000000      0x67f ..\obj\stm32l1xx_sdio.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_sdio.o
  .debug_frame   0x00000000      0x48c ..\obj\stm32l1xx_sdio.o
  .ARM.attributes
@@ -947,8 +947,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x2b8 ..\obj\stm32l1xx_tim.o
  .debug_ranges  0x00000000      0x2a8 ..\obj\stm32l1xx_tim.o
- .debug_line    0x00000000      0xa39 ..\obj\stm32l1xx_tim.o
- .debug_str     0x00000000      0xc85 ..\obj\stm32l1xx_tim.o
+ .debug_line    0x00000000      0xa35 ..\obj\stm32l1xx_tim.o
+ .debug_str     0x00000000      0xc84 ..\obj\stm32l1xx_tim.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_tim.o
  .debug_frame   0x00000000      0xd14 ..\obj\stm32l1xx_tim.o
  .ARM.attributes
@@ -996,12 +996,48 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0xa8 ..\obj\stm32l1xx_aes.o
  .debug_ranges  0x00000000       0x98 ..\obj\stm32l1xx_aes.o
- .debug_line    0x00000000      0x414 ..\obj\stm32l1xx_aes.o
- .debug_str     0x00000000      0x489 ..\obj\stm32l1xx_aes.o
+ .debug_line    0x00000000      0x410 ..\obj\stm32l1xx_aes.o
+ .debug_str     0x00000000      0x488 ..\obj\stm32l1xx_aes.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_aes.o
  .debug_frame   0x00000000      0x2cc ..\obj\stm32l1xx_aes.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\stm32l1xx_aes.o
+ .text          0x00000000        0x0 ..\obj\usb_hcd_int.o
+ .data          0x00000000        0x0 ..\obj\usb_hcd_int.o
+ .bss           0x00000000        0x0 ..\obj\usb_hcd_int.o
+ .text.USBH_OTG_ISR_Handler
+                0x00000000      0x10c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_hc_ISR
+                0x00000000       0x8c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_sof_ISR
+                0x00000000       0x34 ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_Disconnect_ISR
+                0x00000000       0x34 ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_nptxfempty_ISR
+                0x00000000       0x1c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_ptxfempty_ISR
+                0x00000000       0x1c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_port_ISR
+                0x00000000      0x164 ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_hc_n_Out_ISR
+                0x00000000       0x3c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_hc_n_In_ISR
+                0x00000000       0x3c ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_rx_qlvl_ISR
+                0x00000000       0x80 ..\obj\usb_hcd_int.o
+ .text.USB_OTG_USBH_handle_IncompletePeriodicXfer_ISR
+                0x00000000       0x4c ..\obj\usb_hcd_int.o
+ .debug_info    0x00000000     0x15bb ..\obj\usb_hcd_int.o
+ .debug_abbrev  0x00000000      0x25c ..\obj\usb_hcd_int.o
+ .debug_aranges
+                0x00000000       0x70 ..\obj\usb_hcd_int.o
+ .debug_ranges  0x00000000       0x60 ..\obj\usb_hcd_int.o
+ .debug_line    0x00000000      0x3a3 ..\obj\usb_hcd_int.o
+ .debug_str     0x00000000      0xf03 ..\obj\usb_hcd_int.o
+ .comment       0x00000000       0x6f ..\obj\usb_hcd_int.o
+ .debug_frame   0x00000000      0x1b4 ..\obj\usb_hcd_int.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\usb_hcd_int.o
  .text          0x00000000        0x0 ..\obj\stm32l1xx_adc.o
  .data          0x00000000        0x0 ..\obj\stm32l1xx_adc.o
  .bss           0x00000000        0x0 ..\obj\stm32l1xx_adc.o
@@ -1078,42 +1114,6 @@ Discarded input sections
                 0x00000000       0x5c ..\obj\stm32l1xx_adc.o
  .text.ADC_ClearITPendingBit
                 0x00000000       0x2c ..\obj\stm32l1xx_adc.o
- .text          0x00000000        0x0 ..\obj\usb_hcd_int.o
- .data          0x00000000        0x0 ..\obj\usb_hcd_int.o
- .bss           0x00000000        0x0 ..\obj\usb_hcd_int.o
- .text.USBH_OTG_ISR_Handler
-                0x00000000      0x10c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_hc_ISR
-                0x00000000       0x8c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_sof_ISR
-                0x00000000       0x34 ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_Disconnect_ISR
-                0x00000000       0x34 ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_nptxfempty_ISR
-                0x00000000       0x1c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_ptxfempty_ISR
-                0x00000000       0x1c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_port_ISR
-                0x00000000      0x164 ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_hc_n_Out_ISR
-                0x00000000       0x3c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_hc_n_In_ISR
-                0x00000000       0x3c ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_rx_qlvl_ISR
-                0x00000000       0x80 ..\obj\usb_hcd_int.o
- .text.USB_OTG_USBH_handle_IncompletePeriodicXfer_ISR
-                0x00000000       0x4c ..\obj\usb_hcd_int.o
- .debug_info    0x00000000     0x15bb ..\obj\usb_hcd_int.o
- .debug_abbrev  0x00000000      0x25c ..\obj\usb_hcd_int.o
- .debug_aranges
-                0x00000000       0x70 ..\obj\usb_hcd_int.o
- .debug_ranges  0x00000000       0x60 ..\obj\usb_hcd_int.o
- .debug_line    0x00000000      0x3a6 ..\obj\usb_hcd_int.o
- .debug_str     0x00000000      0xf04 ..\obj\usb_hcd_int.o
- .comment       0x00000000       0x6f ..\obj\usb_hcd_int.o
- .debug_frame   0x00000000      0x1b4 ..\obj\usb_hcd_int.o
- .ARM.attributes
-                0x00000000       0x33 ..\obj\usb_hcd_int.o
  .text          0x00000000        0x0 ..\obj\port.o
  .data          0x00000000        0x0 ..\obj\port.o
  .bss           0x00000000        0x0 ..\obj\port.o
@@ -1261,8 +1261,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x58 ..\obj\stm32l1xx_flash_ramfunc.o
  .debug_ranges  0x00000000       0x48 ..\obj\stm32l1xx_flash_ramfunc.o
- .debug_line    0x00000000      0x33e ..\obj\stm32l1xx_flash_ramfunc.o
- .debug_str     0x00000000      0x407 ..\obj\stm32l1xx_flash_ramfunc.o
+ .debug_line    0x00000000      0x33a ..\obj\stm32l1xx_flash_ramfunc.o
+ .debug_str     0x00000000      0x406 ..\obj\stm32l1xx_flash_ramfunc.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_flash_ramfunc.o
  .debug_frame   0x00000000      0x140 ..\obj\stm32l1xx_flash_ramfunc.o
  .ARM.attributes
@@ -1297,8 +1297,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x40 ..\obj\stm32l1xx_dbgmcu.o
  .debug_ranges  0x00000000       0x30 ..\obj\stm32l1xx_dbgmcu.o
- .debug_line    0x00000000      0x290 ..\obj\stm32l1xx_dbgmcu.o
- .debug_str     0x00000000      0x280 ..\obj\stm32l1xx_dbgmcu.o
+ .debug_line    0x00000000      0x28d ..\obj\stm32l1xx_dbgmcu.o
+ .debug_str     0x00000000      0x27f ..\obj\stm32l1xx_dbgmcu.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_dbgmcu.o
  .debug_frame   0x00000000       0xc8 ..\obj\stm32l1xx_dbgmcu.o
  .ARM.attributes
@@ -1413,8 +1413,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x58 ..\obj\stm32l1xx_wwdg.o
  .debug_ranges  0x00000000       0x48 ..\obj\stm32l1xx_wwdg.o
- .debug_line    0x00000000      0x2c7 ..\obj\stm32l1xx_wwdg.o
- .debug_str     0x00000000      0x2b7 ..\obj\stm32l1xx_wwdg.o
+ .debug_line    0x00000000      0x2c4 ..\obj\stm32l1xx_wwdg.o
+ .debug_str     0x00000000      0x2b6 ..\obj\stm32l1xx_wwdg.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_wwdg.o
  .debug_frame   0x00000000      0x134 ..\obj\stm32l1xx_wwdg.o
  .ARM.attributes
@@ -1447,8 +1447,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x68 ..\obj\usb_hcd.o
  .debug_ranges  0x00000000       0x58 ..\obj\usb_hcd.o
- .debug_line    0x00000000      0x2ef ..\obj\usb_hcd.o
- .debug_str     0x00000000      0xb96 ..\obj\usb_hcd.o
+ .debug_line    0x00000000      0x2ec ..\obj\usb_hcd.o
+ .debug_str     0x00000000      0xb95 ..\obj\usb_hcd.o
  .comment       0x00000000       0x6f ..\obj\usb_hcd.o
  .debug_frame   0x00000000      0x194 ..\obj\usb_hcd.o
  .ARM.attributes
@@ -1537,8 +1537,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x120 ..\obj\stm32l1xx_i2c.o
  .debug_ranges  0x00000000      0x110 ..\obj\stm32l1xx_i2c.o
- .debug_line    0x00000000      0x594 ..\obj\stm32l1xx_i2c.o
- .debug_str     0x00000000      0x6a5 ..\obj\stm32l1xx_i2c.o
+ .debug_line    0x00000000      0x590 ..\obj\stm32l1xx_i2c.o
+ .debug_str     0x00000000      0x6a4 ..\obj\stm32l1xx_i2c.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_i2c.o
  .debug_frame   0x00000000      0x530 ..\obj\stm32l1xx_i2c.o
  .ARM.attributes
@@ -1565,8 +1565,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x50 ..\obj\stm32l1xx_comp.o
  .debug_ranges  0x00000000       0x40 ..\obj\stm32l1xx_comp.o
- .debug_line    0x00000000      0x32d ..\obj\stm32l1xx_comp.o
- .debug_str     0x00000000      0x2f0 ..\obj\stm32l1xx_comp.o
+ .debug_line    0x00000000      0x329 ..\obj\stm32l1xx_comp.o
+ .debug_str     0x00000000      0x2ef ..\obj\stm32l1xx_comp.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_comp.o
  .debug_frame   0x00000000      0x120 ..\obj\stm32l1xx_comp.o
  .ARM.attributes
@@ -1609,8 +1609,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x90 ..\obj\usb_dcd_int.o
  .debug_ranges  0x00000000       0x80 ..\obj\usb_dcd_int.o
- .debug_line    0x00000000      0x48a ..\obj\usb_dcd_int.o
- .debug_str     0x00000000     0x1410 ..\obj\usb_dcd_int.o
+ .debug_line    0x00000000      0x487 ..\obj\usb_dcd_int.o
+ .debug_str     0x00000000     0x140f ..\obj\usb_dcd_int.o
  .comment       0x00000000       0x6f ..\obj\usb_dcd_int.o
  .debug_frame   0x00000000      0x230 ..\obj\usb_dcd_int.o
  .ARM.attributes
@@ -1708,8 +1708,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x100 ..\obj\stm32l1xx_usart.o
  .debug_ranges  0x00000000       0xf0 ..\obj\stm32l1xx_usart.o
- .debug_line    0x00000000      0x55f ..\obj\stm32l1xx_usart.o
- .debug_str     0x00000000      0x6cf ..\obj\stm32l1xx_usart.o
+ .debug_line    0x00000000      0x55b ..\obj\stm32l1xx_usart.o
+ .debug_str     0x00000000      0x6ce ..\obj\stm32l1xx_usart.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_usart.o
  .debug_frame   0x00000000      0x490 ..\obj\stm32l1xx_usart.o
  .ARM.attributes
@@ -1785,8 +1785,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x48 ..\obj\stm32l1xx_iwdg.o
  .debug_ranges  0x00000000       0x38 ..\obj\stm32l1xx_iwdg.o
- .debug_line    0x00000000      0x29c ..\obj\stm32l1xx_iwdg.o
- .debug_str     0x00000000      0x2ac ..\obj\stm32l1xx_iwdg.o
+ .debug_line    0x00000000      0x299 ..\obj\stm32l1xx_iwdg.o
+ .debug_str     0x00000000      0x2ab ..\obj\stm32l1xx_iwdg.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_iwdg.o
  .debug_frame   0x00000000       0xf0 ..\obj\stm32l1xx_iwdg.o
  .ARM.attributes
@@ -1843,8 +1843,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0xc8 ..\obj\core_cm3.o
  .debug_ranges  0x00000000       0xb8 ..\obj\core_cm3.o
- .debug_line    0x00000000      0x2ec ..\obj\core_cm3.o
- .debug_str     0x00000000      0x312 ..\obj\core_cm3.o
+ .debug_line    0x00000000      0x2eb ..\obj\core_cm3.o
+ .debug_str     0x00000000      0x311 ..\obj\core_cm3.o
  .comment       0x00000000       0x6f ..\obj\core_cm3.o
  .debug_frame   0x00000000      0x320 ..\obj\core_cm3.o
  .ARM.attributes
@@ -1869,8 +1869,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x48 ..\obj\stm32l1xx_aes_util.o
  .debug_ranges  0x00000000       0x38 ..\obj\stm32l1xx_aes_util.o
- .debug_line    0x00000000      0x702 ..\obj\stm32l1xx_aes_util.o
- .debug_str     0x00000000      0x3b0 ..\obj\stm32l1xx_aes_util.o
+ .debug_line    0x00000000      0x6fe ..\obj\stm32l1xx_aes_util.o
+ .debug_str     0x00000000      0x3af ..\obj\stm32l1xx_aes_util.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_aes_util.o
  .debug_frame   0x00000000      0x100 ..\obj\stm32l1xx_aes_util.o
  .ARM.attributes
@@ -1891,8 +1891,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x38 ..\obj\stm32l1xx_fsmc.o
  .debug_ranges  0x00000000       0x28 ..\obj\stm32l1xx_fsmc.o
- .debug_line    0x00000000      0x343 ..\obj\stm32l1xx_fsmc.o
- .debug_str     0x00000000      0x464 ..\obj\stm32l1xx_fsmc.o
+ .debug_line    0x00000000      0x33f ..\obj\stm32l1xx_fsmc.o
+ .debug_str     0x00000000      0x463 ..\obj\stm32l1xx_fsmc.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_fsmc.o
  .debug_frame   0x00000000       0xb0 ..\obj\stm32l1xx_fsmc.o
  .ARM.attributes
@@ -1912,8 +1912,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x30 ..\obj\dma_spi.o
  .debug_ranges  0x00000000       0x20 ..\obj\dma_spi.o
- .debug_line    0x00000000      0x305 ..\obj\dma_spi.o
- .debug_str     0x00000000      0x3b9 ..\obj\dma_spi.o
+ .debug_line    0x00000000      0x301 ..\obj\dma_spi.o
+ .debug_str     0x00000000      0x3b7 ..\obj\dma_spi.o
  .comment       0x00000000       0x6f ..\obj\dma_spi.o
  .debug_frame   0x00000000       0x6c ..\obj\dma_spi.o
  .ARM.attributes
@@ -1954,8 +1954,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x88 ..\obj\stm32l1xx_pwr.o
  .debug_ranges  0x00000000       0x78 ..\obj\stm32l1xx_pwr.o
- .debug_line    0x00000000      0x38e ..\obj\stm32l1xx_pwr.o
- .debug_str     0x00000000      0x411 ..\obj\stm32l1xx_pwr.o
+ .debug_line    0x00000000      0x38b ..\obj\stm32l1xx_pwr.o
+ .debug_str     0x00000000      0x410 ..\obj\stm32l1xx_pwr.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_pwr.o
  .debug_frame   0x00000000      0x22c ..\obj\stm32l1xx_pwr.o
  .ARM.attributes
@@ -1986,8 +1986,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x60 ..\obj\stm32l1xx_opamp.o
  .debug_ranges  0x00000000       0x50 ..\obj\stm32l1xx_opamp.o
- .debug_line    0x00000000      0x31c ..\obj\stm32l1xx_opamp.o
- .debug_str     0x00000000      0x33e ..\obj\stm32l1xx_opamp.o
+ .debug_line    0x00000000      0x319 ..\obj\stm32l1xx_opamp.o
+ .debug_str     0x00000000      0x33d ..\obj\stm32l1xx_opamp.o
  .comment       0x00000000       0x6f ..\obj\stm32l1xx_opamp.o
  .debug_frame   0x00000000      0x170 ..\obj\stm32l1xx_opamp.o
  .ARM.attributes
@@ -2462,18 +2462,18 @@ LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm
  .text.SYSCFG_EXTILineConfig
                 0x080013c4       0x84 ..\obj\stm32l1xx_syscfg.o
                 0x080013c4                SYSCFG_EXTILineConfig
- .text.FLASH_SetLatency
-                0x08001448       0x38 ..\obj\stm32l1xx_flash.o
-                0x08001448                FLASH_SetLatency
- .text.FLASH_PrefetchBufferCmd
-                0x08001480       0x38 ..\obj\stm32l1xx_flash.o
-                0x08001480                FLASH_PrefetchBufferCmd
  .text.EXTI_Init
-                0x080014b8       0xe4 ..\obj\stm32l1xx_exti.o
-                0x080014b8                EXTI_Init
+                0x08001448       0xe4 ..\obj\stm32l1xx_exti.o
+                0x08001448                EXTI_Init
  .text.EXTI_ClearITPendingBit
-                0x0800159c       0x1c ..\obj\stm32l1xx_exti.o
-                0x0800159c                EXTI_ClearITPendingBit
+                0x0800152c       0x1c ..\obj\stm32l1xx_exti.o
+                0x0800152c                EXTI_ClearITPendingBit
+ .text.FLASH_SetLatency
+                0x08001548       0x38 ..\obj\stm32l1xx_flash.o
+                0x08001548                FLASH_SetLatency
+ .text.FLASH_PrefetchBufferCmd
+                0x08001580       0x38 ..\obj\stm32l1xx_flash.o
+                0x08001580                FLASH_PrefetchBufferCmd
  .text.USBD_USR_DeviceDescriptor
                 0x080015b8       0x24 ..\obj\usbd_desc.o
                 0x080015b8                USBD_USR_DeviceDescriptor
@@ -3746,9 +3746,9 @@ LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm
  .ARM.attributes
                 0x0000004a       0x33 ..\obj\stm32l1xx_syscfg.o
  .ARM.attributes
-                0x0000007d       0x33 ..\obj\stm32l1xx_flash.o
+                0x0000007d       0x33 ..\obj\stm32l1xx_exti.o
  .ARM.attributes
-                0x000000b0       0x33 ..\obj\stm32l1xx_exti.o
+                0x000000b0       0x33 ..\obj\stm32l1xx_flash.o
  .ARM.attributes
                 0x000000e3       0x33 ..\obj\usbd_desc.o
  .ARM.attributes
@@ -3885,16 +3885,16 @@ LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm
                 0x00000c6d       0x1d c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
 LOAD ..\obj\stm32l1xx_syscfg.o
 LOAD ..\obj\stm32l1xx_dma.o
-LOAD ..\obj\stm32l1xx_flash.o
 LOAD ..\obj\stm32l1xx_exti.o
+LOAD ..\obj\stm32l1xx_flash.o
 LOAD ..\obj\usbd_desc.o
 LOAD ..\obj\deca_range_tables.o
 LOAD ..\obj\stm32l1xx_crc.o
 LOAD ..\obj\usbd_ioreq.o
 LOAD ..\obj\usbd_cdc_core.o
 LOAD ..\obj\deca_spi.o
-LOAD ..\obj\stm32l1xx_dac.o
 LOAD ..\obj\stm32l1xx_rtc.o
+LOAD ..\obj\stm32l1xx_dac.o
 LOAD ..\obj\stm32l1xx_lcd.o
 LOAD ..\obj\instance.o
 LOAD ..\obj\stm32l1xx_rcc.o
@@ -3902,8 +3902,8 @@ LOAD ..\obj\deca_mutex.o
 LOAD ..\obj\stm32l1xx_sdio.o
 LOAD ..\obj\stm32l1xx_tim.o
 LOAD ..\obj\stm32l1xx_aes.o
-LOAD ..\obj\stm32l1xx_adc.o
 LOAD ..\obj\usb_hcd_int.o
+LOAD ..\obj\stm32l1xx_adc.o
 LOAD ..\obj\port.o
 LOAD ..\obj\deca_device.o
 LOAD ..\obj\stm32l1xx_it.o
@@ -3952,10 +3952,10 @@ LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm
 LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
 OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x18a7e
+.debug_info     0x00000000    0x18a7c
  .debug_info    0x00000000      0x4f9 ..\obj\stm32l1xx_syscfg.o
- .debug_info    0x000004f9      0xdec ..\obj\stm32l1xx_flash.o
- .debug_info    0x000012e5      0x348 ..\obj\stm32l1xx_exti.o
+ .debug_info    0x000004f9      0x348 ..\obj\stm32l1xx_exti.o
+ .debug_info    0x00000841      0xdec ..\obj\stm32l1xx_flash.o
  .debug_info    0x0000162d      0x363 ..\obj\usbd_desc.o
  .debug_info    0x00001990      0x21e ..\obj\deca_range_tables.o
  .debug_info    0x00001bae      0xcec ..\obj\usbd_ioreq.o
@@ -3975,22 +3975,22 @@ OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
  .debug_info    0x0000f020      0x282 ..\obj\deca_params_init.o
  .debug_info    0x0000f2a2      0xdf4 ..\obj\instance_calib.o
  .debug_info    0x00010096     0x24a0 ..\obj\usb_core.o
- .debug_info    0x00012536       0xf9 ..\obj\startup_stm32l1xx_xl.o
- .debug_info    0x0001262f     0x15de ..\obj\main.o
- .debug_info    0x00013c0d     0x1029 ..\obj\deca_usb_bsp_evk1000.o
- .debug_info    0x00014c36      0x5e1 ..\obj\syscalls.o
- .debug_info    0x00015217     0x1054 ..\obj\usb_dcd.o
- .debug_info    0x0001626b     0x1067 ..\obj\usbd_core.o
- .debug_info    0x000172d2      0x130 ..\obj\unistd.o
- .debug_info    0x00017402      0x8ef ..\obj\stm32l1xx_spi.o
- .debug_info    0x00017cf1      0x556 ..\obj\misc.o
- .debug_info    0x00018247      0x1cb ..\obj\usbd_usr.o
- .debug_info    0x00018412      0x66c ..\obj\stm32l1xx_gpio.o
+ .debug_info    0x00012536       0xf7 ..\obj\startup_stm32l1xx_xl.o
+ .debug_info    0x0001262d     0x15de ..\obj\main.o
+ .debug_info    0x00013c0b     0x1029 ..\obj\deca_usb_bsp_evk1000.o
+ .debug_info    0x00014c34      0x5e1 ..\obj\syscalls.o
+ .debug_info    0x00015215     0x1054 ..\obj\usb_dcd.o
+ .debug_info    0x00016269     0x1067 ..\obj\usbd_core.o
+ .debug_info    0x000172d0      0x130 ..\obj\unistd.o
+ .debug_info    0x00017400      0x8ef ..\obj\stm32l1xx_spi.o
+ .debug_info    0x00017cef      0x556 ..\obj\misc.o
+ .debug_info    0x00018245      0x1cb ..\obj\usbd_usr.o
+ .debug_info    0x00018410      0x66c ..\obj\stm32l1xx_gpio.o
 
 .debug_abbrev   0x00000000     0x3b61
  .debug_abbrev  0x00000000      0x178 ..\obj\stm32l1xx_syscfg.o
- .debug_abbrev  0x00000178      0x1c8 ..\obj\stm32l1xx_flash.o
- .debug_abbrev  0x00000340      0x1a9 ..\obj\stm32l1xx_exti.o
+ .debug_abbrev  0x00000178      0x1a9 ..\obj\stm32l1xx_exti.o
+ .debug_abbrev  0x00000321      0x1c8 ..\obj\stm32l1xx_flash.o
  .debug_abbrev  0x000004e9      0x12c ..\obj\usbd_desc.o
  .debug_abbrev  0x00000615       0xca ..\obj\deca_range_tables.o
  .debug_abbrev  0x000006df      0x1b1 ..\obj\usbd_ioreq.o
@@ -4026,9 +4026,9 @@ OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
  .debug_aranges
                 0x00000000       0x80 ..\obj\stm32l1xx_syscfg.o
  .debug_aranges
-                0x00000080      0x190 ..\obj\stm32l1xx_flash.o
+                0x00000080       0x58 ..\obj\stm32l1xx_exti.o
  .debug_aranges
-                0x00000210       0x58 ..\obj\stm32l1xx_exti.o
+                0x000000d8      0x190 ..\obj\stm32l1xx_flash.o
  .debug_aranges
                 0x00000268       0x50 ..\obj\usbd_desc.o
  .debug_aranges
@@ -4092,8 +4092,8 @@ OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
 
 .debug_ranges   0x00000000     0x12c0
  .debug_ranges  0x00000000       0x70 ..\obj\stm32l1xx_syscfg.o
- .debug_ranges  0x00000070      0x180 ..\obj\stm32l1xx_flash.o
- .debug_ranges  0x000001f0       0x48 ..\obj\stm32l1xx_exti.o
+ .debug_ranges  0x00000070       0x48 ..\obj\stm32l1xx_exti.o
+ .debug_ranges  0x000000b8      0x180 ..\obj\stm32l1xx_flash.o
  .debug_ranges  0x00000238       0x40 ..\obj\usbd_desc.o
  .debug_ranges  0x00000278       0x10 ..\obj\deca_range_tables.o
  .debug_ranges  0x00000288       0x40 ..\obj\usbd_ioreq.o
@@ -4124,112 +4124,112 @@ OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
  .debug_ranges  0x00001208       0x40 ..\obj\usbd_usr.o
  .debug_ranges  0x00001248       0x78 ..\obj\stm32l1xx_gpio.o
 
-.debug_line     0x00000000     0x8c99
- .debug_line    0x00000000      0x3b6 ..\obj\stm32l1xx_syscfg.o
- .debug_line    0x000003b6      0x713 ..\obj\stm32l1xx_flash.o
- .debug_line    0x00000ac9      0x34c ..\obj\stm32l1xx_exti.o
- .debug_line    0x00000e15      0x295 ..\obj\usbd_desc.o
- .debug_line    0x000010aa       0xe3 ..\obj\deca_range_tables.o
- .debug_line    0x0000118d      0x327 ..\obj\usbd_ioreq.o
- .debug_line    0x000014b4      0x404 ..\obj\usbd_cdc_core.o
- .debug_line    0x000018b8      0x391 ..\obj\deca_spi.o
- .debug_line    0x00001c49      0x5f5 ..\obj\instance.o
- .debug_line    0x0000223e      0x5d1 ..\obj\stm32l1xx_rcc.o
- .debug_line    0x0000280f      0x2ab ..\obj\deca_mutex.o
- .debug_line    0x00002aba      0x642 ..\obj\stm32l1xx_adc.o
- .debug_line    0x000030fc      0x62b ..\obj\port.o
- .debug_line    0x00003727      0xc91 ..\obj\deca_device.o
- .debug_line    0x000043b8      0x361 ..\obj\stm32l1xx_it.o
- .debug_line    0x00004719      0x4f9 ..\obj\usbd_req.o
- .debug_line    0x00004c12      0x271 ..\obj\system_stm32l1xx.o
- .debug_line    0x00004e83      0x743 ..\obj\deca_usb.o
- .debug_line    0x000055c6      0x816 ..\obj\instance_common.o
- .debug_line    0x00005ddc       0x99 ..\obj\deca_params_init.o
- .debug_line    0x00005e75      0x29f ..\obj\instance_calib.o
- .debug_line    0x00006114      0x77e ..\obj\usb_core.o
- .debug_line    0x00006892       0xd5 ..\obj\startup_stm32l1xx_xl.o
- .debug_line    0x00006967      0x488 ..\obj\main.o
- .debug_line    0x00006def      0x390 ..\obj\deca_usb_bsp_evk1000.o
- .debug_line    0x0000717f      0x36b ..\obj\syscalls.o
- .debug_line    0x000074ea      0x3dc ..\obj\usb_dcd.o
- .debug_line    0x000078c6      0x478 ..\obj\usbd_core.o
- .debug_line    0x00007d3e      0x109 ..\obj\unistd.o
- .debug_line    0x00007e47      0x4d7 ..\obj\stm32l1xx_spi.o
- .debug_line    0x0000831e      0x2f2 ..\obj\misc.o
- .debug_line    0x00008610      0x274 ..\obj\usbd_usr.o
- .debug_line    0x00008884      0x415 ..\obj\stm32l1xx_gpio.o
+.debug_line     0x00000000     0x8c25
+ .debug_line    0x00000000      0x3b3 ..\obj\stm32l1xx_syscfg.o
+ .debug_line    0x000003b3      0x348 ..\obj\stm32l1xx_exti.o
+ .debug_line    0x000006fb      0x70f ..\obj\stm32l1xx_flash.o
+ .debug_line    0x00000e0a      0x292 ..\obj\usbd_desc.o
+ .debug_line    0x0000109c       0xe2 ..\obj\deca_range_tables.o
+ .debug_line    0x0000117e      0x323 ..\obj\usbd_ioreq.o
+ .debug_line    0x000014a1      0x3ff ..\obj\usbd_cdc_core.o
+ .debug_line    0x000018a0      0x38d ..\obj\deca_spi.o
+ .debug_line    0x00001c2d      0x5f0 ..\obj\instance.o
+ .debug_line    0x0000221d      0x5cd ..\obj\stm32l1xx_rcc.o
+ .debug_line    0x000027ea      0x2a7 ..\obj\deca_mutex.o
+ .debug_line    0x00002a91      0x63e ..\obj\stm32l1xx_adc.o
+ .debug_line    0x000030cf      0x627 ..\obj\port.o
+ .debug_line    0x000036f6      0xc8f ..\obj\deca_device.o
+ .debug_line    0x00004385      0x35e ..\obj\stm32l1xx_it.o
+ .debug_line    0x000046e3      0x4f5 ..\obj\usbd_req.o
+ .debug_line    0x00004bd8      0x26f ..\obj\system_stm32l1xx.o
+ .debug_line    0x00004e47      0x73a ..\obj\deca_usb.o
+ .debug_line    0x00005581      0x812 ..\obj\instance_common.o
+ .debug_line    0x00005d93       0x98 ..\obj\deca_params_init.o
+ .debug_line    0x00005e2b      0x29c ..\obj\instance_calib.o
+ .debug_line    0x000060c7      0x77b ..\obj\usb_core.o
+ .debug_line    0x00006842       0xd4 ..\obj\startup_stm32l1xx_xl.o
+ .debug_line    0x00006916      0x483 ..\obj\main.o
+ .debug_line    0x00006d99      0x38b ..\obj\deca_usb_bsp_evk1000.o
+ .debug_line    0x00007124      0x369 ..\obj\syscalls.o
+ .debug_line    0x0000748d      0x3d9 ..\obj\usb_dcd.o
+ .debug_line    0x00007866      0x474 ..\obj\usbd_core.o
+ .debug_line    0x00007cda      0x108 ..\obj\unistd.o
+ .debug_line    0x00007de2      0x4d3 ..\obj\stm32l1xx_spi.o
+ .debug_line    0x000082b5      0x2ee ..\obj\misc.o
+ .debug_line    0x000085a3      0x271 ..\obj\usbd_usr.o
+ .debug_line    0x00008814      0x411 ..\obj\stm32l1xx_gpio.o
 
-.debug_str      0x00000000     0x6aa7
- .debug_str     0x00000000      0x458 ..\obj\stm32l1xx_syscfg.o
-                                0x4ae (size before relaxing)
- .debug_str     0x00000458      0x63a ..\obj\stm32l1xx_flash.o
-                                0x819 (size before relaxing)
- .debug_str     0x00000a92      0x1e9 ..\obj\stm32l1xx_exti.o
-                                0x38c (size before relaxing)
- .debug_str     0x00000c7b      0x22c ..\obj\usbd_desc.o
-                                0x3ab (size before relaxing)
- .debug_str     0x00000ea7      0x159 ..\obj\deca_range_tables.o
-                                0x298 (size before relaxing)
- .debug_str     0x00001000      0x699 ..\obj\usbd_ioreq.o
-                                0xa1d (size before relaxing)
- .debug_str     0x00001699      0x246 ..\obj\usbd_cdc_core.o
-                                0xb81 (size before relaxing)
- .debug_str     0x000018df      0x1b9 ..\obj\deca_spi.o
-                                0x3c7 (size before relaxing)
- .debug_str     0x00001a98      0x9e1 ..\obj\instance.o
-                                0xce5 (size before relaxing)
- .debug_str     0x00002479      0x542 ..\obj\stm32l1xx_rcc.o
-                                0x74f (size before relaxing)
- .debug_str     0x000029bb      0x410 ..\obj\deca_mutex.o
-                                0x642 (size before relaxing)
- .debug_str     0x00002dcb      0x640 ..\obj\stm32l1xx_adc.o
-                                0x835 (size before relaxing)
- .debug_str     0x0000340b      0x56e ..\obj\port.o
-                                0xdba (size before relaxing)
- .debug_str     0x00003979      0xa77 ..\obj\deca_device.o
-                                0xdc8 (size before relaxing)
- .debug_str     0x000043f0      0x1ee ..\obj\stm32l1xx_it.o
-                                0xb6b (size before relaxing)
- .debug_str     0x000045de      0x215 ..\obj\usbd_req.o
-                                0xb6d (size before relaxing)
- .debug_str     0x000047f3       0xa7 ..\obj\system_stm32l1xx.o
-                                0x3ab (size before relaxing)
- .debug_str     0x0000489a      0x21a ..\obj\deca_usb.o
-                               0x18f2 (size before relaxing)
- .debug_str     0x00004ab4      0x566 ..\obj\instance_common.o
-                               0x105c (size before relaxing)
- .debug_str     0x0000501a       0x4e ..\obj\deca_params_init.o
-                                0x29d (size before relaxing)
- .debug_str     0x00005068       0xa6 ..\obj\instance_calib.o
-                                0xa85 (size before relaxing)
- .debug_str     0x0000510e      0xb5c ..\obj\usb_core.o
-                               0x16c0 (size before relaxing)
- .debug_str     0x00005c6a      0x185 ..\obj\main.o
-                               0x106c (size before relaxing)
- .debug_str     0x00005def       0xff ..\obj\deca_usb_bsp_evk1000.o
-                               0x1046 (size before relaxing)
- .debug_str     0x00005eee      0x1f9 ..\obj\syscalls.o
-                                0x44f (size before relaxing)
- .debug_str     0x000060e7      0x12a ..\obj\usb_dcd.o
-                                0xb88 (size before relaxing)
- .debug_str     0x00006211      0x19d ..\obj\usbd_core.o
-                                0xc08 (size before relaxing)
- .debug_str     0x000063ae       0x5a ..\obj\unistd.o
-                                0x221 (size before relaxing)
- .debug_str     0x00006408      0x2e2 ..\obj\stm32l1xx_spi.o
-                                0x63c (size before relaxing)
- .debug_str     0x000066ea      0x128 ..\obj\misc.o
-                                0x40e (size before relaxing)
- .debug_str     0x00006812       0xe1 ..\obj\usbd_usr.o
-                                0x2d2 (size before relaxing)
- .debug_str     0x000068f3      0x1b4 ..\obj\stm32l1xx_gpio.o
-                                0x512 (size before relaxing)
+.debug_str      0x00000000     0x6a86
+ .debug_str     0x00000000      0x457 ..\obj\stm32l1xx_syscfg.o
+                                0x4ad (size before relaxing)
+ .debug_str     0x00000457      0x1f2 ..\obj\stm32l1xx_exti.o
+                                0x38b (size before relaxing)
+ .debug_str     0x00000649      0x62f ..\obj\stm32l1xx_flash.o
+                                0x818 (size before relaxing)
+ .debug_str     0x00000c78      0x22b ..\obj\usbd_desc.o
+                                0x3aa (size before relaxing)
+ .debug_str     0x00000ea3      0x157 ..\obj\deca_range_tables.o
+                                0x296 (size before relaxing)
+ .debug_str     0x00000ffa      0x698 ..\obj\usbd_ioreq.o
+                                0xa1c (size before relaxing)
+ .debug_str     0x00001692      0x245 ..\obj\usbd_cdc_core.o
+                                0xb80 (size before relaxing)
+ .debug_str     0x000018d7      0x1b8 ..\obj\deca_spi.o
+                                0x3c5 (size before relaxing)
+ .debug_str     0x00001a8f      0x9e0 ..\obj\instance.o
+                                0xce3 (size before relaxing)
+ .debug_str     0x0000246f      0x541 ..\obj\stm32l1xx_rcc.o
+                                0x74e (size before relaxing)
+ .debug_str     0x000029b0      0x40f ..\obj\deca_mutex.o
+                                0x640 (size before relaxing)
+ .debug_str     0x00002dbf      0x63f ..\obj\stm32l1xx_adc.o
+                                0x834 (size before relaxing)
+ .debug_str     0x000033fe      0x56d ..\obj\port.o
+                                0xdb8 (size before relaxing)
+ .debug_str     0x0000396b      0xa76 ..\obj\deca_device.o
+                                0xdc6 (size before relaxing)
+ .debug_str     0x000043e1      0x1ed ..\obj\stm32l1xx_it.o
+                                0xb69 (size before relaxing)
+ .debug_str     0x000045ce      0x214 ..\obj\usbd_req.o
+                                0xb6c (size before relaxing)
+ .debug_str     0x000047e2       0xa6 ..\obj\system_stm32l1xx.o
+                                0x3aa (size before relaxing)
+ .debug_str     0x00004888      0x219 ..\obj\deca_usb.o
+                               0x18f0 (size before relaxing)
+ .debug_str     0x00004aa1      0x565 ..\obj\instance_common.o
+                               0x105a (size before relaxing)
+ .debug_str     0x00005006       0x4d ..\obj\deca_params_init.o
+                                0x29b (size before relaxing)
+ .debug_str     0x00005053       0xa5 ..\obj\instance_calib.o
+                                0xa83 (size before relaxing)
+ .debug_str     0x000050f8      0xb5b ..\obj\usb_core.o
+                               0x16bf (size before relaxing)
+ .debug_str     0x00005c53      0x184 ..\obj\main.o
+                               0x106a (size before relaxing)
+ .debug_str     0x00005dd7       0xfe ..\obj\deca_usb_bsp_evk1000.o
+                               0x1044 (size before relaxing)
+ .debug_str     0x00005ed5      0x1f8 ..\obj\syscalls.o
+                                0x44d (size before relaxing)
+ .debug_str     0x000060cd      0x129 ..\obj\usb_dcd.o
+                                0xb87 (size before relaxing)
+ .debug_str     0x000061f6      0x19c ..\obj\usbd_core.o
+                                0xc07 (size before relaxing)
+ .debug_str     0x00006392       0x59 ..\obj\unistd.o
+                                0x21f (size before relaxing)
+ .debug_str     0x000063eb      0x2e1 ..\obj\stm32l1xx_spi.o
+                                0x63b (size before relaxing)
+ .debug_str     0x000066cc      0x127 ..\obj\misc.o
+                                0x40d (size before relaxing)
+ .debug_str     0x000067f3       0xe0 ..\obj\usbd_usr.o
+                                0x2d1 (size before relaxing)
+ .debug_str     0x000068d3      0x1b3 ..\obj\stm32l1xx_gpio.o
+                                0x511 (size before relaxing)
 
 .comment        0x00000000       0x6e
  .comment       0x00000000       0x6e ..\obj\stm32l1xx_syscfg.o
                                  0x6f (size before relaxing)
- .comment       0x0000006e       0x6f ..\obj\stm32l1xx_flash.o
  .comment       0x0000006e       0x6f ..\obj\stm32l1xx_exti.o
+ .comment       0x0000006e       0x6f ..\obj\stm32l1xx_flash.o
  .comment       0x0000006e       0x6f ..\obj\usbd_desc.o
  .comment       0x0000006e       0x6f ..\obj\deca_range_tables.o
  .comment       0x0000006e       0x6f ..\obj\usbd_ioreq.o
@@ -4262,8 +4262,8 @@ OUTPUT(Projet_Sur_Nucleo.elf elf32-littlearm)
 
 .debug_frame    0x00000000     0x5818
  .debug_frame   0x00000000      0x1fc ..\obj\stm32l1xx_syscfg.o
- .debug_frame   0x000001fc      0x69c ..\obj\stm32l1xx_flash.o
- .debug_frame   0x00000898      0x148 ..\obj\stm32l1xx_exti.o
+ .debug_frame   0x000001fc      0x148 ..\obj\stm32l1xx_exti.o
+ .debug_frame   0x00000344      0x69c ..\obj\stm32l1xx_flash.o
  .debug_frame   0x000009e0      0x114 ..\obj\usbd_desc.o
  .debug_frame   0x00000af4       0x38 ..\obj\deca_range_tables.o
  .debug_frame   0x00000b2c      0x110 ..\obj\usbd_ioreq.o

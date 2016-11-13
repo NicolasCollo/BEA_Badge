@@ -18,21 +18,22 @@
 <part id="5"/>
 <part id="6"/>
 <part id="7"/>
+<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" title="main.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" title="main.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/application/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/src/application/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="22533" selectionTopPixel="10689"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="11427" selectionTopPixel="5582"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" partName="port.c" path="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/platform/port.c" title="port.c" tooltip="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/platform/port.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" partName="port.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/platform/port.c" title="port.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/src/platform/port.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/src/platform/port.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="23964" selectionTopPixel="15010"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4296" selectionTopPixel="2017"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rcc.c" partName="stm32l1xx_rcc.c" path="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c" title="stm32l1xx_rcc.c" tooltip="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rcc.c" partName="stm32l1xx_rcc.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c" title="stm32l1xx_rcc.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="22476" selectionTopPixel="9330"/>
+<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="45820" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rcc.h" partName="stm32l1xx_rcc.h" path="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_rcc.h" title="stm32l1xx_rcc.h" tooltip="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_rcc.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_rcc.h"/>
@@ -53,6 +54,10 @@
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="instance.h" partName="instance.h" path="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/application/instance.h" title="instance.h" tooltip="C:/Users/Nicolas/Desktop/DecawaveEnhencedv3/src/application/instance.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/src/application/instance.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="26415" selectionTopPixel="11420"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rtc.c" partName="stm32l1xx_rtc.c" path="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" title="stm32l1xx_rtc.c" tooltip="C:/Users/Houbix/Desktop/DecawaveEnhencedv5/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="657" selectionTopPixel="3690"/>
 </editor>
 </editors>
 <views>
@@ -139,8 +144,8 @@
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
@@ -293,163 +298,164 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/platform/port.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/instance.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/instance_common.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/instance.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/application/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/src/platform/port.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.c"/>
 </editors>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="5829" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13940" y="32"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="8482" y="13"/>
-</item>
-<item historyLabel="stm32l1xx_rcc.c" index="2">
-<position info="not_deleted" x="22476" y="13"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="6684" y="0"/>
-</item>
-<item historyLabel="stm32l1xx_rcc.c" index="2">
-<position info="not_deleted" x="22476" y="13"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="5338" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13940" y="32"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="1063" y="0"/>
-</item>
-<item historyLabel="stm32l1xx_rcc.c" index="2">
-<position info="not_deleted" x="22476" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13940" y="32"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="1063" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13940" y="32"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="1093" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13940" y="32"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="1093" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="14123" y="32"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="13439" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="13657" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="18866" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="22946" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="20538" y="6"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="24574" y="6"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="23964" y="12"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="20538" y="6"/>
-</item>
-<item historyLabel="instance.c" index="4">
-<position info="not_deleted" x="9984" y="3"/>
-</item>
-<item historyLabel="instance.c" index="4">
-<position info="not_deleted" x="46728" y="21"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="16105" y="0"/>
-</item>
-<item historyLabel="instance_common.c" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="instance_common.c" index="5">
-<position info="not_deleted" x="5599" y="16"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="17578" y="22"/>
-</item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="8436" y="22"/>
 </item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="17578" y="22"/>
-</item>
-<item historyLabel="instance_common.c" index="5">
-<position info="not_deleted" x="8436" y="22"/>
-</item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="8345" y="22"/>
 </item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="5599" y="16"/>
 </item>
-<item historyLabel="instance.c" index="4">
+<item historyLabel="instance.c" index="1">
 <position info="not_deleted" x="28525" y="4"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="18585" y="4"/>
 </item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="5599" y="16"/>
 </item>
-<item historyLabel="instance.c" index="4">
+<item historyLabel="instance.c" index="1">
 <position info="not_deleted" x="28525" y="4"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="18585" y="4"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="18525" y="10"/>
 </item>
-<item historyLabel="instance.c" index="4">
+<item historyLabel="instance.c" index="1">
 <position info="not_deleted" x="28541" y="5"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="14820" y="5"/>
 </item>
-<item historyLabel="main.c" index="3">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="17578" y="22"/>
 </item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="6933" y="0"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="14820" y="5"/>
 </item>
-<item historyLabel="instance.h" index="6">
+<item historyLabel="instance.h" index="3">
 <position info="not_deleted" x="26415" y="0"/>
 </item>
-<item historyLabel="instance_common.c" index="5">
+<item historyLabel="instance_common.c" index="2">
 <position info="not_deleted" x="6933" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="7">
+<item historyLabel="main.c" index="4">
 <position info="not_deleted" x="17578" y="22"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="23964" y="12"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27744" y="16"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27810" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="453" y="8"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="477" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="2167" y="0"/>
+</item>
+<item historyLabel="stm32l1xx_rtc.c" index="6">
+<position info="not_deleted" x="91644" y="0"/>
+</item>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="11427" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="2167" y="0"/>
+</item>
+<item historyLabel="stm32l1xx_rtc.c" index="6">
+<position info="not_deleted" x="91644" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="2167" y="0"/>
+</item>
+<item historyLabel="stm32l1xx_rtc.c" index="6">
+<position info="not_deleted" x="91644" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="2167" y="0"/>
+</item>
+<item historyLabel="stm32l1xx_rtc.c" index="6">
+<position info="not_deleted" x="91644" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="2167" y="0"/>
+</item>
+<item historyLabel="stm32l1xx_rcc.c" index="7">
+<position info="not_deleted" x="22476" y="13"/>
+</item>
+<item historyLabel="stm32l1xx_rcc.c" index="7">
+<position info="not_deleted" x="45820" y="13"/>
+</item>
+<item historyLabel="stm32l1xx_rtc.c" index="6">
+<position info="not_deleted" x="657" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="1937" y="0"/>
+</item>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="11427" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27744" y="16"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27828" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="400" y="12"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="432" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="1186" y="21"/>
+</item>
+<item historyLabel="main.c" index="4">
+<position info="not_deleted" x="11427" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27744" y="16"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="27846" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="499" y="14"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="529" y="0"/>
+</item>
+<item historyLabel="port.c" index="5">
+<position info="not_deleted" x="4296" y="0"/>
+</item>
+<item historyLabel="misc.c" index="8">
+<position info="not_deleted" x="7463" y="9"/>
+</item>
+<item active="true" historyLabel="port.c" index="5">
+<position info="not_deleted" x="4296" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -458,6 +464,12 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="misc.c" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.c">
+<persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_rtc.c" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c">
+<persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32l1xx_lcd.c" tooltip="Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_lcd.c">
 <persistable path="/Projet_Sur_Nucleo2/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_lcd.c"/>
 </file>
@@ -496,12 +508,6 @@
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\stdio.h">
 <persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\stdio.h" project="DecaRanging"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="instance_calib.c" tooltip="DecaRanging/src/application/instance_calib.c">
-<persistable path="/DecaRanging/src/application/instance_calib.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.h" tooltip="Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h">
-<persistable path="/Projet_Sur_Nucleo2/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h"/>
 </file>
 </mruList>
 </workbench>
