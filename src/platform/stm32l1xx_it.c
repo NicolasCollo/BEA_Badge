@@ -205,14 +205,13 @@ void PendSV_Handler(void)
   */
 void RTC_IRQHandler(void)
 {
-// if (RTC_GetITStatus(RTC_IT_SEC) != RESET)
-//  {
-//    /* Clear the RTC Second interrupt */
-//    RTC_ClearITPendingBit(RTC_IT_SEC);
-//
-//  /* Wait until last write operation on RTC registers has finished */
-//    RTC_WaitForLastTask();
-//	}
+	if(RTC_GetITStatus(RTC_IT_WUT) != RESET)
+	  {
+	    RTC_ClearITPendingBit(RTC_IT_WUT);
+	    EXTI_ClearITPendingBit(EXTI_Line20); // And EXTI
+
+	    // code a mettre pour l'interuption RTC
+	  }
 }
 
 void SysTick_Handler(void)

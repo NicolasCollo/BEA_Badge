@@ -109,6 +109,7 @@ void RTC_Configuration(void)
 
 	  /* Enable Wakeup Counter */
 	  RTC_WakeUpCmd(ENABLE);
+	  PWR_RTCAccessCmd(ENABLE);
 }
 
 
