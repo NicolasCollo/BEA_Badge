@@ -83,19 +83,15 @@ void RTC_Configuration(void)
 	  /* Wait for RTC APB registers synchronisation */
 	  RTC_WaitForSynchro();
 
-	  /* Calendar Configuration */
-	  RTC_InitStructure.RTC_AsynchPrediv = 0x7F;
-	  RTC_InitStructure.RTC_SynchPrediv	=  0x120; /* (37KHz / 128) - 1 = 0x120*/
-	  RTC_InitStructure.RTC_HourFormat = RTC_HourFormat_24;
-	  RTC_Init(&RTC_InitStructure);
+//ok
 
-	  /* EXTI configuration ******************************************************
+	   //EXTI configuration ******************************************************
 	  EXTI_ClearITPendingBit(EXTI_Line20);
 	  EXTI_InitStructure.EXTI_Line = EXTI_Line20;
 	  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
 	  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
 	  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	  EXTI_Init(&EXTI_InitStructure); */
+	  EXTI_Init(&EXTI_InitStructure);
 
 	  /* Enable the RTC Wakeup Interrupt */
 	  NVIC_InitStructure.NVIC_IRQChannel = RTC_WKUP_IRQn;
