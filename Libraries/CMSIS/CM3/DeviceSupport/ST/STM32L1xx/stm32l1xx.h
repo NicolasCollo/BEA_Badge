@@ -80,7 +80,7 @@
 
 /* #define STM32L1XX_HD */     /*!< Ultra Low Power High-density devices: STM32L151xDxx, STM32L152xDxx and STM32L162xDxx */
 
-#define STM32L1XX_XL     /*!< Ultra Low Power XL-density devices: STM32L151xExx, STM32L152xExx and STM32L162xExx */
+/* #define STM32L1XX_XL */   /*!< Ultra Low Power XL-density devices: STM32L151xExx, STM32L152xExx and STM32L162xExx */
 #endif
 /*  Tip: To avoid modifying this file each time you need to switch between these
         devices, you can define the device in your toolchain compiler preprocessor.

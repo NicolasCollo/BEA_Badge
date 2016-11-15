@@ -38,7 +38,7 @@ static uint8 __align4 	tmp_buf[MAX_DMABUF_SIZE];
 #define PORT_DMA_START_RX_FAST 	{DMA_RX_CH->CCR |= DMA_CCR1_EN;}
 #define PORT_DMA_STOP_RX_FAST 	{DMA_RX_CH->CCR &= ~DMA_CCR1_EN;}
 
-#define PORT_SPI_CLEAR_CS_FAST	{SPIx_CS_GPIO->BRR = SPIx_CS;}
+#define PORT_SPI_CLEAR_CS_FAST	{SPIx_CS_GPIO->BSRRH = SPIx_CS;}
 #define PORT_SPI_SET_CS_FAST	{SPIx_CS_GPIO->BSRRL = SPIx_CS;}
 
 /***************************************************************************//**

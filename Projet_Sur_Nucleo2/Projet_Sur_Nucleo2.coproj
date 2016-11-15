@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 2.0.5" name="Projet_Sur_Nucleo2">
   <Target name="Projet_Sur_Nucleo" isCurrent="1">
-    <Device manufacturerId="9" manufacturerName="ST" chipId="936" chipName="STM32L152RET6" boardId="" boardName="" boardUrl="" coreId="3" coreName="Cortex M3"/>
+    <Device manufacturerId="9" manufacturerName="ST" chipId="932" chipName="STM32L152RCT6" boardId="" boardName="" boardUrl="" coreId="3" coreName="Cortex M3"/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -29,10 +29,10 @@
           <Includepath path="../src/platform"/>
         </Includepaths>
         <DefinedSymbols>
-          <Define name="STM32L152RET6"/>
-          <Define name="STM32L1XX_CL"/>
           <Define name="USE_STDPERIPH_DRIVER"/>
           <Define name="__ASSEMBLY__"/>
+          <Define name="STM32L1XX_MDP"/>
+          <Define name="STM32L152RCT6"/>
         </DefinedSymbols>
       </Compile>
       <Link useDefault="0">
@@ -110,8 +110,8 @@
     <File name="src/platform/deca_spi.h" path="../src/platform/deca_spi.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" path="../Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" type="1"/>
-    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
+    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/usb" path="" type="2"/>
     <File name="src/decadriver/deca_version.h" path="../src/decadriver/deca_version.h" type="1"/>
