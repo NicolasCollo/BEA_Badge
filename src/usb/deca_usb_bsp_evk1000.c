@@ -97,20 +97,20 @@ void USB_OTG_BSP_Init(USB_OTG_CORE_HANDLE *pdev)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	//USB GPIOA config
 	//Vbus set as Input Floating for OTG
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
 	GPIO_InitStructure.GPIO_Mode = 	GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	//ID set as input pull up for OTG
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 ;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 ;
 	GPIO_InitStructure.GPIO_PuPd = 	GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	// the DP and DM are controlled automatically
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
 
 	// Enable USB clock (48Mbps)

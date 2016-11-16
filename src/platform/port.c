@@ -55,43 +55,61 @@ int SysTick_Configuration(void)
 
 void RTC_Configuration(void)
 {
-	/* Enable PWR and BKP clocks */
-//	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR /*| RCC_APB1Periph_BKP*/, ENABLE);
+	NVIC_InitTypeDef NVIC_InitStructure;
+	  EXTI_InitTypeDef EXTI_InitStructure;
 
-	/* Allow access to BKP Domain */
-//	PWR_RTCAccessCmd(ENABLE);  //PWR_BackupAccessCmd(ENABLE);
+	  /* Enable the PWR clock */
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
 
-	/* Reset Backup Domain */
-//	BKP_DeInit();
+	  /* Allow access to RTC */
+	  PWR_RTCAccessCmd(ENABLE);
 
-	/* Enable LSE */
-//	RCC_LSEConfig(RCC_LSE_ON);
-	/* Wait till LSE is ready */
-//	while (RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET){}
+	/* LSI used as RTC source clock */
+	/* The RTC Clock may varies due to LSI frequency dispersion. */
+	  /* Enable the LSI OSC */
+	  RCC_LSICmd(ENABLE);
 
-	/* Select LSE as RTC Clock Source */
-//	RCC_RTCCLKConfig(RCC_RTCCLKSource_LSE);
+	  /* Wait till LSI is ready */
+	  while(RCC_GetFlagStatus(RCC_FLAG_LSIRDY) == RESET)
+	  {
+	  }
 
-	/* Enable RTC Clock */
-//	RCC_RTCCLKCmd(ENABLE);
+	  /* Select the RTC Clock Source */
+	  RCC_RTCCLKConfig(RCC_RTCCLKSource_LSI);
 
-	/* Wait for RTC registers synchronization */
-//	RTC_WaitForSynchro();
+	  /* Enable the RTC Clock */
+	  RCC_RTCCLKCmd(ENABLE);
 
-	/* Wait until last write operation on RTC registers has finished */
-//	RTC_WaitForLastTask();
+	  /* Wait for RTC APB registers synchronisation */
+	  RTC_WaitForSynchro();
 
-	/* Enable the RTC Second */
-//	RTC_ITConfig(RTC_IT_SEC, ENABLE);
+//ok
 
-	/* Wait until last write operation on RTC registers has finished */
-//	RTC_WaitForLastTask();
+	   //EXTI configuration ******************************************************
+	  EXTI_ClearITPendingBit(EXTI_Line20);
+	  EXTI_InitStructure.EXTI_Line = EXTI_Line20;
+	  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+	  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+	  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+	  EXTI_Init(&EXTI_InitStructure);
 
-	/* Set RTC prescaler: set RTC period to 1sec */
-//	RTC_SetPrescaler(32767); /* RTC period = RTCCLK/RTC_PR = (32.768 KHz)/(32767+1) */
+	  /* Enable the RTC Wakeup Interrupt */
+	  NVIC_InitStructure.NVIC_IRQChannel = RTC_WKUP_IRQn;
+	  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	  NVIC_Init(&NVIC_InitStructure);
 
-	/* Wait until last write operation on RTC registers has finished */
-//	RTC_WaitForLastTask(); */
+	  /* Configure the RTC WakeUp Clock source: CK_SPRE (1Hz) */
+	  RTC_WakeUpClockConfig(RTC_WakeUpClock_CK_SPRE_16bits);
+	  RTC_SetWakeUpCounter(0x0);
+
+	  /* Enable the RTC Wakeup Interrupt */
+	  RTC_ITConfig(RTC_IT_WUT, ENABLE);
+
+	  /* Enable Wakeup Counter */
+	  RTC_WakeUpCmd(ENABLE);
+	  PWR_RTCAccessCmd(ENABLE);
 }
 
 
