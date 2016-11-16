@@ -362,7 +362,7 @@ int main(void)
 
     spi_peripheral_init();
 
-    Sleep(1000); //wait for LCD to power on
+//    Sleep(1000); //wait for LCD to power on
 
     initLCD();
 
@@ -372,15 +372,10 @@ int main(void)
     memcpy(dataseq, (const uint8 *) SOFTWARE_VER_STRING, 16); // Also set at line #26 (Should make this from single value !!!)
     writetoLCD( 16, 1, dataseq); //send some data
 
-    Sleep(1000);
-#ifdef USB_SUPPORT
-    // enable the USB functionality
-    usb_init();
-    Sleep(1000);
-#endif
+   // Sleep(1000);
 
     s1switch = 40; //code anchor mode 3 par défaut
-    s1switch = 32; //code tag mode 3 par défaut
+  //  s1switch = 32; //code tag mode 3 par défaut
 
     port_DisableEXT_IRQ(); //disable ScenSor IRQ until we configure the device
 
@@ -400,11 +395,9 @@ int main(void)
 
         led_off(LED_ALL);
 
-#ifdef USB_SUPPORT //this is set in the port.h file
-        usb_printconfig(16, (uint8 *)SOFTWARE_VER_STRING, s1switch);
-#endif
 
-        if(inittestapplication(s1switch) == (uint32)-1)
+
+  /*      if(inittestapplication(s1switch) == (uint32)-1)
         {
             led_on(LED_ALL); //to display error....
             dataseq[0] = 0x2 ;  //return cursor home
@@ -416,22 +409,27 @@ int main(void)
             writetoLCD( 40, 1, dataseq); //send some data
             return 0; //error
         }
-
+*/
         //sleep for 5 seconds displaying "Decawave" (LEDs only if in ANCHOR mode)
         if(instance_mode == ANCHOR)
         {
-        	i=30;
+        	i=1; // 30 normalement
         	while(i--)
         	{
         		if (i & 1) led_off(LED_ALL);
         		else    led_on(LED_ALL);
 
-        		Sleep(200);
+
         	}
         }
+
+
+
+
         else
         {
-        	Sleep(500); // Less consumption in TAG mode
+        	i=30;
+        	while(i--);// Less consumption in TAG mode // sleep avant
         }
 
         i = 0;
@@ -479,10 +477,6 @@ int main(void)
 
     memset(dataseq, ' ', LCD_BUFF_LEN);
     memset(dataseq1, ' ', LCD_BUFF_LEN);
-
-#ifdef USART_SUPPORT
-    printf2(" %s\n", SOFTWARE_VER_STRING);
-#endif
 
     // main loop
     while(1)
@@ -579,9 +573,7 @@ int main(void)
             		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
             	}
             }
-#ifdef USB_SUPPORT //this is set in the port.h file
-            send_usbmessage(&dataseq[0], n);
-#endif
+
 
         }
 
@@ -667,10 +659,6 @@ int main(void)
                 }
             }
         }
-#ifdef USB_SUPPORT //this is set in the port.h file
-        usb_run();
-#endif
-    }
 
     // Reset of tag list in memory if BP reset held 10 s
     int k=2500;
@@ -718,5 +706,6 @@ int main(void)
 
 
     return 0;
+}
 }
 

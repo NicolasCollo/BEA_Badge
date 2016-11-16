@@ -110,9 +110,9 @@
     <File name="src/platform/deca_spi.h" path="../src/platform/deca_spi.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" path="../Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" type="1"/>
-    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
-    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
+    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
+    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/usb" path="" type="2"/>
     <File name="src/decadriver/deca_version.h" path="../src/decadriver/deca_version.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" type="1"/>
@@ -186,8 +186,8 @@
     <File name="src/usb/deca_usb_bsp_evk1000.c" path="../src/usb/deca_usb_bsp_evk1000.c" type="1"/>
     <File name="Libraries/STM32_USB_OTG_Driver/inc/usb_bsp.h" path="../Libraries/STM32_USB_OTG_Driver/inc/usb_bsp.h" type="1"/>
     <File name="Libraries/CMSIS/CM3" path="" type="2"/>
-    <File name="Libraries" path="" type="2"/>
     <File name="src/sys/syscalls.c" path="../src/sys/syscalls.c" type="1"/>
+    <File name="Libraries" path="" type="2"/>
     <File name="src/decadriver/deca_types.h" path="../src/decadriver/deca_types.h" type="1"/>
     <File name="src/usb/deca_usb.h" path="../src/usb/deca_usb.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/inc/usbd_def.h" path="../Libraries/STM32_USB_Device_Library/Core/inc/usbd_def.h" type="1"/>
