@@ -50,7 +50,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../linkers/stm32_flash_256k_ram_64k.ld" type="0"/>
+        <LocateLinkFile path="../linkers/stm32_flash_128k_ram_32k.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -67,7 +67,7 @@
     <DebugOption>
       <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="2M"/>
       <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="D:\Program Files (x86)\SEGGER\JLink_V490e\JLinkGDBServerCL.exe"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
@@ -81,7 +81,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\Nicolas\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32L1xx_512K\STM32L1xx_512.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\olivi\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32L1xx_256K\STM32L1xx_256.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
@@ -110,9 +110,9 @@
     <File name="src/platform/deca_spi.h" path="../src/platform/deca_spi.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" path="../Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" type="1"/>
-    <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
-    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
+    <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
+    <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
     <File name="src/usb" path="" type="2"/>
     <File name="src/decadriver/deca_version.h" path="../src/decadriver/deca_version.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" type="1"/>
@@ -172,7 +172,6 @@
     <File name="src/platform/stm32l1xx_it.h" path="../src/platform/stm32l1xx_it.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_aes.h" path="../Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_aes.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src" path="" type="2"/>
-    <File name="Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/startup/startup_stm32l1xx_xl.s" path="../Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/startup/startup_stm32l1xx_xl.s" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_wwdg.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_wwdg.c" type="1"/>
     <File name="Libraries/STM32_USB_OTG_Driver/src/usb_hcd.c" path="../Libraries/STM32_USB_OTG_Driver/src/usb_hcd.c" type="1"/>
     <File name="Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/startup" path="" type="2"/>
@@ -196,6 +195,7 @@
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.c" type="1"/>
     <File name="Libraries/STM32_USB_OTG_Driver/src/usb_dcd.c" path="../Libraries/STM32_USB_OTG_Driver/src/usb_dcd.c" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_dbgmcu.h" path="../Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_dbgmcu.h" type="1"/>
+    <File name="Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/startup/startup_stm32l1xx_mdp.s" path="../STM32L1xx_StdPeriph_Lib_V1.3.1/Libraries/CMSIS/Device/ST/STM32L1xx/Source/Templates/gcc_ride7/startup_stm32l1xx_mdp.s" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c" type="1"/>
     <File name="Libraries/STM32_USB_OTG_Driver/inc/usb_regs.h" path="../Libraries/STM32_USB_OTG_Driver/inc/usb_regs.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_iwdg.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_iwdg.c" type="1"/>
