@@ -30,7 +30,7 @@
 
 /* System tick 32 bit variable defined by the platform */
 extern __IO unsigned long time32_incr;
-int instanceMode = 1; // 1 = TAG , 0 = ANCHOR
+ // 1 = TAG , 0 = ANCHOR
 
 int No_Configuration(void)
 {
@@ -198,7 +198,7 @@ ITStatus EXTI_GetITEnStatus(uint32_t EXTI_Line)
   return bitstatus;
 }
 
-int RCC_Configuration(void)
+int RCC_Configuration( bool instanceMode)
 {
 	RCC_ClocksTypeDef RCC_ClockFreq;
 	ADC_CommonInitTypeDef ADC_CommonInitStructure;
@@ -221,8 +221,8 @@ int RCC_Configuration(void)
     	/* Enable MSI */
     	RCC_MSICmd(ENABLE);
 
-    	/* Choix de la valeur de MSI 262 kHz*/
-    	RCC_MSIRangeConfig(RCC_MSIRange_2);
+    	/* Choix de la valeur de MSI 4194 MHz*/
+    	RCC_MSIRangeConfig(RCC_MSIRange_6);
 
     	/* Enable Prefetch Buffer */
     	FLASH_PrefetchBufferCmd(ENABLE);
@@ -268,11 +268,11 @@ int RCC_Configuration(void)
 		RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
 
 		/* Enable GPIOs clocks */
-		RCC_AHBPeriphClockCmd(
-						RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |
-						RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
-						RCC_AHBPeriph_GPIOE,	ENABLE);
+		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
+				RCC_AHBPeriph_GPIOE,ENABLE);
+
 		RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+		 RCC_APB1PeriphClockCmd(RCC_APB1Periph_COMP | RCC_APB1Periph_LCD | RCC_APB1Periph_PWR,ENABLE);
     }
 
     else
@@ -328,6 +328,7 @@ int RCC_Configuration(void)
     						RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
     						RCC_AHBPeriph_GPIOE,	ENABLE);
     	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+    	 RCC_APB1PeriphClockCmd(RCC_APB1Periph_COMP | RCC_APB1Periph_LCD | RCC_APB1Periph_PWR,ENABLE);
 	}
 
 	return 0;
@@ -619,6 +620,58 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = TAG_RESET_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(TAG_RESET_GPIO, &GPIO_InitStructure);
+
+
+	/* Configure Port A LCD Output pins as alternate function */
+	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_8 | GPIO_Pin_9 |GPIO_Pin_10 |GPIO_Pin_15;
+	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	  GPIO_Init( GPIOA, &GPIO_InitStructure);
+
+	/* Select LCD alternate function for Port A LCD Output pins */
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource1,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource2,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource3,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource8,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource9,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource10,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource15,GPIO_AF_LCD) ;
+
+	  /* Configure Port B LCD Output pins as alternate function */
+	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+
+	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	  GPIO_Init( GPIOB, &GPIO_InitStructure);
+
+	  /* Select LCD alternate function for Port B LCD Output pins */
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource3,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource4,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource5,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource8,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource9,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource10,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource11,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource12,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource13,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource14,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource15,GPIO_AF_LCD) ;
+
+	  /* Configure Port C LCD Output pins as alternate function */
+	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_6 \
+	                                 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |GPIO_Pin_11 ;
+	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	  GPIO_Init( GPIOC, &GPIO_InitStructure);
+
+	  /* Select LCD alternate function for Port B LCD Output pins */
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource0,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource1,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource2,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource3,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource9,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource10,GPIO_AF_LCD) ;
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource11,GPIO_AF_LCD) ;
 
     return 0;
 }
@@ -1024,7 +1077,9 @@ int is_IRQ_enabled(void)
 
 int peripherals_init (void)
 {
-	rcc_init();
+	bool instanceMode=1; // tag=1 anchre =0
+
+	rcc_init(instanceMode);
 	rtc_init();
 	gpio_init();
 	systick_init();

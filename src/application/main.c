@@ -20,6 +20,9 @@
 
 #include "deca_spi.h"
 #include "stdio.h"
+#include "stm32l_discovery_lcd.h"
+#include "discover_board.h"
+#include "stm32l1xx_lcd.h"
 
 extern void usb_run(void);
 extern int usb_init(void);
@@ -283,6 +286,32 @@ void process_dwRSTn_irq(void)
 {
     instance_notify_DW1000_inIDLE(1);
 }
+void Delay(uint32_t nTime)
+{
+ // while (TSL_tim_CheckDelay_ms((TSL_tTick_ms_T) nTime, &last_tick_tsl) != TSL_STATUS_OK);
+	uint32_t counter=nTime&0xffff;
+	    TIM_Cmd(TIM2,ENABLE);
+	    TIM_SetCounter(TIM2,counter);
+	    while(counter>1)
+	    {
+	        counter=TIM_GetCounter(TIM2);
+	    }
+	    TIM_Cmd(TIM2,DISABLE);
+}
+
+void InitializeTimer()
+{
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+    TIM_TimeBaseInitTypeDef timerInitStructure;
+    timerInitStructure.TIM_Prescaler = 400;//40000 avant
+    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    timerInitStructure.TIM_Period = 500;
+    timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+
+    TIM_TimeBaseInit(TIM2, &timerInitStructure);
+    TIM_Cmd(TIM2, ENABLE);
+}
 
 
 #if (DWINTERRUPT_EN == 1)
@@ -308,17 +337,44 @@ void process_deca_irq(void)
 
 void initLCD(void)
 {
-    uint8 initseq[9] = { 0x39, 0x14, 0x55, 0x6D, 0x78, 0x38 /*0x3C*/, 0x0C, 0x01, 0x06 };
-    uint8 command = 0x0;
-    int j = 100000;
+	LCD_InitTypeDef LCD_InitStruct;
 
-    writetoLCD( 9, 0,  initseq); //init seq
-    while(j--);
 
-    command = 0x2 ;  //return cursor home
-    writetoLCD( 1, 0,  &command);
-    command = 0x1 ;  //clear screen
-    writetoLCD( 1, 0,  &command);
+	  LCD_InitStruct.LCD_Prescaler = LCD_Prescaler_1;
+	  LCD_InitStruct.LCD_Divider = LCD_Divider_31;
+	  LCD_InitStruct.LCD_Duty = LCD_Duty_1_4;
+	  LCD_InitStruct.LCD_Bias = LCD_Bias_1_3;
+	  LCD_InitStruct.LCD_VoltageSource = LCD_VoltageSource_Internal;
+
+
+	  /* Initialize the LCD */
+	  LCD_Init(&LCD_InitStruct);
+
+	  LCD_MuxSegmentCmd(ENABLE);
+
+	  /* To set contrast to mean value */
+	  LCD_ContrastConfig(LCD_Contrast_Level_4);
+
+	  LCD_DeadTimeConfig(LCD_DeadTime_0);
+	  LCD_PulseOnDurationConfig(LCD_PulseOnDuration_4);
+
+	  /* Wait Until the LCD FCR register is synchronized */
+	  LCD_WaitForSynchro();
+
+	  /* Enable LCD peripheral */
+	  LCD_Cmd(ENABLE);
+
+	  /* Wait Until the LCD is enabled */
+	  while(LCD_GetFlagStatus(LCD_FLAG_ENS) == RESET)
+	  {
+	  }
+	  /*!< Wait Until the LCD Booster is ready */
+	  while(LCD_GetFlagStatus(LCD_FLAG_RDY) == RESET)
+	  {
+	  }
+
+	  LCD_BlinkConfig(LCD_BlinkMode_Off,LCD_BlinkFrequency_Div32);
+	  LCD_GLASS_Clear();
 }
 
 /*
@@ -370,12 +426,14 @@ int main(void)
     int toggle = 1;
     double range_result = 0;
     double avg_result = 0;
+     // 1tag  0 anchor
 
     led_off(LED_ALL); //turn off all the LEDs
 
     peripherals_init();
 
     spi_peripheral_init();
+    InitializeTimer();
 
 //    Sleep(1000); //wait for LCD to power on
 
@@ -383,9 +441,9 @@ int main(void)
 
     memset(dataseq, 0, LCD_BUFF_LEN);
     memcpy(dataseq, (const uint8 *) "DECAWAVE        ", 16);
-    writetoLCD( 40, 1, dataseq); //send some data
+    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
     memcpy(dataseq, (const uint8 *) SOFTWARE_VER_STRING, 16); // Also set at line #26 (Should make this from single value !!!)
-    writetoLCD( 16, 1, dataseq); //send some data
+    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
 
    // Sleep(1000);
 
@@ -406,7 +464,7 @@ int main(void)
         writetoLCD( 1, 0,  &command);
         memset(dataseq, ' ', LCD_BUFF_LEN);
         memcpy(dataseq, (const uint8 *) "DECAWAVE  RANGE", 15);
-        writetoLCD( 15, 1, dataseq); //send some data
+        LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);      //writetoLCD( 15, 1, dataseq); //send some data
 
         led_off(LED_ALL);
 
@@ -450,7 +508,7 @@ int main(void)
         i = 0;
         led_off(LED_ALL);
         command = 0x2 ;  //return cursor home
-        writetoLCD( 1, 0,  &command);
+        LCD_GLASS_Clear();//writetoLCD( 1, 0,  &command);
 
         memset(dataseq, ' ', LCD_BUFF_LEN);
 
@@ -470,21 +528,21 @@ int main(void)
         {
             memcpy(&dataseq[2], (const uint8 *) " TAG BLINK  ", 12);
 
-            writetoLCD( 40, 1, dataseq); //send some data
+            LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
             sprintf((char*)&dataseq[0], "%llX", instance_get_addr());
-            writetoLCD( 16, 1, dataseq); //send some data
+            LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
 
         }
         else
         {
             memcpy(&dataseq[2], (const uint8 *) "  AWAITING  ", 12);
-            writetoLCD( 40, 1, dataseq); //send some data
+            LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
             memcpy(&dataseq[2], (const uint8 *) "    POLL    ", 12);
-            writetoLCD( 16, 1, dataseq); //send some data
+            LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
         }
 
         command = 0x2 ;  //return cursor home
-        writetoLCD( 1, 0,  &command);
+        LCD_GLASS_Clear();//writetoLCD( 1, 0,  &command);
 
 #if (DWINTERRUPT_EN == 1)
     port_EnableEXT_IRQ(); //enable ScenSor IRQ before starting
