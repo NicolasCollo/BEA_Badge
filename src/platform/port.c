@@ -26,6 +26,7 @@
 #define usb_init(x)					No_Configuration(x)
 #define lcd_init(x)					No_Configuration(x)
 #define touch_screen_init(x)		No_Configuration(x)
+#define adc_init(x)					ADC_Configuration(x)
 
 /* System tick 32 bit variable defined by the platform */
 extern __IO unsigned long time32_incr;
@@ -212,6 +213,10 @@ int RCC_Configuration(void)
 
     	/* Enable HSI */
     	RCC_HSICmd(ENABLE);
+
+    	/* Wait until HSI oscillator is ready */
+    	while(RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
+
 
     	/* Enable MSI */
     	RCC_MSICmd(ENABLE);
@@ -563,21 +568,6 @@ int GPIO_Configuration(void)
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
-	//Enable GPIO used for User button
-	GPIO_InitStructure.GPIO_Pin = TA_BOOT1;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_BOOT1_GPIO, &GPIO_InitStructure);
-
-	//Enable GPIO used for Response Delay setting
-	GPIO_InitStructure.GPIO_Pin = TA_RESP_DLY | TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_RESP_DLY_GPIO, &GPIO_InitStructure);
-
-	//Enable GPIO used for SW1 switch setting
-	GPIO_InitStructure.GPIO_Pin = TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_SW1_GPIO, &GPIO_InitStructure);
-
 	// Disable GPIOs clocks
 	//RCC_APB2PeriphClockCmd(
 	//					RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
@@ -603,9 +593,45 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(REGISTERING_GPIO, &GPIO_InitStructure);
 
+	// Enable GPIO used to clear tag list
+	GPIO_InitStructure.GPIO_Pin = TAG_RESET_GPIO_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(TAG_RESET_GPIO, &GPIO_InitStructure);
+
     return 0;
 }
 
+void ADC_Configuration(void)
+{
+	ADC_InitTypeDef ADC_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	// Configure PB.1 (ADC1 Channel9)
+
+	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+	/* Enable ADC1 clock */
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+	/* ADC1 Configuration -----------------------------------------------------*/
+	ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+	ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+ 	ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+	ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
+	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+	ADC_InitStructure.ADC_NbrOfConversion = 1;
+	ADC_Init(ADC1, &ADC_InitStructure);
+
+	/* Enable ADC1 */
+	ADC_Cmd(ADC1, ENABLE);
+
+	/* Wait until the ADC1 is ready */
+	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET)
+	{
+	}
+}
 
 void reset_DW1000(void)
 {
@@ -774,13 +800,13 @@ int is_button_reset_on()
 {
 	int result = 1;
 
-	if (GPIO_ReadInputDataBit(TA_SW1_GPIO, TA_SW1_8))
+	if (GPIO_ReadInputDataBit(TAG_RESET_GPIO, TAG_RESET_GPIO_PIN))
 		result = 0;
 
 	return result;
 }
 
-int is_button_low(uint16_t GPIOpin)
+/*int is_button_low(uint16_t GPIOpin)
 {
 	int result = 1;
 
@@ -799,7 +825,7 @@ int is_switch_on(uint16_t GPIOpin)
 		result = 0;
 
 	return result;
-}
+} */
 
 
 void led_off (led_t led)

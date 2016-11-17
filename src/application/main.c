@@ -55,7 +55,6 @@ uint8 dataseq[LCD_BUFF_LEN];
 uint8 dataseq1[LCD_BUFF_LEN];
 
 int ranging = 0;
-int range_max = 0;
 
 typedef struct
 {
@@ -327,12 +326,6 @@ void initLCD(void)
 **/
 #define switch_mask   (0x7F)
 
-const uint8 switchbuf[]={0, TA_SW1_3 , TA_SW1_4 , TA_SW1_5 , TA_SW1_6 , TA_SW1_7 , TA_SW1_8 };
-typedef int (* switch_handler_t)(uint16) ;
-const switch_handler_t switch_fn[] ={ is_button_low, \
-                                is_switch_on, is_switch_on, is_switch_on,\
-                                is_switch_on, is_switch_on, is_switch_on };
-
 void setLCDline1(uint8 s1switch)
 {
 	uint8 command = 0x2 ;  //return cursor home
@@ -345,6 +338,27 @@ void setLCDline1(uint8 s1switch)
 	writetoLCD( 16, 1, dataseq1); //send some data
 }
 
+#define ADC_CONVERT_RATIO      806    /* (3300mV / 4095)* 1000 input voltage variation from 0 to 3.3V, 12 bits*/
+#define RANGE_MAX	30
+
+double readADC(uint8 channel)
+{
+	uint16 ADC_Data = 0;
+	uint32 VDDmV = 0;
+	double range_max = 0;
+
+	ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_16Cycles); // Nombre de cycles à choisir, mais pas très important
+	// Start the conversion
+	ADC_SoftwareStartConv(ADC1);
+ 	// Wait until conversion completion
+	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
+	// Get the conversion value
+ 	ADC_Data = ADC_GetConversionValue(ADC1);
+ 	VDDmV = ((uint32)ADC_Data*(uint32)ADC_CONVERT_RATIO);
+ 	range_max = ((double)VDDmV * (double)RANGE_MAX)/((double)3300);
+
+ 	return range_max;
+}
 /*
  * @fn      main()
  * @brief   main entry point
@@ -554,7 +568,7 @@ int main(void)
 
             if(instance_mode == TAG)
             {
-            	if(range_result > range_max) // Out of max range
+            	if(range_result > readADC(ADC_Channel_9)) // Out of max range
             	{
             		// Code pour faire s'endormir le µP
             	}
@@ -565,7 +579,7 @@ int main(void)
             }
             else
             {
-            	if(range_result > range_max) // Out of max range
+            	if(range_result > readADC(ADC_Channel_9)) // Out of max range
             	{
                 	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
                 	led_off(LED_PC6);

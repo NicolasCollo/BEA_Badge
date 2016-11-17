@@ -115,14 +115,8 @@ typedef enum
 #define TA_RESP_DLY                 GPIO_Pin_0
 #define TA_RESP_DLY_GPIO            GPIOC
 
-#define TA_SW1_3					GPIO_Pin_0
-#define TA_SW1_4					GPIO_Pin_1
-#define TA_SW1_5					GPIO_Pin_2
-#define TA_SW1_6					GPIO_Pin_3
-#define TA_SW1_7					GPIO_Pin_4
-#define TA_SW1_8					GPIO_Pin_5
-#define TA_SW1_GPIO                 GPIOC
-
+#define TAG_RESET_GPIO_PIN			GPIO_Pin_5
+#define TAG_RESET_GPIO				GPIOC
 #define DOOR_GPIO					GPIOB
 #define DOOR_GPIO_PIN				GPIO_Pin_8
 #define REGISTERING_GPIO			GPIOB
