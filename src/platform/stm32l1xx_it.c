@@ -38,6 +38,7 @@
 
 extern USB_OTG_CORE_HANDLE           USB_OTG_dev;
 extern uint32_t USBD_OTG_ISR_Handler (USB_OTG_CORE_HANDLE *pdev);
+extern double max_range;
 
 #ifdef USB_OTG_HS_DEDICATED_EP1_ENABLED
 extern uint32_t USBD_OTG_EP1IN_ISR_Handler (USB_OTG_CORE_HANDLE *pdev);
@@ -262,6 +263,15 @@ void EXTI9_5_IRQHandler(void)
     EXTI_ClearITPendingBit(DECAIRQ_EXTI);
 }
 
+void ADC1_IRQHandler(void)
+{
+  if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET)
+  {
+    /* Clear ADC1 AWD pending interrupt bit */
+    ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+
+  }
+}
 
 #ifdef USB_SUPPORT //this is set in the port.h file
 
