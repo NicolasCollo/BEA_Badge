@@ -270,7 +270,7 @@ int testapprun_s(instance_data_t *inst, int message)
                 //led_off(LED_PC9);
 
                 //this is platform dependent - only program if DW EVK/EVB
-                dwt_setleds(1);
+                //dwt_setleds(1); peut mettre des leds sur la board a la place
 
                 //MP bug - TX antenna delay needs reprogramming as it is not preserved after DEEP SLEEP
                 dwt_settxantennadelay(inst->txantennaDelay) ;

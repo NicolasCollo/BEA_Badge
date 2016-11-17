@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <breakpoints>
 <breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/Projet_Sur_Nucleo2/src/application/main.c" type="1"/>
-<marker lineNumber="487" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="message" value="Line breakpoint: main.c [line: 487]"/>
+<resource path="/Projet_Sur_Nucleo2/src/platform/port.c" type="1"/>
+<marker lineNumber="559" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="message" value="Line breakpoint: port.c [line: 559]"/>
 <attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
 <attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
 <attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="C:\Users\olivi\OneDrive\Documents\GitHub\DecawaveEnhencedv5\src\application\main.c"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="C:\Users\olivi\OneDrive\Documents\GitHub\DecawaveEnhencedv5\src\platform\port.c"/>
 <attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
