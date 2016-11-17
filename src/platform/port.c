@@ -555,19 +555,39 @@ int GPIO_Configuration(void)
 	RCC_AHBPeriphClockCmd(
 						RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |
 						RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
-						RCC_AHBPeriph_GPIOE,	ENABLE);
+						RCC_AHBPeriph_GPIOE,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
 
 	// Set all GPIO pins as analog inputs
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+	/*GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
+<<<<<<< HEAD
+	//Enable GPIO used for User button
+	GPIO_InitStructure.GPIO_Pin = TA_BOOT1;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(TA_BOOT1_GPIO, &GPIO_InitStructure);
+
+	//Enable GPIO used for Response Delay setting
+	GPIO_InitStructure.GPIO_Pin = TA_RESP_DLY | TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(TA_RESP_DLY_GPIO, &GPIO_InitStructure);
+
+	//Enable GPIO used for SW1 switch setting
+	GPIO_InitStructure.GPIO_Pin = TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(TA_SW1_GPIO, &GPIO_InitStructure);
+
+
+
+=======
+>>>>>>> refs/remotes/origin/master
 	// Disable GPIOs clocks
 	//RCC_APB2PeriphClockCmd(
 	//					RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
@@ -582,7 +602,9 @@ int GPIO_Configuration(void)
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 //	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
 
-	// Enable GPIO used to command the relay, commanding the door
+*/
+
+	// Enable GPIO used to command the relay, commanding the door PB8
 	GPIO_InitStructure.GPIO_Pin = DOOR_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
@@ -1003,8 +1025,8 @@ int is_IRQ_enabled(void)
 int peripherals_init (void)
 {
 	rcc_init();
+	rtc_init();
 	gpio_init();
-	//rtc_init();
 	systick_init();
 	interrupt_init();
 	usart_init();

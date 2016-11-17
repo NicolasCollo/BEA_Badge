@@ -45,10 +45,10 @@ int localSPIspeed = -1;
 
 //USB to SPI data buffers
 int local_buff_length = 0;
-uint8_t local_buff[9000];
+uint8_t local_buff[5000];
 uint16_t local_buff_offset = 0;
 int tx_buff_length = 0;
-uint8_t tx_buff[9000];
+uint8_t tx_buff[5000];
 int local_have_data = 0;
 
 int version_size;
