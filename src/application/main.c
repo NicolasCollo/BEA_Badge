@@ -55,6 +55,8 @@ uint8 dataseq[LCD_BUFF_LEN];
 uint8 dataseq1[LCD_BUFF_LEN];
 
 int ranging = 0;
+double max_range = 0;
+int n = 1000; // Number defined to read the analog value after N cycles.
 
 typedef struct
 {
@@ -347,7 +349,6 @@ double readADC(uint8 channel)
 	uint32 VDDmV = 0;
 	double range_max = 0;
 
-	ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_16Cycles); // Nombre de cycles à choisir, mais pas très important
 	// Start the conversion
 	ADC_SoftwareStartConv(ADC1);
  	// Wait until conversion completion
@@ -529,20 +530,23 @@ int main(void)
 
         if(instancenewrange())
         {
-
-        	/**************************** Code à écrire ******************************/
-        	/* Pour le tag, si addresse pas dans la liste de l'ancre ou si la distance
-        	 * dépasse la distance maximum, entre en mode stop, standby ou low power sleep
-        	 * Pour l'ancre, LED verte si ces conditions sont respectées, led rouge sinon.
-        	 * Si un tag respecte toutes ces conditions, il devrait rester lié à l'ancre
-        	 * et il n'y aura donc pas d'alternance de couleur des LEDs.
-        	 *************************************************************************/
-
-        	int n, l = 0, /*txl = 0, rxl = 0,*/ aaddr, taddr, txa, rxa, rng, rng_raw;
+        	int n, l = 0, aaddr, taddr, txa, rxa, rng, rng_raw;
             ranging = 1;
-            //send the new range information to LCD and/or USB
+            // Send the new range information to LCD and/or USB
             range_result = instance_get_idist();
             avg_result = instance_get_adist();
+
+            // Calculate the maximum range every n cycles.
+            if(instance_mode == ANCHOR)
+            {
+            	n--;
+            	if(n == 0)
+            	{
+            		max_range = readADC(ADC_Channel_9);
+            		n = 1000;
+            	}
+            }
+
 
             dataseq[0] = 0x2 ;  //return cursor home
             writetoLCD( 1, 0,  dataseq);
@@ -557,8 +561,6 @@ int main(void)
             writetoLCD( 16, 1, dataseq1); //send some data
 
             l = instance_get_lcount();
-            //txl = instance_get_txl();
-            //rxl = instance_get_rxl();
             aaddr = instancenewrangeancadd();
             taddr = instancenewrangetagadd();
             txa =  instancetxantdly();
@@ -568,7 +570,7 @@ int main(void)
 
             if(instance_mode == TAG)
             {
-            	if(range_result > readADC(ADC_Channel_9)) // Out of max range
+            	if(range_result > max_range) // Out of max range
             	{
             		// Code pour faire s'endormir le µP
             	}
@@ -579,7 +581,7 @@ int main(void)
             }
             else
             {
-            	if(range_result > readADC(ADC_Channel_9)) // Out of max range
+            	if(range_result > max_range) // Out of max range
             	{
                 	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
                 	led_off(LED_PC6);

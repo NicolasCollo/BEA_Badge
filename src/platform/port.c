@@ -605,6 +605,7 @@ void ADC_Configuration(void)
 {
 	ADC_InitTypeDef ADC_InitStructure;
 	GPIO_InitTypeDef GPIO_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
 
 	// Configure PB.1 (ADC1 Channel9)
 
@@ -624,13 +625,26 @@ void ADC_Configuration(void)
 	ADC_InitStructure.ADC_NbrOfConversion = 1;
 	ADC_Init(ADC1, &ADC_InitStructure);
 
-	/* Enable ADC1 */
-	ADC_Cmd(ADC1, ENABLE);
+	 /* Configure and enable ADC1 interrupt */
+	 NVIC_InitStructure.NVIC_IRQChannel = ADC1_IRQn;
+	 NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 15;
+	 NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	 NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	 NVIC_Init(&NVIC_InitStructure);
 
-	/* Wait until the ADC1 is ready */
-	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET)
-	{
-	}
+	 ADC_RegularChannelConfig(ADC1, ADC_Channel_9, 1, ADC_SampleTime_16Cycles);
+
+	 /* Enable EOC interrupt */
+	 ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+	 /* Enable ADC1 */
+	 ADC_Cmd(ADC1, ENABLE);
+
+	 /* Wait until the ADC1 is ready */
+	 while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET)
+	 {
+	 }
+
+
 }
 
 void reset_DW1000(void)
@@ -877,6 +891,7 @@ void led_on (led_t led)
 		break;
 	}
 }
+
 
 #ifdef USART_SUPPORT
 
