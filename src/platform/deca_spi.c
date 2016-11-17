@@ -79,7 +79,7 @@ int writetospi_serial
 
     stat = decamutexon() ;
 
-    SPIx_CS_GPIO->BRR = SPIx_CS;
+    SPIx_CS_GPIO->BSRRH = SPIx_CS;
 
     for(i=0; i<headerLength; i++)
     {
@@ -134,7 +134,7 @@ int readfromspi_serial
     /* Wait for SPIx Tx buffer empty */
     //while (port_SPIx_busy_sending());
 
-    SPIx_CS_GPIO->BRR = SPIx_CS;
+    SPIx_CS_GPIO->BSRRH = SPIx_CS;
 
     for(i=0; i<headerLength; i++)
     {
