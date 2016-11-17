@@ -30,7 +30,7 @@
 
 /* System tick 32 bit variable defined by the platform */
 extern __IO unsigned long time32_incr;
-int instanceMode = 1; // 1 = TAG , 0 = ANCHOR
+int instanceMode = 0; // 1 = TAG , 0 = ANCHOR
 
 int No_Configuration(void)
 {
@@ -65,8 +65,8 @@ void RTC_Configuration(void)
 	  /* Allow access to RTC */
 	  PWR_RTCAccessCmd(ENABLE);
 
-	/* LSI used as RTC source clock */
-	/* The RTC Clock may varies due to LSI frequency dispersion. */
+	  /* LSI used as RTC source clock */
+	  /* The RTC Clock may varies due to LSI frequency dispersion. */
 	  /* Enable the LSI OSC */
 	  RCC_LSICmd(ENABLE);
 
@@ -86,7 +86,7 @@ void RTC_Configuration(void)
 
 //ok
 
-	   //EXTI configuration ******************************************************
+	  //EXTI configuration ******************************************************
 	  EXTI_ClearITPendingBit(EXTI_Line20);
 	  EXTI_InitStructure.EXTI_Line = EXTI_Line20;
 	  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
@@ -221,20 +221,20 @@ int RCC_Configuration(void)
     	/* Enable MSI */
     	RCC_MSICmd(ENABLE);
 
-    	/* Choix de la valeur de MSI 262 kHz*/
-    	RCC_MSIRangeConfig(RCC_MSIRange_2);
+    	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
+    	RCC_MSIRangeConfig(RCC_MSIRange_0);
 
     	/* Enable Prefetch Buffer */
     	FLASH_PrefetchBufferCmd(ENABLE);
 
     	/****************************************************************/
     	/* HSI = up to 16MHz,
-	       HCLK=37kHz, PCLK2=37kHz, PCLK1=37kHz 						*/
+	       HCLK=32kHz, PCLK2=32kHz, PCLK1=32kHz 						*/
     	/****************************************************************/
     	/* Flash 2 wait state */
     	FLASH_SetLatency(FLASH_Latency_1);
     	/* HCLK = SYSCLK */
-    	RCC_HCLKConfig(RCC_SYSCLK_Div1);
+    	RCC_HCLKConfig(RCC_SYSCLK_Div2);
     	/* PCLK2 = HCLK */
     	RCC_PCLK2Config(RCC_HCLK_Div1);
     	/* PCLK1 = HCLK/2 */
@@ -559,14 +559,14 @@ int GPIO_Configuration(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
 
-	// Set all GPIO pins as analog inputs
+/*	// Set all GPIO pins as analog inputs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
-	GPIO_Init(GPIOE, &GPIO_InitStructure);
+	GPIO_Init(GPIOE, &GPIO_InitStructure); */
 
 
 	// Enable GPIO used for LEDs
