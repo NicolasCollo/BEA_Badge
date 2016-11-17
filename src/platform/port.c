@@ -560,7 +560,7 @@ int GPIO_Configuration(void)
 
 
 	// Set all GPIO pins as analog inputs
-	/*GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
@@ -568,41 +568,15 @@ int GPIO_Configuration(void)
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
-<<<<<<< HEAD
-	//Enable GPIO used for User button
-	GPIO_InitStructure.GPIO_Pin = TA_BOOT1;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_BOOT1_GPIO, &GPIO_InitStructure);
-
-	//Enable GPIO used for Response Delay setting
-	GPIO_InitStructure.GPIO_Pin = TA_RESP_DLY | TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_RESP_DLY_GPIO, &GPIO_InitStructure);
-
-	//Enable GPIO used for SW1 switch setting
-	GPIO_InitStructure.GPIO_Pin = TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_Init(TA_SW1_GPIO, &GPIO_InitStructure);
-
-
-
-=======
->>>>>>> refs/remotes/origin/master
-	// Disable GPIOs clocks
-	//RCC_APB2PeriphClockCmd(
-	//					RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
-	//					RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD |
-	//					RCC_APB2Periph_GPIOE | RCC_APB2Periph_AFIO,
-	//					DISABLE);
 
 	// Enable GPIO used for LEDs
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
 //	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
 
-*/
+
 
 	// Enable GPIO used to command the relay, commanding the door PB8
 	GPIO_InitStructure.GPIO_Pin = DOOR_GPIO_PIN;
