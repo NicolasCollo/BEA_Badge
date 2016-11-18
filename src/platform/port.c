@@ -569,7 +569,7 @@ int GPIO_Configuration(void)
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
-<<<<<<< HEAD
+
 	//Enable GPIO used for User button
 	GPIO_InitStructure.GPIO_Pin = TA_BOOT1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
@@ -585,10 +585,6 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(TA_SW1_GPIO, &GPIO_InitStructure);
 
-
-
-=======
->>>>>>> refs/remotes/origin/master
 	// Disable GPIOs clocks
 	//RCC_APB2PeriphClockCmd(
 	//					RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
@@ -622,56 +618,7 @@ int GPIO_Configuration(void)
 	GPIO_Init(TAG_RESET_GPIO, &GPIO_InitStructure);
 
 
-	/* Configure Port A LCD Output pins as alternate function */
-	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_8 | GPIO_Pin_9 |GPIO_Pin_10 |GPIO_Pin_15;
-	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	  GPIO_Init( GPIOA, &GPIO_InitStructure);
 
-	/* Select LCD alternate function for Port A LCD Output pins */
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource1,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource2,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource3,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource8,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource9,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource10,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource15,GPIO_AF_LCD) ;
-
-	  /* Configure Port B LCD Output pins as alternate function */
-	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
-
-	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	  GPIO_Init( GPIOB, &GPIO_InitStructure);
-
-	  /* Select LCD alternate function for Port B LCD Output pins */
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource3,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource4,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource5,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource8,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource9,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource10,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource11,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource12,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource13,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource14,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource15,GPIO_AF_LCD) ;
-
-	  /* Configure Port C LCD Output pins as alternate function */
-	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_6 \
-	                                 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |GPIO_Pin_11 ;
-	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	  GPIO_Init( GPIOC, &GPIO_InitStructure);
-
-	  /* Select LCD alternate function for Port B LCD Output pins */
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource0,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource1,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource2,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource3,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource9,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource10,GPIO_AF_LCD) ;
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource11,GPIO_AF_LCD) ;
 
     return 0;
 }
@@ -1103,12 +1050,12 @@ int peripherals_init (void)
 
 void spi_peripheral_init()
 {
-	spi_init();
+	spi_init(); // appel a la configuration du SPI DM1000
 
 	//initialise SPI2 peripheral for LCD control
-	SPI2_Configuration();
+	// SPI2_Configuration(); // pas encore defini dans notre cas
 
-	port_LCD_RS_clear();
+	//port_LCD_RS_clear();
 
-	port_LCD_RW_clear();
+	//port_LCD_RW_clear();
 }
