@@ -30,11 +30,9 @@
 
 /* System tick 32 bit variable defined by the platform */
 extern __IO unsigned long time32_incr;
-<<<<<<< HEAD
+
 int instanceMode = 0; // 1 = TAG , 0 = ANCHOR
-=======
- // 1 = TAG , 0 = ANCHOR
->>>>>>> master
+
 
 int No_Configuration(void)
 {
@@ -225,13 +223,10 @@ int RCC_Configuration( bool instanceMode)
     	/* Enable MSI */
     	RCC_MSICmd(ENABLE);
 
-<<<<<<< HEAD
+
     	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
     	RCC_MSIRangeConfig(RCC_MSIRange_0);
-=======
-    	/* Choix de la valeur de MSI 4194 MHz*/
-    	RCC_MSIRangeConfig(RCC_MSIRange_6);
->>>>>>> master
+
 
     	/* Enable Prefetch Buffer */
     	FLASH_PrefetchBufferCmd(ENABLE);
@@ -562,27 +557,22 @@ int GPIO_Configuration(void)
 	* immunity against EMI/EMC */
 
 	// Enable GPIOs clocks
-	RCC_AHBPeriphClockCmd(
-						RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |
-						RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
-						RCC_AHBPeriph_GPIOE,ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |RCC_AHBPeriph_GPIOE,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
 
-/*	// Set all GPIO pins as analog inputs
+	// Set all GPIO pins as analog inputs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
-<<<<<<< HEAD
-	GPIO_Init(GPIOE, &GPIO_InitStructure); */
 
-=======
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
 
+/*
 	//Enable GPIO used for User button
 	GPIO_InitStructure.GPIO_Pin = TA_BOOT1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
@@ -597,19 +587,15 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = TA_SW1_3 | TA_SW1_4 | TA_SW1_5 | TA_SW1_6 | TA_SW1_7 | TA_SW1_8;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(TA_SW1_GPIO, &GPIO_InitStructure);
+	*/
 
-	// Disable GPIOs clocks
-	//RCC_APB2PeriphClockCmd(
-	//					RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
-	//					RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD |
-	//					RCC_APB2Periph_GPIOE | RCC_APB2Periph_AFIO,
-	//					DISABLE);
->>>>>>> master
+
+
 
 	// Enable GPIO used for LEDs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_400KHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 //	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
 
@@ -618,7 +604,7 @@ int GPIO_Configuration(void)
 	// Enable GPIO used to command the relay, commanding the door PB8
 	GPIO_InitStructure.GPIO_Pin = DOOR_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_400KHz;
 	GPIO_Init(DOOR_GPIO, &GPIO_InitStructure);
 
 	// Enable GPIO used to register new tags
@@ -631,8 +617,8 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(TAG_RESET_GPIO, &GPIO_InitStructure);
 
-
-
+	// Disable GPIOs clocks
+	//RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |RCC_AHBPeriph_GPIOE,DISABLE);
 
     return 0;
 }
