@@ -441,20 +441,28 @@ int SPI_Configuration(void)
 
 	SPI_Init(SPIx, &SPI_InitStructure);
 
-	// SPIx SCK and MOSI pin setup
-	GPIO_InitStructure.GPIO_Pin = SPIx_SCK | SPIx_MOSI;
+	// SPIx SCK pin setup
+	GPIO_InitStructure.GPIO_Pin = SPIx_SCK;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 
-	GPIO_Init(SPIx_GPIO, &GPIO_InitStructure);
+	GPIO_Init(SPIx_SCK_GPIO, &GPIO_InitStructure);
+
+	// SPIx MOSI pin setup
+	GPIO_InitStructure.GPIO_Pin = SPIx_MOSI;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+
+	GPIO_Init(SPIx_MOSI_GPIO, &GPIO_InitStructure);
 
 	// SPIx MISO pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_MISO;
 	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
 
-	GPIO_Init(SPIx_GPIO, &GPIO_InitStructure);
+	GPIO_Init(SPIx_MISO_GPIO, &GPIO_InitStructure);
 
 	// SPIx CS pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_CS;
@@ -629,12 +637,12 @@ void ADC_Configuration(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
-	// Configure PB.1 (ADC1 Channel9)
+	// Configure PC.0 (ADC1 Channel10)
 
 	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = POT_GPIO_PIN;
+	GPIO_Init(POT_GPIO, &GPIO_InitStructure);
 
 	/* Enable ADC1 clock */
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
@@ -654,7 +662,7 @@ void ADC_Configuration(void)
 	 NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	 NVIC_Init(&NVIC_InitStructure);
 
-	 ADC_RegularChannelConfig(ADC1, ADC_Channel_9, 1, ADC_SampleTime_16Cycles);
+	 ADC_RegularChannelConfig(ADC1, POT_ADC_CHANNEL, 1, ADC_SampleTime_16Cycles);
 
 	 /* Enable EOC interrupt */
 	 ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
@@ -868,10 +876,10 @@ void led_off (led_t led)
 {
 	switch (led)
 	{
-	case LED_PC6:
+	case LED_PB6:
 		GPIO_ResetBits(GPIOB, GPIO_Pin_6);
 		break;
-	case LED_PC7:
+	case LED_PB7:
 		GPIO_ResetBits(GPIOB, GPIO_Pin_7);
 		break;
 /*	case LED_PC8:
@@ -893,10 +901,10 @@ void led_on (led_t led)
 {
 	switch (led)
 	{
-	case LED_PC6:
+	case LED_PB6:
 		GPIO_SetBits(GPIOB, GPIO_Pin_6);
 		break;
-	case LED_PC7:
+	case LED_PB7:
 		GPIO_SetBits(GPIOB, GPIO_Pin_7);
 		break;
 /*	case LED_PC8:

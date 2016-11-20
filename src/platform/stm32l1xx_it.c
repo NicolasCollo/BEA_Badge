@@ -256,7 +256,7 @@ void EXTI3_IRQHandler(void)
     EXTI_ClearITPendingBit(EXTI_Line3);
 }
 
-void EXTI9_5_IRQHandler(void)
+void EXTI2_IRQHandler(void)
 {
     process_deca_irq();
     /* Clear EXTI Line 8 Pending Bit */

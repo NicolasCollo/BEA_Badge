@@ -59,8 +59,8 @@ void printf2(const char *format, ...);
 
 typedef enum
 {
-    LED_PC6,
-    LED_PC7,
+    LED_PB6,
+    LED_PB7,
     LED_PC8,
     LED_PC9,
     LED_ALL,
@@ -84,11 +84,14 @@ typedef enum
 
 #define SPIx						SPI1   // spi dm1000
 #define SPIx_GPIO					GPIOB
-#define SPIx_CS						GPIO_Pin_12
-#define SPIx_CS_GPIO				GPIOB
-#define SPIx_SCK					GPIO_Pin_13
-#define SPIx_MISO					GPIO_Pin_14
-#define SPIx_MOSI					GPIO_Pin_15
+#define SPIx_CS						GPIO_Pin_4
+#define SPIx_CS_GPIO				GPIOA
+#define SPIx_SCK					GPIO_Pin_5
+#define SPIx_SCK_GPIO				GPIOA
+#define SPIx_MISO					GPIO_Pin_11
+#define SPIx_MISO_GPIO				GPIOB
+#define SPIx_MOSI					GPIO_Pin_12
+#define SPIx_MOSI_GPIO				GPIOB
 
 #define DW1000_RSTn					GPIO_Pin_0
 #define DW1000_RSTn_GPIO			GPIOA
@@ -96,16 +99,16 @@ typedef enum
 #define DECARSTIRQ                  GPIO_Pin_0
 #define DECARSTIRQ_GPIO             GPIOA
 #define DECARSTIRQ_EXTI             EXTI_Line0
-#define DECARSTIRQ_EXTI_PORT        EXTI_PortSourceGPIOA//GPIO_PortSourceGPIOA
+#define DECARSTIRQ_EXTI_PORT        EXTI_PortSourceGPIOA
 #define DECARSTIRQ_EXTI_PIN         GPIO_PinSource0
 #define DECARSTIRQ_EXTI_IRQn        EXTI0_IRQn
 
-#define DECAIRQ                     GPIO_Pin_5
+#define DECAIRQ                     GPIO_Pin_2
 #define DECAIRQ_GPIO                GPIOB
-#define DECAIRQ_EXTI                EXTI_Line5
-#define DECAIRQ_EXTI_PORT           EXTI_PortSourceGPIOB//GPIO_PortSourceGPIOB
-#define DECAIRQ_EXTI_PIN            GPIO_PinSource5
-#define DECAIRQ_EXTI_IRQn           EXTI9_5_IRQn
+#define DECAIRQ_EXTI                EXTI_Line2
+#define DECAIRQ_EXTI_PORT           EXTI_PortSourceGPIOB
+#define DECAIRQ_EXTI_PIN            GPIO_PinSource2
+#define DECAIRQ_EXTI_IRQn           EXTI2_IRQn
 #define DECAIRQ_EXTI_USEIRQ         ENABLE
 #define DECAIRQ_EXTI_NOIRQ          DISABLE
 
@@ -115,12 +118,15 @@ typedef enum
 #define TA_RESP_DLY                 GPIO_Pin_0
 #define TA_RESP_DLY_GPIO            GPIOC
 
-#define TAG_RESET_GPIO_PIN			GPIO_Pin_5
-#define TAG_RESET_GPIO				GPIOC
-#define DOOR_GPIO					GPIOB
-#define DOOR_GPIO_PIN				GPIO_Pin_8
-#define REGISTERING_GPIO			GPIOB
-#define REGISTERING_GPIO_PIN		GPIO_Pin_9
+#define TAG_RESET_GPIO				GPIOA // GPIOC
+#define TAG_RESET_GPIO_PIN			GPIO_Pin_14 // GPIO_Pin_11
+#define DOOR_GPIO					GPIOC
+#define DOOR_GPIO_PIN				GPIO_Pin_12
+#define REGISTERING_GPIO			GPIOA // GPIOC
+#define REGISTERING_GPIO_PIN		GPIO_Pin_13 // GPIO_Pin_10
+#define POT_GPIO					GPIOC // Pris par le LCD , prendre PC4 plus tard, chanel 14
+#define POT_GPIO_PIN				GPIO_Pin_0 //GPIO_Pin_4
+#define POT_ADC_CHANNEL				ADC_Channel_10 //ADC_Channel_14
 
 #define S1_SWITCH_ON  (1)
 #define S1_SWITCH_OFF (0)

@@ -668,7 +668,7 @@ int main(void)
             	n--;
             	if(n == 0)
             	{
-            		max_range = readADC(ADC_Channel_9);
+            		max_range = readADC(POT_ADC_CHANNEL);
             		n = 1000;
             	}
             }
@@ -709,14 +709,14 @@ int main(void)
             {
             	if(range_result > max_range) // Out of max range
             	{
-                	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
-                	led_off(LED_PC6);
+                	led_on(LED_PB7); // Red LED means that the anchor is not linked with any tag
+                	led_off(LED_PB6);
             		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
             	}
             	else
             	{
-                	led_on(LED_PC6); // Green LED means that the anchor is linked with one tag
-                	led_off(LED_PC7);
+                	led_on(LED_PB6); // Green LED means that the anchor is linked with one tag
+                	led_off(LED_PB7);
             		GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET); // Door opened in this case
             		n = sprintf((char*)&dataseq[0], "ia%04x t%04x %08x %08x %04x %04x %04x a", aaddr, taddr, rng, rng_raw, l, txa, rxa);
             	}
@@ -765,8 +765,8 @@ int main(void)
             }
             else //if(instance_mode == ANCHOR)
             {
-            	led_on(LED_PC7); // Red LED means that the anchor is not linked with any tag
-            	led_off(LED_PC6);
+            	led_on(LED_PB7); // Red LED means that the anchor is not linked with any tag
+            	led_off(LED_PB6);
         		GPIO_WriteBit(DOOR_GPIO, DOOR_GPIO_PIN, Bit_RESET); // Door closed in this case
 
                 if(instanceanchorwaiting())
@@ -816,13 +816,13 @@ int main(void)
 
     		if(k % 124 == 0 && k % 248 !=0) // Alternate blink from LEDs during the reset phase
     		{
-            	led_on(LED_PC7);
-            	led_off(LED_PC6);
+            	led_on(LED_PB7);
+            	led_off(LED_PB6);
     		}
     		else if(k % 124 == 0 && k % 248 ==0)
     		{
-            	led_on(LED_PC6);
-            	led_off(LED_PC7);
+            	led_on(LED_PB6);
+            	led_off(LED_PB7);
     		}
 
     		dataseq[0] = 0x2 ;  //return cursor home

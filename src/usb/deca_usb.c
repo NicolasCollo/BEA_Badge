@@ -228,7 +228,7 @@ int process_usbmessage(void)
 						application_mode = USB_TO_SPI;
 						result = 2;
 						//led_off(LED_ALL);
-						led_on(LED_PC7); //turn on LED to indicate connection to PC application
+						led_on(LED_PB7); //turn on LED to indicate connection to PC application
 					}
 				}
 			}
@@ -294,7 +294,7 @@ int process_usbmessage(void)
 						{
 							local_buff_offset = 0;
 
-							led_off(LED_PC6);
+							led_off(LED_PB6);
 							tx_buff[0] = 0x2;
 							tx_buff[2] = 0x3;
 
@@ -315,7 +315,7 @@ int process_usbmessage(void)
 						}
 						else //wait for the whole message
 						{
-							led_on(LED_PC6);
+							led_on(LED_PB6);
 						}
 					}
 				}
@@ -333,7 +333,7 @@ int process_usbmessage(void)
 						application_mode = USB_TO_SPI;
 						result = 2;
 						//led_off(LED_ALL);
-						led_on(LED_PC7); //turn on LED to indicate connection to PC application
+						led_on(LED_PB7); //turn on LED to indicate connection to PC application
 					}
 
 				}
