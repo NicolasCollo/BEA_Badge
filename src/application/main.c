@@ -468,6 +468,24 @@ double readADC(uint8 channel)
 
  	return range_max;
 }
+
+void enterLowPowerRunMode(void)
+{
+	/* Select the Voltage Range 2 (1.5V) */
+	PWR_VoltageScalingConfig(PWR_VoltageScaling_Range2);
+
+	 /* Wait Until the Voltage Regulator is ready */
+	 while(PWR_GetFlagStatus(PWR_FLAG_VOS) != RESET)
+	 {
+	 }
+	 /* Enter RUN LP Mode */
+	 PWR_EnterLowPowerRunMode(ENABLE);
+
+	 /* Wait until the system enters RUN LP and the Regulator is in LP mode */
+	 while(PWR_GetFlagStatus(PWR_FLAG_REGLP) == RESET)
+	 {
+	 }
+}
 /*
  * @fn      main()
  * @brief   main entry point
@@ -520,8 +538,6 @@ int main(void)
 
         led_off(LED_ALL);
 
-
-
   /*      if(inittestapplication(s1switch) == (uint32)-1)
         {
             led_on(LED_ALL); //to display error....
@@ -536,6 +552,12 @@ int main(void)
         }
 */
         //sleep for 5 seconds displaying "Decawave" (LEDs only if in ANCHOR mode)
+
+        if(instance_mode == TAG)
+        {
+        	enterLowPowerRunMode();
+        }
+
         if(instance_mode == ANCHOR)
         {
         	i=1; // 30 normalement
