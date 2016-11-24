@@ -89,9 +89,9 @@ typedef enum
 #define SPIx_SCK					GPIO_Pin_5
 #define SPIx_SCK_GPIO				GPIOA
 #define SPIx_MISO					GPIO_Pin_11
-#define SPIx_MISO_GPIO				GPIOB
+#define SPIx_MISO_GPIO				GPIOA
 #define SPIx_MOSI					GPIO_Pin_12
-#define SPIx_MOSI_GPIO				GPIOB
+#define SPIx_MOSI_GPIO				GPIOA
 
 #define DW1000_RSTn					GPIO_Pin_0
 #define DW1000_RSTn_GPIO			GPIOA

@@ -448,7 +448,7 @@ int SPI_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 	GPIO_Init(SPIx_SCK_GPIO, &GPIO_InitStructure);
 
 	// SPIx MOSI pin setup
@@ -456,15 +456,20 @@ int SPI_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 
 	GPIO_Init(SPIx_MOSI_GPIO, &GPIO_InitStructure);
 
 	// SPIx MISO pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_MISO;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 
 	GPIO_Init(SPIx_MISO_GPIO, &GPIO_InitStructure);
+
+
 
 	// SPIx CS pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_CS;
@@ -478,7 +483,11 @@ int SPI_Configuration(void)
 
 	// Enable SPIx
 	SPI_Cmd(SPIx, ENABLE);
-
+	//Mappage des pin SPI
+		GPIO_PinAFConfig(SPIx_SCK_GPIO,SPIx_SCK, GPIO_AF_SPI1); //SCLK
+		GPIO_PinAFConfig(SPIx_MOSI_GPIO,SPIx_MOSI, GPIO_AF_SPI1); //MOSI
+		GPIO_PinAFConfig(SPIx_MISO_GPIO,SPIx_MISO, GPIO_AF_SPI1); //MISO
+		GPIO_PinAFConfig(SPIx_CS_GPIO,SPIx_CS, GPIO_AF_SPI1);
 	// Set CS high
 	GPIO_SetBits(SPIx_CS_GPIO, SPIx_CS);
 
@@ -701,7 +710,7 @@ void reset_DW1000(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_Init(DW1000_RSTn_GPIO, &GPIO_InitStructure);
 
-	Sleep(2);
+	// Sleep(2); delay a remplacer .
 }
 
 
@@ -1044,9 +1053,9 @@ int peripherals_init (void)
 	gpio_init(instanceMode);
 	systick_init();
 	interrupt_init();
-	usart_init();
+	//usart_init();
 	//spi_init();
-	ethernet_init();
+	//ethernet_init();
 	//fs_init();
 	//usb_init();
 	//lcd_init();
@@ -1055,9 +1064,7 @@ int peripherals_init (void)
 	dma_init();	//init DMA for SPI only. Connection of SPI to DMA in read/write functions
 #endif
 
-#ifdef USART_SUPPORT
-	usartinit();
-#endif
+
 	return 0;
 }
 
