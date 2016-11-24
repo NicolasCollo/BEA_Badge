@@ -208,7 +208,7 @@ int RCC_Configuration( bool instanceMode)
 	/* RCC system reset(for debug purpose) */
 	RCC_DeInit();
 
-    if(instanceMode)
+    if(instanceMode) // tag
     {
     	/* Enable LSI */
     	RCC_LSICmd(ENABLE);
@@ -225,11 +225,19 @@ int RCC_Configuration( bool instanceMode)
 
 
     	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
-    	RCC_MSIRangeConfig(RCC_MSIRange_0);
+    	RCC_MSIRangeConfig(RCC_MSIRange_6);
 
 
     	/* Enable Prefetch Buffer */
     	FLASH_PrefetchBufferCmd(ENABLE);
+
+    	/* Select MSI as system clock source */
+    	    RCC_SYSCLKConfig(RCC_SYSCLKSource_MSI);
+
+    	    	/* Wait till MSI is used as system clock source */
+    	    	while (RCC_GetSYSCLKSource() != 0x00){}
+
+    	    	RCC_GetClocksFreq(&RCC_ClockFreq);
 
     	/****************************************************************/
     	/* HSI = up to 16MHz,
@@ -257,13 +265,7 @@ int RCC_Configuration( bool instanceMode)
     	/* Wait till PLL is ready */
     	while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET){}
 
-    	/* Select MSI as system clock source */
-    	RCC_SYSCLKConfig(RCC_SYSCLKSource_MSI);
 
-    	/* Wait till MSI is used as system clock source */
-    	while (RCC_GetSYSCLKSource() != 0x00){}
-
-    	RCC_GetClocksFreq(&RCC_ClockFreq);
 
     	/* Enable SPI1 clock */
     	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
@@ -556,7 +558,7 @@ int SPI2_Configuration(void)
     return 0;
 }
 
-int GPIO_Configuration(void)
+int GPIO_Configuration(bool instancemode)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -572,12 +574,13 @@ int GPIO_Configuration(void)
 	// Set all GPIO pins as analog inputs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+	/*
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-	GPIO_Init(GPIOE, &GPIO_InitStructure);
+	GPIO_Init(GPIOE, &GPIO_InitStructure);*/
 
 
 /*
@@ -607,7 +610,8 @@ int GPIO_Configuration(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 //	GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
 
-
+	if(instancemode==0) // anchre
+	{
 
 	// Enable GPIO used to command the relay, commanding the door PB8
 	GPIO_InitStructure.GPIO_Pin = DOOR_GPIO_PIN;
@@ -624,6 +628,7 @@ int GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = TAG_RESET_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(TAG_RESET_GPIO, &GPIO_InitStructure);
+	}
 
 	// Disable GPIOs clocks
 	//RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |RCC_AHBPeriph_GPIOE,DISABLE);
@@ -889,7 +894,7 @@ void led_off (led_t led)
 		GPIO_ResetBits(GPIOC, GPIO_Pin_9);
 		break; */
 	case LED_ALL:
-		GPIO_ResetBits(GPIOC, GPIO_Pin_6 | GPIO_Pin_7);
+		GPIO_ResetBits(GPIOB, GPIO_Pin_6 | GPIO_Pin_7);
 		break;
 	default:
 		// do nothing for undefined led number
@@ -1036,7 +1041,7 @@ int peripherals_init (void)
 
 	rcc_init(instanceMode);
 	rtc_init();
-	gpio_init();
+	gpio_init(instanceMode);
 	systick_init();
 	interrupt_init();
 	usart_init();

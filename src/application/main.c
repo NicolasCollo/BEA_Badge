@@ -45,7 +45,7 @@ int instance_anchaddr = 0; //0 = 0xDECA020000000001; 1 = 0xDECA020000000002; 2 =
 //NOTE: switches TA_SW1_7 and TA_SW1_8 are used to set tag/anchor address
 int dr_mode = 0;
 //if instance_mode = TAG_TDOA then the device cannot be selected as anchor
-int instance_mode = ANCHOR;
+int instance_mode = TAG;
 //int instance_mode = TAG;
 //int instance_mode = TAG_TDOA;
 //int instance_mode = LISTENER;
@@ -296,7 +296,7 @@ void Delay(uint32_t nTime)
 	    {
 	        counter=TIM_GetCounter(TIM2);
 	    }
-	    TIM_Cmd(TIM2,DISABLE);
+
 }
 
 void InitializeTimer()
@@ -304,9 +304,9 @@ void InitializeTimer()
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 
     TIM_TimeBaseInitTypeDef timerInitStructure;
-    timerInitStructure.TIM_Prescaler = 400;//40000 avant
-    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    timerInitStructure.TIM_Period = 500;
+    timerInitStructure.TIM_Prescaler = 1;//40000 avant
+    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Down;
+    timerInitStructure.TIM_Period = 50; // 500 avant
     timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
     TIM_TimeBaseInit(TIM2, &timerInitStructure);
@@ -513,12 +513,12 @@ int main(void)
     memcpy(dataseq, (const uint8 *) "DECAWAVE        ", 16);
     LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
     memcpy(dataseq, (const uint8 *) SOFTWARE_VER_STRING, 16); // Also set at line #26 (Should make this from single value !!!)
-    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED); //send some data
+     //send some data
 
    // Sleep(1000);
 
-    s1switch = 40; //code anchor mode 3 par défaut
-  //  s1switch = 32; //code tag mode 3 par défaut
+    //s1switch = 40; //code anchor mode 3 par défaut
+    s1switch = 32; //code tag mode 3 par défaut
 
     port_DisableEXT_IRQ(); //disable ScenSor IRQ until we configure the device
 
@@ -527,16 +527,17 @@ int main(void)
 
     //run DecaRanging application
 
-        uint8 dataseq[LCD_BUFF_LEN];
+    		uint8 dataseq[LCD_BUFF_LEN];
         uint8 command = 0x0;
 
-        command = 0x2 ;  //return cursor home
-        writetoLCD( 1, 0,  &command);
+        //    command = 0x2 ;  //return cursor home
+        //        writetoLCD( 1, 0,  &command);
         memset(dataseq, ' ', LCD_BUFF_LEN);
         memcpy(dataseq, (const uint8 *) "DECAWAVE  RANGE", 15);
-        LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);      //writetoLCD( 15, 1, dataseq); //send some data
+          //writetoLCD( 15, 1, dataseq); //send some data
 
         led_off(LED_ALL);
+        LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
 
   /*      if(inittestapplication(s1switch) == (uint32)-1)
         {
@@ -555,12 +556,21 @@ int main(void)
 
         if(instance_mode == TAG)
         {
-        	enterLowPowerRunMode();
+        	i=30; // 30 normalement
+        	        	while(i--)
+        	        	{
+        	        		if (i & 1) led_off(LED_ALL);
+        	        		else    led_on(LED_ALL);
+
+
+        	        	}
+
+        	 enterLowPowerRunMode();
         }
 
         if(instance_mode == ANCHOR)
         {
-        	i=1; // 30 normalement
+        	i=30; // 30 normalement
         	while(i--)
         	{
         		if (i & 1) led_off(LED_ALL);

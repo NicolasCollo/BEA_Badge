@@ -28,7 +28,7 @@
 #include "discover_board.h"
 
 /* Define for scrolling sentences*/
-#define SCROLL_SPEED  	15
+#define SCROLL_SPEED  	1
 #define SCROLL_SPEED_L  300
 #define SCROLL_NUM    	1
 
