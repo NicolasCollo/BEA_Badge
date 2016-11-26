@@ -697,6 +697,7 @@ void reset_DW1000(void)
 
 	// Enable GPIO used for DW1000 reset
 	GPIO_InitStructure.GPIO_Pin = DW1000_RSTn;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_Init(DW1000_RSTn_GPIO, &GPIO_InitStructure);
