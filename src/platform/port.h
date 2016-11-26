@@ -93,15 +93,15 @@ typedef enum
 #define SPIx_MOSI					GPIO_Pin_12
 #define SPIx_MOSI_GPIO				GPIOA
 
-#define DW1000_RSTn					GPIO_Pin_0
-#define DW1000_RSTn_GPIO			GPIOA
+#define DW1000_RSTn					GPIO_Pin_13 //GPIO_Pin_0
+#define DW1000_RSTn_GPIO			GPIOC //GPIOA
 
-#define DECARSTIRQ                  GPIO_Pin_0
-#define DECARSTIRQ_GPIO             GPIOA
-#define DECARSTIRQ_EXTI             EXTI_Line0
-#define DECARSTIRQ_EXTI_PORT        EXTI_PortSourceGPIOA
-#define DECARSTIRQ_EXTI_PIN         GPIO_PinSource0
-#define DECARSTIRQ_EXTI_IRQn        EXTI0_IRQn
+#define DECARSTIRQ                  GPIO_Pin_13 //GPIO_Pin_0
+#define DECARSTIRQ_GPIO             GPIOC //GPIOA
+#define DECARSTIRQ_EXTI             EXTI_Line13 //EXTI_Line0
+#define DECARSTIRQ_EXTI_PORT        EXTI_PortSourceGPIOC //EXTI_PortSourceGPIOA
+#define DECARSTIRQ_EXTI_PIN         GPIO_PinSource13 //GPIO_PinSource0
+#define DECARSTIRQ_EXTI_IRQn        EXTI15_10_IRQn //EXTI0_IRQn
 
 #define DECAIRQ                     GPIO_Pin_2
 #define DECAIRQ_GPIO                GPIOB
