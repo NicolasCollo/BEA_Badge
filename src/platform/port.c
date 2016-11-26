@@ -31,9 +31,6 @@
 /* System tick 32 bit variable defined by the platform */
 extern __IO unsigned long time32_incr;
 
-int instanceMode = 0; // 1 = TAG , 0 = ANCHOR
-
-
 int No_Configuration(void)
 {
 	return -1;

@@ -597,6 +597,9 @@ int main(void)
             {
                 if(instancesleeping())
                 {
+                	PWR_FLAG_WU = 0;
+                	PWR_EnterSTANDBYMode();
+
                     dataseq[0] = 0x2 ;  //return cursor home
                     writetoLCD( 1, 0,  dataseq);
                     if(toggle)
