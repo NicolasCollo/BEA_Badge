@@ -457,6 +457,15 @@ int main(void)
 
     peripherals_init();
 
+    memset(dataseq, 0, LCD_BUFF_LEN);
+    memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
+    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
+	PWR_ClearFlag(PWR_FLAG_WU);
+	PWR_EnterSTANDBYMode();
+    memset(dataseq, 0, LCD_BUFF_LEN);
+    memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
+    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
+
     spi_peripheral_init();
     InitializeTimer();
 
@@ -597,7 +606,7 @@ int main(void)
             {
                 if(instancesleeping())
                 {
-                	PWR_FLAG_WU = 0;
+                	PWR_ClearFlag(PWR_FLAG_WU);
                 	PWR_EnterSTANDBYMode();
 
                     dataseq[0] = 0x2 ;  //return cursor home
