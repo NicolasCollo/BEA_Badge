@@ -134,6 +134,7 @@ int NVIC_Configuration(void)
 
 	// Enable GPIO used as DECA IRQ for interrupt
 	GPIO_InitStructure.GPIO_Pin = DECAIRQ;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_PuPd = 	GPIO_PuPd_DOWN;	//IRQ pin should be Pull Down to prevent unnecessary EXT IRQ while DW1000 goes to sleep mode
 	GPIO_Init(DECAIRQ_GPIO, &GPIO_InitStructure);
 
@@ -195,7 +196,7 @@ ITStatus EXTI_GetITEnStatus(uint32_t EXTI_Line)
   return bitstatus;
 }
 
-int RCC_Configuration( bool instanceMode)
+int RCC_Configuration(void)
 {
 	RCC_ClocksTypeDef RCC_ClockFreq;
 	ADC_CommonInitTypeDef ADC_CommonInitStructure;
@@ -349,20 +350,25 @@ int SPI_Configuration(void)
 
 	SPI_Init(SPIx, &SPI_InitStructure);
 
-	// SPIx SCK pin setup
+	GPIO_InitStructure.GPIO_Pin = SPIx_SCK | SPIx_MOSI | SPIx_MISO;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+/*	// SPIx SCK pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_SCK;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
-	GPIO_Init(SPIx_SCK_GPIO, &GPIO_InitStructure);
 
 	// SPIx MOSI pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_MOSI;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 
 	GPIO_Init(SPIx_MOSI_GPIO, &GPIO_InitStructure);
 
@@ -371,16 +377,18 @@ int SPI_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 
 	GPIO_Init(SPIx_MISO_GPIO, &GPIO_InitStructure);
 
+*/
 
 
 	// SPIx CS pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_CS;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 
 	GPIO_Init(SPIx_CS_GPIO, &GPIO_InitStructure);
 
@@ -390,10 +398,10 @@ int SPI_Configuration(void)
 	// Enable SPIx
 	SPI_Cmd(SPIx, ENABLE);
 	//Mappage des pin SPI
-		GPIO_PinAFConfig(SPIx_SCK_GPIO,SPIx_SCK, GPIO_AF_SPI1); //SCLK
-		GPIO_PinAFConfig(SPIx_MOSI_GPIO,SPIx_MOSI, GPIO_AF_SPI1); //MOSI
-		GPIO_PinAFConfig(SPIx_MISO_GPIO,SPIx_MISO, GPIO_AF_SPI1); //MISO
-		GPIO_PinAFConfig(SPIx_CS_GPIO,SPIx_CS, GPIO_AF_SPI1);
+	GPIO_PinAFConfig(SPIx_SCK_GPIO,SPIx_SCK, GPIO_AF_SPI1); //SCLK
+	GPIO_PinAFConfig(SPIx_MOSI_GPIO,SPIx_MOSI, GPIO_AF_SPI1); //MOSI
+	GPIO_PinAFConfig(SPIx_MISO_GPIO,SPIx_MISO, GPIO_AF_SPI1); //MISO
+
 	// Set CS high
 	GPIO_SetBits(SPIx_CS_GPIO, SPIx_CS);
 
@@ -473,7 +481,7 @@ int SPI2_Configuration(void)
     return 0;
 }
 
-int GPIO_Configuration(bool instancemode)
+int GPIO_Configuration(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -487,25 +495,20 @@ int GPIO_Configuration(bool instancemode)
 
 
 	// Set all GPIO pins as analog inputs
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+	GPIO_StructInit(&GPIO_InitStructure);
+
 	/*
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
-
-	GPIO_Init(GPIOE, &GPIO_InitStructure);*/
+	*/
 
 	// Enable GPIO used for LEDs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_400KHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
-	//GPIO_PinAFConfig(GPIO_AF_SPI1, DISABLE);//GPIO_PinRemapConfig(GPIO_Remap_SPI1, DISABLE); C'est cette fonction qu'il faut analyser
-
-	// Disable GPIOs clocks
-	//RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |RCC_AHBPeriph_GPIOE,DISABLE);
 
     return 0;
 }
@@ -750,11 +753,9 @@ int is_IRQ_enabled(void)
 
 int peripherals_init (void)
 {
-	bool instanceMode=1; // tag=1 anchre =0
-
-	rcc_init(instanceMode);
+	rcc_init();
 	rtc_init();
-	gpio_init(instanceMode);
+	gpio_init();
 	systick_init();
 	interrupt_init();
 	//usart_init();

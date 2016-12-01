@@ -118,12 +118,12 @@ typedef enum
 #define TA_RESP_DLY                 GPIO_Pin_0
 #define TA_RESP_DLY_GPIO            GPIOC
 
-#define TAG_RESET_GPIO				GPIOA // GPIOC
-#define TAG_RESET_GPIO_PIN			GPIO_Pin_14 // GPIO_Pin_11
+#define TAG_RESET_GPIO				GPIOC
+#define TAG_RESET_GPIO_PIN			GPIO_Pin_11
 #define DOOR_GPIO					GPIOC
 #define DOOR_GPIO_PIN				GPIO_Pin_12
-#define REGISTERING_GPIO			GPIOA // GPIOC
-#define REGISTERING_GPIO_PIN		GPIO_Pin_13 // GPIO_Pin_10
+#define REGISTERING_GPIO			GPIOC
+#define REGISTERING_GPIO_PIN		GPIO_Pin_10
 #define POT_GPIO					GPIOC // Pris par le LCD , prendre PC4 plus tard, chanel 14
 #define POT_GPIO_PIN				GPIO_Pin_0 //GPIO_Pin_4
 #define POT_ADC_CHANNEL				ADC_Channel_10 //ADC_Channel_14
