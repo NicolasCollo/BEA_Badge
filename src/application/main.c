@@ -316,6 +316,41 @@ void initLCD(void)
 	LCD_InitTypeDef LCD_InitStruct;
 	GPIO_InitTypeDef GPIO_InitStructure;
 
+	LCD_InitStruct.LCD_Prescaler = LCD_Prescaler_1;
+	LCD_InitStruct.LCD_Divider = LCD_Divider_31;
+	LCD_InitStruct.LCD_Duty = LCD_Duty_1_4;
+	LCD_InitStruct.LCD_Bias = LCD_Bias_1_3;
+	LCD_InitStruct.LCD_VoltageSource = LCD_VoltageSource_Internal;
+
+	/* Initialize the LCD */
+	LCD_Init(&LCD_InitStruct);
+
+	LCD_MuxSegmentCmd(ENABLE);
+
+	/* To set contrast to mean value */
+	LCD_ContrastConfig(LCD_Contrast_Level_4);
+
+	LCD_DeadTimeConfig(LCD_DeadTime_0);
+	LCD_PulseOnDurationConfig(LCD_PulseOnDuration_4);
+
+	/* Wait Until the LCD FCR register is synchronized */
+	LCD_WaitForSynchro();
+
+	/* Enable LCD peripheral */
+	LCD_Cmd(ENABLE);
+
+	/* Wait Until the LCD is enabled */
+	while(LCD_GetFlagStatus(LCD_FLAG_ENS) == RESET)
+	{
+	}
+	/*!< Wait Until the LCD Booster is ready */
+	while(LCD_GetFlagStatus(LCD_FLAG_RDY) == RESET)
+	{
+	}
+
+	LCD_BlinkConfig(LCD_BlinkMode_Off,LCD_BlinkFrequency_Div32);
+	LCD_GLASS_Clear();
+
 	/* Configure Port A LCD Output pins as alternate function */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_8 | GPIO_Pin_9 |GPIO_Pin_10 |GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -366,45 +401,6 @@ void initLCD(void)
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource9,GPIO_AF_LCD) ;
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource10,GPIO_AF_LCD) ;
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource11,GPIO_AF_LCD) ;
-
-
-	LCD_InitStruct.LCD_Prescaler = LCD_Prescaler_1;
-	LCD_InitStruct.LCD_Divider = LCD_Divider_31;
-	LCD_InitStruct.LCD_Duty = LCD_Duty_1_4;
-	LCD_InitStruct.LCD_Bias = LCD_Bias_1_3;
-	LCD_InitStruct.LCD_VoltageSource = LCD_VoltageSource_Internal;
-
-
-	/* Initialize the LCD */
-	LCD_Init(&LCD_InitStruct);
-
-	LCD_MuxSegmentCmd(ENABLE);
-
-	/* To set contrast to mean value */
-	LCD_ContrastConfig(LCD_Contrast_Level_4);
-
-	LCD_DeadTimeConfig(LCD_DeadTime_0);
-	LCD_PulseOnDurationConfig(LCD_PulseOnDuration_4);
-
-	/* Wait Until the LCD FCR register is synchronized */
-	LCD_WaitForSynchro();
-
-	/* Enable LCD peripheral */
-	LCD_Cmd(ENABLE);
-
-	/* Wait Until the LCD is enabled */
-	while(LCD_GetFlagStatus(LCD_FLAG_ENS) == RESET)
-	{
-	}
-	/*!< Wait Until the LCD Booster is ready */
-	while(LCD_GetFlagStatus(LCD_FLAG_RDY) == RESET)
-	{
-	}
-
-	LCD_BlinkConfig(LCD_BlinkMode_Off,LCD_BlinkFrequency_Div32);
-	LCD_GLASS_Clear();
-
-
 }
 
 /*
@@ -459,6 +455,7 @@ int main(void)
 
     peripherals_init();
 
+/******************Test WakeUp***************************/
     memset(dataseq, 0, LCD_BUFF_LEN);
     memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
     LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
@@ -467,6 +464,7 @@ int main(void)
     memset(dataseq, 0, LCD_BUFF_LEN);
     memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
     LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
+/****************Fin Test********************************/
 
     spi_peripheral_init();
     InitializeTimer();
@@ -584,12 +582,12 @@ int main(void)
 
             memset(dataseq, ' ', LCD_BUFF_LEN);
             memset(dataseq1, ' ', LCD_BUFF_LEN);
+
             sprintf((char*)&dataseq[1], "LAST: %4.2f m", range_result);
-            writetoLCD( 40, 1, dataseq); //send some data
+            LCD_GLASS_DisplayString(dataseq); //send some data
 
             sprintf((char*)&dataseq1[1], "AVG8: %4.2f m", avg_result);
-
-            LCD_GLASS_DisplayString(dataseq); //send some data
+            //LCD_GLASS_DisplayString(dataseq); //send some data
 
             l = instance_get_lcount();
             aaddr = instancenewrangeancadd();

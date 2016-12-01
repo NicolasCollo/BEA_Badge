@@ -160,12 +160,12 @@ int NVIC_Configuration(void)
 	NVIC_Init(&NVIC_InitStructure);
 
 	//Enable the RTC Interrupt
-	//NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
-	//NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
-	//NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	//NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 
-	//NVIC_Init(&NVIC_InitStructure);
+	NVIC_Init(&NVIC_InitStructure);
 
 	return 0;
 }
@@ -219,7 +219,8 @@ int RCC_Configuration(void)
 
 
 	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
-	RCC_MSIRangeConfig(RCC_MSIRange_6);	//RCC_MSIRangeConfig(RCC_MSIRange_0);
+	//RCC_MSIRangeConfig(RCC_MSIRange_6);
+	RCC_MSIRangeConfig(RCC_MSIRange_0);
 
 
 	/* Enable Prefetch Buffer */
@@ -350,46 +351,44 @@ int SPI_Configuration(void)
 
 	SPI_Init(SPIx, &SPI_InitStructure);
 
-	GPIO_InitStructure.GPIO_Pin = SPIx_SCK | SPIx_MOSI | SPIx_MISO;
+/*	GPIO_InitStructure.GPIO_Pin = SPIx_SCK | SPIx_MOSI | SPIx_MISO;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(GPIOA, &GPIO_InitStructure); */
 
-/*	// SPIx SCK pin setup
+	// SPIx SCK pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_SCK;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
+	GPIO_Init(SPIx_SCK_GPIO, &GPIO_InitStructure);
+	GPIO_PinAFConfig(SPIx_SCK_GPIO,GPIO_PinSource5,GPIO_AF_SPI1); //SCLK
 
 	// SPIx MOSI pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_MOSI;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_Init(SPIx_MOSI_GPIO, &GPIO_InitStructure);
+	GPIO_PinAFConfig(SPIx_MOSI_GPIO,GPIO_PinSource12,GPIO_AF_SPI1); //MOSI
 
 	// SPIx MISO pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_MISO;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
 	GPIO_Init(SPIx_MISO_GPIO, &GPIO_InitStructure);
-
-*/
-
+	GPIO_PinAFConfig(SPIx_MISO_GPIO,GPIO_PinSource11,GPIO_AF_SPI1); //MISO
 
 	// SPIx CS pin setup
 	GPIO_InitStructure.GPIO_Pin = SPIx_CS;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-
 	GPIO_Init(SPIx_CS_GPIO, &GPIO_InitStructure);
 
 	// Disable SPIx SS Output
@@ -397,10 +396,6 @@ int SPI_Configuration(void)
 
 	// Enable SPIx
 	SPI_Cmd(SPIx, ENABLE);
-	//Mappage des pin SPI
-	GPIO_PinAFConfig(SPIx_SCK_GPIO,SPIx_SCK, GPIO_AF_SPI1); //SCLK
-	GPIO_PinAFConfig(SPIx_MOSI_GPIO,SPIx_MOSI, GPIO_AF_SPI1); //MOSI
-	GPIO_PinAFConfig(SPIx_MISO_GPIO,SPIx_MISO, GPIO_AF_SPI1); //MISO
 
 	// Set CS high
 	GPIO_SetBits(SPIx_CS_GPIO, SPIx_CS);
@@ -494,15 +489,16 @@ int GPIO_Configuration(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
 
-	// Set all GPIO pins as analog inputs
-	GPIO_StructInit(&GPIO_InitStructure);
+	// Set all GPIO pins as analog inputs (only PC13)
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
 
-	/*
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	//GPIO_Init(GPIOA, &GPIO_InitStructure);
+	//GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
-	GPIO_Init(GPIOD, &GPIO_InitStructure);
-	*/
+	//GPIO_Init(GPIOD, &GPIO_InitStructure);
+	//GPIO_StructInit(&GPIO_InitStructure)
 
 	// Enable GPIO used for LEDs
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;

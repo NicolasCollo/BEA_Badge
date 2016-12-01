@@ -50,7 +50,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../linkers/stm32_flash_128k_ram_32k.ld" type="0"/>
+        <LocateLinkFile path="../linkers/stm32_flash_256k_ram_32k.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -74,14 +74,14 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\olivi\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32L1xx_256K\STM32L1xx_256.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\Utlisateur\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32L1xx_256K\STM32L1xx_256.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
@@ -110,9 +110,9 @@
     <File name="src/platform/deca_spi.h" path="../src/platform/deca_spi.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_ioreq.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" path="../Libraries/STM32_USB_Device_Library/Class/cdc/src/usbd_cdc_core.c" type="1"/>
-    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/platform/deca_spi.c" path="../src/platform/deca_spi.c" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" path="../Libraries/STM32_USB_Device_Library/Class/cdc/inc/usbd_cdc_core.h" type="1"/>
+    <File name="src/usb/usbd_desc.h" path="../src/usb/usbd_desc.h" type="1"/>
     <File name="src/usb" path="" type="2"/>
     <File name="src/decadriver/deca_version.h" path="../src/decadriver/deca_version.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dac.c" path="../Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dac.c" type="1"/>
@@ -145,9 +145,9 @@
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_i2c.h" path="../Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_i2c.h" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_opamp.h" path="../Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_opamp.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/inc/usbd_req.h" path="../Libraries/STM32_USB_Device_Library/Core/inc/usbd_req.h" type="1"/>
+    <File name="src/usb/usb_conf.h" path="../src/usb/usb_conf.h" type="1"/>
     <File name="Libraries/STM32_USB_OTG_Driver/inc/usb_otg.h" path="../Libraries/STM32_USB_OTG_Driver/inc/usb_otg.h" type="1"/>
     <File name="src/platform/stm32l1xx_it.c" path="../src/platform/stm32l1xx_it.c" type="1"/>
-    <File name="src/usb/usb_conf.h" path="../src/usb/usb_conf.h" type="1"/>
     <File name="src/platform/stm32l1xx_conf.h" path="../src/platform/stm32l1xx_conf.h" type="1"/>
     <File name="Libraries/STM32_USB_Device_Library/Core/src/usbd_req.c" path="../Libraries/STM32_USB_Device_Library/Core/src/usbd_req.c" type="1"/>
     <File name="Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_dma.h" path="../Libraries/STM32L1xx_StdPeriph_Driver/inc/stm32l1xx_dma.h" type="1"/>

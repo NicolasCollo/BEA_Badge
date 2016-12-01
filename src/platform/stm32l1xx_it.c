@@ -245,12 +245,12 @@ void EXTI15_10_IRQHandler(void)
   * @param  None
   * @retval None
   */
-void EXTI0_IRQHandler(void)
-{
-	process_dwRSTn_irq();
-    /* Clear EXTI Line 0 Pending Bit */
-    EXTI_ClearITPendingBit(DECARSTIRQ_EXTI);
-}
+//void EXTI0_IRQHandler(void) à remettre quand on remettra sur PA0
+//{
+//	process_dwRSTn_irq();
+//   /* Clear EXTI Line 0 Pending Bit */
+//    EXTI_ClearITPendingBit(DECARSTIRQ_EXTI);
+//}
 
 void EXTI3_IRQHandler(void)
 {
