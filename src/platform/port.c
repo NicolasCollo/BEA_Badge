@@ -160,7 +160,7 @@ int NVIC_Configuration(void)
 	NVIC_Init(&NVIC_InitStructure);
 
 	//Enable the RTC Interrupt
-	NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel = RTC_WKUP_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
