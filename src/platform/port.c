@@ -220,7 +220,7 @@ int RCC_Configuration(void)
 
 	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
 	//RCC_MSIRangeConfig(RCC_MSIRange_6);
-	RCC_MSIRangeConfig(RCC_MSIRange_0);
+	RCC_MSIRangeConfig(RCC_MSIRange_6);
 
 
 	/* Enable Prefetch Buffer */
@@ -270,8 +270,7 @@ int RCC_Configuration(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
 
 	/* Enable GPIOs clocks */
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
-							RCC_AHBPeriph_GPIOE,ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD,ENABLE);
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_COMP | RCC_APB1Periph_LCD | RCC_APB1Periph_PWR,ENABLE);

@@ -460,7 +460,7 @@ int main(void)
     spi_peripheral_init();
     InitializeTimer();
 
-//    Sleep(1000); //wait for LCD to power on
+//    Sleep(100); //wait for LCD to power on
 
     initLCD();
 
@@ -470,11 +470,11 @@ int main(void)
     memset(dataseq, 0, LCD_BUFF_LEN);
        memcpy(dataseq, (const uint8 *) "TEST2", 16);
        LCD_GLASS_DisplayString(dataseq); //send some data
-       Sleep(1000);
+       Sleep(100);
        memset(dataseq, 0, LCD_BUFF_LEN);
           memcpy(dataseq, (const uint8 *) "TEST1", 16);
           LCD_GLASS_DisplayString(dataseq); //send some data
-          Sleep(1000);
+          Sleep(100);
     /******************Test WakeUp***************************/
       /*  memset(dataseq, 0, LCD_BUFF_LEN);
         memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
@@ -493,7 +493,7 @@ int main(void)
     memcpy(dataseq, (const uint8 *) SOFTWARE_VER_STRING, 16); // Also set at line #26 (Should make this from single value !!!)
     //send some data
 
-    // Sleep(1000);
+    // Sleep(100);
 
     s1switch = 32; //code tag mode 3 par défaut
 
@@ -537,8 +537,11 @@ int main(void)
 		else    led_on(LED_ALL);
 		Sleep(200);
 	}
-
+	RCC_ClocksTypeDef RCC_ClockFreq;
+		RCC_GetClocksFreq(&RCC_ClockFreq);
 	enterLowPowerRunMode();
+
+	RCC_GetClocksFreq(&RCC_ClockFreq);
 
 	i = 0;
 	led_off(LED_ALL);
@@ -568,7 +571,7 @@ int main(void)
     // main loop
     while(1)
     {
-        instance_run();
+           instance_run();
 
         //if delayed TX scheduled but did not happen after expected time then it has failed... (has to be < slot period)
         //if anchor just go into RX and wait for next message from tags/anchors
@@ -655,7 +658,8 @@ int main(void)
                 }
             }
         }
-    return 0;
+
     }
+    return 0;
 }
 
