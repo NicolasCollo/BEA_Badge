@@ -464,6 +464,13 @@ int main(void)
 
     initLCD();
 
+    if (PWR_GetFlagStatus(PWR_FLAG_SB) != RESET)
+    {
+      /* System resumed from STANDBY mode */
+      /* Clear StandBy flag */
+      RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR,ENABLE);
+      PWR_ClearFlag(PWR_FLAG_SB);
+    }
 
 	uint8 dataseq[LCD_BUFF_LEN];
 

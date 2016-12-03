@@ -120,7 +120,8 @@ int testapprun_s(instance_data_t *inst, int message)
     switch (inst->testAppState)
     {
         case TA_INIT :
-            // printf("TA_INIT") ;
+            sprintf((char*)&dataseq[0], "TA_INIT");
+            LCD_GLASS_DisplayString(dataseq); //send some data
             switch (inst->mode)
             {
                 case TAG:
@@ -286,7 +287,8 @@ int testapprun_s(instance_data_t *inst, int message)
             break;
 
         case TA_TXE_WAIT : //either go to sleep or proceed to TX a message
-            // printf("TA_TXE_WAIT") ;
+            sprintf((char*)&dataseq[0], "TA_TXE_WAIT");
+            LCD_GLASS_DisplayString(dataseq); //send some data
             //if we are scheduled to go to sleep before next sending then sleep first.
             if(((inst->nextState == TA_TXPOLL_WAIT_SEND)
                 || (inst->nextState == TA_TXBLINK_WAIT_SEND))
@@ -473,7 +475,8 @@ int testapprun_s(instance_data_t *inst, int message)
 
         case TA_TXRESPONSE_WAIT_SEND : //the frame is loaded and sent from the RX callback
         	{
-			   //printf("TA_TXRESPONSE\n") ;
+                sprintf((char*)&dataseq[0], "TA_TXRESPONSE_WAIT_SEND");
+                LCD_GLASS_DisplayString(dataseq); //send some data
             	inst->testAppState = TA_TX_WAIT_CONF;                                               // wait confirmation
             	inst->previousState = TA_TXRESPONSE_WAIT_SEND ;
             }
@@ -550,8 +553,8 @@ int testapprun_s(instance_data_t *inst, int message)
             break;
 
         case TA_TX_WAIT_CONF :
-		   //printf("TA_TX_WAIT_CONF %d m%d states %08x %08x\n", inst->previousState, message, dwt_read32bitreg(0x19), dwt_read32bitreg(0x0f)) ;
-
+            	sprintf((char*)&dataseq[0], "TA_TX_WAIT_CONF");
+            	LCD_GLASS_DisplayString(dataseq); //send some data
                 {
 				event_data_t* dw_event = instance_getevent(11); //get and clear this event
 
@@ -562,6 +565,8 @@ int testapprun_s(instance_data_t *inst, int message)
                 {
 					if(dw_event->type == DWT_SIG_RX_TIMEOUT) //got RX timeout - i.e. did not get the response (e.g. ACK)
 					{
+			            sprintf((char*)&dataseq[0], "TO IN TA_TX_WAIT_CONF(%d)", inst->previousState);
+			            LCD_GLASS_DisplayString(dataseq); //send some data
 						//printf("RX timeout in TA_TX_WAIT_CONF (%d)\n", inst->previousState);
 						//we need to wait for SIG_TX_DONE and then process the timeout and re-send the frame if needed
 						inst->gotTO = 1;
@@ -582,6 +587,8 @@ int testapprun_s(instance_data_t *inst, int message)
                 }
                 else if (inst->gotTO) //timeout
                 {
+                    sprintf((char*)&dataseq[0], "got TO in TA_TX_WAIT_CONF");
+                    LCD_GLASS_DisplayString(dataseq); //send some data
 					//printf("got TO in TA_TX_WAIT_CONF\n");
                     inst_processrxtimeout(inst);
                     inst->gotTO = 0;
@@ -624,7 +631,8 @@ int testapprun_s(instance_data_t *inst, int message)
 
 
         case TA_RXE_WAIT :
-        // printf("TA_RXE_WAIT") ;
+		sprintf((char*)&dataseq[0], "TA_RXE_WAIT");
+		LCD_GLASS_DisplayString(dataseq); //send some data
         {
 
             if(inst->wait4ack == 0) //if this is set the RX will turn on automatically after TX
@@ -650,13 +658,16 @@ int testapprun_s(instance_data_t *inst, int message)
         }
 
         case TA_RX_WAIT_DATA :                                                                     // Wait RX data
-		   //printf("TA_RX_WAIT_DATA %d", message) ;
+            sprintf((char*)&dataseq[0], "TA_RE_WAIT_DATA");
+            LCD_GLASS_DisplayString(dataseq); //send some data
 
             switch (message)
             {
                 case SIG_RX_BLINK :
                 {
 					event_data_t* dw_event = instance_getevent(12); //get and clear this event
+		            sprintf((char*)&dataseq[0], "blink %08X", tagaddr& 0xFFFF);
+		            LCD_GLASS_DisplayString(dataseq); //send some data
                     //printf("we got blink message from %08X\n", ( tagaddr& 0xFFFF));
                     if((inst->mode == LISTENER) || (inst->mode == ANCHOR))
                     {
@@ -816,6 +827,8 @@ int testapprun_s(instance_data_t *inst, int message)
 									inst->instToSleep = 0; //don't go to sleep - start ranging instead and then sleep after 1 range is done or poll times out
 									inst->instancetimer_saved = inst->instancetimer = portGetTickCount(); //set timer base
                                 }
+                                sprintf((char*)&dataseq[0], "start ranging");
+                                LCD_GLASS_DisplayString(dataseq); //send some data
 								//printf("GOT RTLS_DEMO_MSG_RNG_INIT - start ranging - \n");
 								//else we ignore this message if already associated... (not TAG_TDOA)
                             }
@@ -974,6 +987,8 @@ int testapprun_s(instance_data_t *inst, int message)
 
                 case DWT_SIG_RX_TIMEOUT :
 					instance_getevent(17); //get and clear this event
+		            sprintf((char*)&dataseq[0], "PD_DATA_TO");
+		            LCD_GLASS_DisplayString(dataseq); //send some data
 					//printf("PD_DATA_TIMEOUT %d\n", inst->previousState) ;
                     inst_processrxtimeout(inst);
                     message = 0; //clear the message as we have processed the event
@@ -991,6 +1006,8 @@ int testapprun_s(instance_data_t *inst, int message)
             }
             break ; // end case TA_RX_WAIT_DATA
             default:
+                sprintf((char*)&dataseq[0], "INVALID STATE");
+                LCD_GLASS_DisplayString(dataseq); //send some data
                 //printf("\nERROR - invalid state %d - what is going on??\n", inst->testAppState) ;
             break;
     } // end switch on testAppState
