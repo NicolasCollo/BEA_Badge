@@ -204,7 +204,7 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
-void RTC_IRQHandler(void)
+void RTC_WKUP_IRQHandler(void)
 {
 	if(RTC_GetITStatus(RTC_IT_WUT) != RESET)
 	  {
