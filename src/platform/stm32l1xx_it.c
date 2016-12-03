@@ -206,13 +206,11 @@ void PendSV_Handler(void)
   */
 void RTC_WKUP_IRQHandler(void)
 {
-	if(RTC_GetITStatus(RTC_IT_WUT) != RESET)
-	  {
+
 	    RTC_ClearITPendingBit(RTC_IT_WUT);
 	    EXTI_ClearITPendingBit(EXTI_Line20); // And EXTI
 
-	    // code a mettre pour l'interuption RTC
-	  }
+
 }
 
 void SysTick_Handler(void)

@@ -455,16 +455,7 @@ int main(void)
 
     peripherals_init();
 
-/******************Test WakeUp***************************/
-    memset(dataseq, 0, LCD_BUFF_LEN);
-    memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
-    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
-	PWR_ClearFlag(PWR_FLAG_WU);
-	PWR_EnterSTANDBYMode();
-    memset(dataseq, 0, LCD_BUFF_LEN);
-    memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
-    LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
-/****************Fin Test********************************/
+
 
     spi_peripheral_init();
     InitializeTimer();
@@ -472,6 +463,29 @@ int main(void)
 //    Sleep(1000); //wait for LCD to power on
 
     initLCD();
+
+
+	uint8 dataseq[LCD_BUFF_LEN];
+
+    memset(dataseq, 0, LCD_BUFF_LEN);
+       memcpy(dataseq, (const uint8 *) "TEST2", 16);
+       LCD_GLASS_DisplayString(dataseq); //send some data
+       Sleep(1000);
+       memset(dataseq, 0, LCD_BUFF_LEN);
+          memcpy(dataseq, (const uint8 *) "TEST1", 16);
+          LCD_GLASS_DisplayString(dataseq); //send some data
+          Sleep(1000);
+    /******************Test WakeUp***************************/
+      /*  memset(dataseq, 0, LCD_BUFF_LEN);
+        memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
+        LCD_GLASS_DisplayString(dataseq);
+    	PWR_ClearFlag(PWR_FLAG_WU);
+    	PWR_EnterSTANDBYMode();
+        memset(dataseq, 0, LCD_BUFF_LEN);
+        memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
+        LCD_GLASS_DisplayString(dataseq);*/
+    /****************Fin Test********************************/
+
 
     memset(dataseq, 0, LCD_BUFF_LEN);
     memcpy(dataseq, (const uint8 *) "DECAWAVE        ", 16);
@@ -490,8 +504,7 @@ int main(void)
 
     //run DecaRanging application
 
-	uint8 dataseq[LCD_BUFF_LEN];
-	uint8 command = 0x0;
+
 
 	//command = 0x2 ;  //return cursor home
 	//writetoLCD( 1, 0,  &command);
@@ -500,7 +513,7 @@ int main(void)
 	//writetoLCD( 15, 1, dataseq); //send some data
 
 	led_off(LED_ALL);
-	LCD_GLASS_ScrollSentence(dataseq,1,SCROLL_SPEED);
+	LCD_GLASS_DisplayString(dataseq);
 
     if(inittestapplication(s1switch) == (uint32)-1)
 	{
@@ -517,7 +530,7 @@ int main(void)
 
 	//sleep for 5 seconds displaying "Decawave" (LEDs only if in ANCHOR mode)
 
-	i=10; // 30 normalement
+	i=1; // 30 normalement
 	while(i--)
 	{
 		if (i & 1) led_off(LED_ALL);
@@ -529,7 +542,7 @@ int main(void)
 
 	i = 0;
 	led_off(LED_ALL);
-	command = 0x2 ;  //return cursor home
+	  //return cursor home
 	LCD_GLASS_Clear();//writetoLCD( 1, 0,  &command);
 
 	memset(dataseq, ' ', LCD_BUFF_LEN);
@@ -542,7 +555,7 @@ int main(void)
 	sprintf((char*)&dataseq[0], "%llX", instance_get_addr());
     LCD_GLASS_DisplayString(dataseq); //send some data
 
-	command = 0x2 ;  //return cursor home
+
 	LCD_GLASS_Clear();//writetoLCD( 1, 0,  &command);
 
 #if (DWINTERRUPT_EN == 1)

@@ -663,14 +663,13 @@ int testapprun_s(instance_data_t *inst, int message)
 						inst->canprintinfo = 1;
 
 						//add this Tag to the list of Tags we know about if the BP is on
-						if(GPIO_ReadInputDataBit(REGISTERING_GPIO, REGISTERING_GPIO_PIN))
-						{
+
 							instaddtagtolist(inst, &(dw_event->msgu.rxblinkmsg.tagID[0]));
-						}
+
 
                         //initiate ranging message if the tag is in the list
-						if(istaginlist(inst, &(dw_event->msgu.rxblinkmsg.tagID[0])))
-						{
+
+
 							if(inst->tagToRangeWith < TAG_LIST_SIZE)
 							{
 								//initiate ranging message this is a Blink from the Tag we would like to range to
@@ -692,7 +691,7 @@ int testapprun_s(instance_data_t *inst, int message)
 								}
                             //else stay in RX
 							}
-						}
+
                     }
                     //else //not initiating ranging - continue to receive
                     {
