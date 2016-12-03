@@ -215,22 +215,22 @@ int RCC_Configuration(void)
 
 
 	/* Enable MSI */
-	RCC_MSICmd(ENABLE);
+	//RCC_MSICmd(ENABLE);
 
 
 	/* Choix de la valeur de MSI 65 kHz car max 128 KHz en LowPowerRun*/
 	//RCC_MSIRangeConfig(RCC_MSIRange_6);
-	RCC_MSIRangeConfig(RCC_MSIRange_6);
+	//RCC_MSIRangeConfig(RCC_MSIRange_6);
 
 
 	/* Enable Prefetch Buffer */
 	FLASH_PrefetchBufferCmd(ENABLE);
 
 	/* Select MSI as system clock source */
-	RCC_SYSCLKConfig(RCC_SYSCLKSource_MSI);
+//	RCC_SYSCLKConfig(RCC_SYSCLKSource_MSI);
 
 	/* Wait till MSI is used as system clock source */
-	while (RCC_GetSYSCLKSource() != 0x00){}
+	//while (RCC_GetSYSCLKSource() != 0x00){}
 
 	RCC_GetClocksFreq(&RCC_ClockFreq);
 
@@ -262,7 +262,12 @@ int RCC_Configuration(void)
 	{
 
 	}
+	/* Select MSI as system clock source */
+		RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
 
+		// wait till sys clock source is pll
+		while (RCC_GetSYSCLKSource() != 12){}
+		RCC_GetClocksFreq(&RCC_ClockFreq);
 	/* Enable SPI1 clock */
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 
