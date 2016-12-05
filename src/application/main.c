@@ -50,7 +50,7 @@ int instance_mode = TAG;
 uint8 s1switch = 0;
 int chan, tagaddr, ancaddr;
 
-#define LCD_BUFF_LEN (100)
+#define LCD_BUFF_LEN 100
 uint8 dataseq[LCD_BUFF_LEN];
 uint8 dataseq1[LCD_BUFF_LEN];
 

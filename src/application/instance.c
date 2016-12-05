@@ -20,6 +20,10 @@
 
 #include "instance.h"
 
+#define LCD_BUFF_LEN 100
+extern uint8 dataseq[LCD_BUFF_LEN];
+extern int tagaddr;
+
 // -------------------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------------------
@@ -122,6 +126,7 @@ int testapprun_s(instance_data_t *inst, int message)
         case TA_INIT :
             sprintf((char*)&dataseq[0], "TA_INIT");
             LCD_GLASS_DisplayString(dataseq); //send some data
+            Sleep(20);
             switch (inst->mode)
             {
                 case TAG:
@@ -666,7 +671,7 @@ int testapprun_s(instance_data_t *inst, int message)
                 case SIG_RX_BLINK :
                 {
 					event_data_t* dw_event = instance_getevent(12); //get and clear this event
-		            sprintf((char*)&dataseq[0], "blink %08X", tagaddr& 0xFFFF);
+		            sprintf((char*)&dataseq[0], "blink %08X", tagaddr & 0xFFFF);
 		            LCD_GLASS_DisplayString(dataseq); //send some data
                     //printf("we got blink message from %08X\n", ( tagaddr& 0xFFFF));
                     if((inst->mode == LISTENER) || (inst->mode == ANCHOR))
