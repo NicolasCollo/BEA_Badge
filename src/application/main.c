@@ -474,24 +474,26 @@ int main(void)
 
 	uint8 dataseq[LCD_BUFF_LEN];
 
-    memset(dataseq, 0, LCD_BUFF_LEN);
-       memcpy(dataseq, (const uint8 *) "TEST2", 16);
-       LCD_GLASS_DisplayString(dataseq); //send some data
-       Sleep(100);
-       memset(dataseq, 0, LCD_BUFF_LEN);
-          memcpy(dataseq, (const uint8 *) "TEST1", 16);
-          LCD_GLASS_DisplayString(dataseq); //send some data
-          Sleep(100);
-    /******************Test WakeUp***************************/
-      /*  memset(dataseq, 0, LCD_BUFF_LEN);
-        memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
-        LCD_GLASS_DisplayString(dataseq);
-    	PWR_ClearFlag(PWR_FLAG_WU);
-    	PWR_EnterSTANDBYMode();
-        memset(dataseq, 0, LCD_BUFF_LEN);
-        memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
-        LCD_GLASS_DisplayString(dataseq);*/
-    /****************Fin Test********************************/
+	/*memset(dataseq, 0, LCD_BUFF_LEN);
+	memcpy(dataseq, (const uint8 *) "TEST2", 16);
+	LCD_GLASS_DisplayString(dataseq); //send some data
+	Sleep(100);
+	memset(dataseq, 0, LCD_BUFF_LEN);
+	memcpy(dataseq, (const uint8 *) "TEST1", 16);
+	LCD_GLASS_DisplayString(dataseq); //send some data
+	Sleep(100);*/
+
+
+/******************Test WakeUp***************************/
+	memset(dataseq, 0, LCD_BUFF_LEN);
+	memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
+	LCD_GLASS_DisplayString(dataseq);
+	memset(dataseq, 0, LCD_BUFF_LEN);
+	memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
+	LCD_GLASS_DisplayString(dataseq);
+	PWR_ClearFlag(PWR_FLAG_WU);
+	PWR_EnterSTANDBYMode();
+/****************Fin Test********************************/
 
 
     memset(dataseq, 0, LCD_BUFF_LEN);
