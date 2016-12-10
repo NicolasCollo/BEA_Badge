@@ -464,13 +464,24 @@ int main(void)
 
     initLCD();
 
-    if (PWR_GetFlagStatus(PWR_FLAG_SB) != RESET)
+/*  if (PWR_GetFlagStatus(PWR_FLAG_SB) != RESET)
     {
-      /* System resumed from STANDBY mode */
-      /* Clear StandBy flag */
+       //System resumed from STANDBY mode
+       //Clear StandBy flag
       RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR,ENABLE);
       PWR_ClearFlag(PWR_FLAG_SB);
     }
+    //******************Test WakeUp***************************
+    	memset(dataseq, 0, LCD_BUFF_LEN);
+    	memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
+    	LCD_GLASS_DisplayString(dataseq);
+    	memset(dataseq, 0, LCD_BUFF_LEN);
+    	memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
+    	LCD_GLASS_DisplayString(dataseq);
+    	PWR_ClearFlag(PWR_FLAG_WU);
+    	PWR_EnterSTANDBYMode();
+    //****************Fin Test********************************
+    	*/
 
 	uint8 dataseq[LCD_BUFF_LEN];
 
@@ -484,16 +495,7 @@ int main(void)
 	Sleep(100);*/
 
 
-/******************Test WakeUp***************************/
-	memset(dataseq, 0, LCD_BUFF_LEN);
-	memcpy(dataseq, (const uint8 *) "WAKEUP        ", 16);
-	LCD_GLASS_DisplayString(dataseq);
-	memset(dataseq, 0, LCD_BUFF_LEN);
-	memcpy(dataseq, (const uint8 *) "STANDBY        ", 16);
-	LCD_GLASS_DisplayString(dataseq);
-	PWR_ClearFlag(PWR_FLAG_WU);
-	PWR_EnterSTANDBYMode();
-/****************Fin Test********************************/
+
 
 
     memset(dataseq, 0, LCD_BUFF_LEN);
@@ -548,7 +550,7 @@ int main(void)
 	}
 	RCC_ClocksTypeDef RCC_ClockFreq;
 		RCC_GetClocksFreq(&RCC_ClockFreq);
-	enterLowPowerRunMode();
+	//enterLowPowerRunMode();
 
 	RCC_GetClocksFreq(&RCC_ClockFreq);
 
@@ -577,10 +579,18 @@ int main(void)
     memset(dataseq, ' ', LCD_BUFF_LEN);
     memset(dataseq1, ' ', LCD_BUFF_LEN);
 
+
+    int testrising =EXTI->RTSR;
+    int testemr =EXTI->EMR;
+    int testimr =EXTI->IMR;
+    int testsoft =EXTI->PR;
+
+
     // main loop
     while(1)
     {
            instance_run();
+           GPIO_ToggleBits(GPIOB, GPIO_Pin_6);
 
         //if delayed TX scheduled but did not happen after expected time then it has failed... (has to be < slot period)
         //if anchor just go into RX and wait for next message from tags/anchors

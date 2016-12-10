@@ -206,9 +206,16 @@ void PendSV_Handler(void)
   */
 void RTC_WKUP_IRQHandler(void)
 {
-
+	  if (RTC_GetITStatus(RTC_IT_WUT) != RESET)
+	  {
+	    /* Clear the RTC Second interrupt */
 	    RTC_ClearITPendingBit(RTC_IT_WUT);
-	    EXTI_ClearITPendingBit(EXTI_Line20); // And EXTI
+
+	    /* Wait until last write operation on RTC registers has finished */
+	   Sleep(1);
+	  }
+	    //RTC_ClearITPendingBit(RTC_IT_WUT);
+	    //EXTI_ClearITPendingBit(EXTI_Line20); // And EXTI
 
 
 }
@@ -250,17 +257,15 @@ void EXTI15_10_IRQHandler(void)
 //    EXTI_ClearITPendingBit(DECARSTIRQ_EXTI);
 //}
 
-/*
- *
- * void EXTI3_IRQHandler(void)
+
+void EXTI3_IRQHandler(void)
 {
     process_deca_irq();
   // Clear EXTI Line 3 Pending Bit
     EXTI_ClearITPendingBit(EXTI_Line3);
 }
-*
-*
-*/
+
+
 
 void EXTI2_IRQHandler(void)
 {

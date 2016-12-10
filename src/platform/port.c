@@ -139,7 +139,8 @@ int NVIC_Configuration(void)
 	GPIO_Init(DECAIRQ_GPIO, &GPIO_InitStructure);
 
 	/* Connect EXTI Line to GPIO Pin */
-	SYSCFG_EXTILineConfig(DECAIRQ_EXTI_PORT, DECAIRQ_EXTI_PIN); //GPIO_EXTILineConfig(DECAIRQ_EXTI_PORT, DECAIRQ_EXTI_PIN);
+	SYSCFG_EXTILineConfig(DECAIRQ_EXTI_PORT, DECAIRQ_EXTI_PIN);
+	//GPIO_EXTILineConfig(DECAIRQ_EXTI_PORT, DECAIRQ_EXTI_PIN);
 
 	/* Configure EXTI line */
 	EXTI_InitStructure.EXTI_Line = DECAIRQ_EXTI;
@@ -549,6 +550,7 @@ void setup_DW1000RSTnIRQ(int enable)
 		GPIO_InitStructure.GPIO_Pin = DECARSTIRQ;
 		//GPIO_InitStructure.GPIO_Mode = 	GPIO_Mode_IPD;	//IRQ pin should be Pull Down to prevent unnecessary EXT IRQ while DW1000 goes to sleep mode
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+		GPIO_InitStructure.GPIO_PuPd=GPIO_PuPd_DOWN;
 		GPIO_Init(DECARSTIRQ_GPIO, &GPIO_InitStructure);
 
 		/* Connect EXTI Line to GPIO Pin */
@@ -754,7 +756,7 @@ int is_IRQ_enabled(void)
 int peripherals_init (void)
 {
 	rcc_init();
-	rtc_init();
+	//rtc_init();
 	gpio_init();
 	systick_init();
 	interrupt_init();
